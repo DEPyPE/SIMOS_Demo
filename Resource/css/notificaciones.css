@@ -1,0 +1,21 @@
+
+body{
+    background-color: #e7e7e7 !important;
+}
+
+.date-table-notification{
+    width: 17% !important;
+}
+
+.hour-table-notification{
+    width: 8% !important;
+    text-align: center !important;
+}
+
+.action-table-notification{
+    width: 15% !important;
+}
+
+.activitie-table-notification{
+    width: 60% !important;
+}

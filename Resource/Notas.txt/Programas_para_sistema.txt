@@ -1,0 +1,15 @@
+
+	Programas que entran al sistema:
+
+	- Programa Escuelas de Tiempo Completo (PETC)
+	- Programa Nacional de Convivencia Escolar (PNCE)
+	- Fondo de Aportaciones para la Nomina Educativa y Gastos Operativos
+	- Fondo de Aportaciones para la Educación Tecnológica y de Adultos
+
+		*IMPORTANTE*
+	- Relevante
+	- Nivel de Prioridad (alto, medio, bajo)
+	- Tipo de actor involucrado (institucional, )
+	- 
+
+

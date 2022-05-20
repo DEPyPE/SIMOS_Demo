@@ -1,0 +1,116 @@
+/* ESTILOS GENERALES */
+
+body{
+	margin: 0;
+	padding: 0;
+	background-color: rgb(210, 210, 210) !important;
+}
+
+/* MENU DE OPCIONES */
+
+.seg-logo{
+    margin-right: 10px;
+    width: 129px;
+    border-radius: 50px;
+}
+
+.icon-exit-session{
+    transform: rotate(180deg);
+}
+
+.row-menu-and-title{
+	margin-bottom: 0 !important;
+}
+
+.notification-alert{
+	color: white;
+	margin-left: 5px;
+	padding: 0px 10px 0px 10px;
+	border-radius: 15px;
+	background-color: rgba(230, 230, 230, 0.4) !important;
+	font-weight: normal;
+}
+
+/* SECCIÓN DE PROYECTOS REGISTRADOS */
+.collection > .collection-item:hover{
+	background-color: rgb(245, 245, 245);
+	cursor: pointer;
+}
+
+.collection > .collection-item{
+	color: black !important;
+	text-decoration: none !important;
+}
+
+.collection-active{
+	background-color: rgb(230, 230, 230) !important;
+}
+
+.collection-projects-registered{
+	margin-top: 0px !important;
+}
+
+.collection-projects-title{
+	margin-top: 0px !important;
+	margin-bottom: 5px !important;
+}
+
+/* MOSTRAR INFORMACIÓN DE CADA PROYECTO REGISTRADO */
+
+.collapsible-posicionamiento .collapsible-header:hover{
+	background-color: rgb(245, 245, 245);
+}
+
+.collapsible-body{
+	background-color: white;
+	padding: 10px 20px 15px 20px !important;
+}
+
+.id_recomendation, .recomendation{
+	font-style: normal !important;
+}
+
+#recomendations-elements{
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+
+.document-show{
+	margin-top: 10px;
+	width: 100%;
+	height: 460px;
+}
+
+#documents, #evidence{
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+
+.tabs-docs-recomendations{
+	box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%) !important;
+}
+
+.btn-delete-document{
+	margin-top: -5px !important;
+	margin-left: 5px !important;
+}
+
+.btn-edit-document{
+	margin-top: -5px !important;
+}
+
+.evidence-document{
+	color: black !important;
+}
+
+.btn-validate-document{
+	margin-top: 5px !important;
+}
+
+
+
+
+
+
+
+

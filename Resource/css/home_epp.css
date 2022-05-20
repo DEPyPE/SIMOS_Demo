@@ -1,0 +1,868 @@
+
+body{
+	margin: 0;
+	padding: 0;
+	background-color: #e7e7e7 !important;
+}
+
+/* MENU DE OPCIONES */
+
+.seg-logo{
+    margin-right: 10px;
+    width: 129px;
+    border-radius: 50px;
+}
+
+nav .brand-logo {
+    display: flex;
+}
+
+.tabs {
+    height: 44px !important;
+    margin-top: 10px !important;
+}
+
+/* ESTILOS DEL MENU */
+
+.notification-alert{
+	color: white;
+	margin-left: 5px;
+	padding: 0px 10px 0px 10px;
+	border-radius: 15px;
+	background-color: rgba(230, 230, 230, 0.4) !important;
+	font-weight: normal;
+}
+
+.icon-exit-session{
+    transform: rotate(180deg);
+}
+
+.row-menu-and-title{
+	margin-bottom: 0 !important;
+}
+
+.icon-title{
+	font-size: 35px !important;
+}
+
+.main-title-project {
+    font-size: 24x !important;
+    padding: 0 0 0 0 !important;
+    width: 85% !important;
+}
+
+/* 	ESTILOS PARA LA SECCIÓN DE <<INFORMACIÓN GENERAL>>    */
+.card-title-ficha-tecnica{
+	margin: 10px 0px 30px 0px !important;
+}
+
+.card-content-ft-proyecto, .card-content-evaluation{
+	padding: 25px 30px 30px 30px !important;
+}
+
+td, th {
+    padding: 10px 10px;
+}
+
+.title-column{
+	width: 35% !important;
+	text-align: right;
+}
+
+.validation-ft-programa, .validation-ft-evaluation{
+	color : #2e7d32;
+	font-size: 32px;
+	vertical-align: middle !important;
+}
+
+/* ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- */
+
+.collection a.collection-item{
+	color: black;
+}
+
+.menu-revisiones{
+	background-color: white !important;
+}
+
+.steps-menu-color{
+	color: green !important;
+}
+
+.step-error-color{
+	color: red !important;
+}
+
+.step-in-process-color{
+	color: blue;
+}
+
+.step-alert-color{
+	color: yellow;
+}
+
+.step-finished-color{
+	color: green;
+}
+
+.step-non-start-color{
+	color: gray;
+}
+
+.ComentariosObservacionesGenerales, .ComentariosObservacionesPorTema{
+	text-align: justify !important;
+}
+
+.card-title{
+	margin-bottom: 0 !important;
+}
+
+.card-title-documents, .card-title-recomendations{
+	font-size: 34px !important;
+}
+
+.card-content-comments{
+	padding: 30px 35px 35px 35px !important;
+}
+
+.card-content-mejoras{
+	padding: 20px 35px 40px 35px !important;
+}
+
+.table-evaluation{
+	margin-top: auto !important;
+}
+
+.modal-informe-evaluacion{
+	top: 5% !important;
+	height: 85% !important;
+	max-height: 85% !important;
+}
+
+.icon-document{
+	margin-right: -10px;
+}
+
+.textbox-update-document, .btn-update-document, .btn-send-validation{
+	margin-bottom: 0px !important;
+	margin-top: 0px !important;
+}
+
+.btn-update-document, .btn-send-validation{
+	margin-top: 5px !important;
+}
+
+.btn-rounded{
+	border-radius: 30px !important;
+}
+
+.collapsible-body{
+	padding: 10px 20px 15px 20px !important;
+}
+
+.collapsible-body{
+	background-color: white;
+}
+
+.collapsible-active{
+	background-color: rgb(230, 230, 230) !important;
+}
+
+
+
+/* Modals styles */
+#ModalAddModifyTechnicalProjectInfo{
+	top: 5% !important;
+	max-height: 95% !important;
+	height: 85% !important;
+	width: 70% !important;
+}
+
+#ModalAddModifyTechnicalEvaluationInfo{
+	top: 8% !important;
+	max-height: 55% !important;
+	height: 75% !important;
+	width: 55% !important;
+}
+
+#ModalAddModifyOpinionGeneral{
+	top: 5% !important;
+	max-height: 80% !important;
+	height: 80% !important;
+	width: 70% !important;
+}
+
+#ModalAddModifyPlanMejora{
+	top: 4% !important;
+	max-height: 87% !important;
+	height: 87% !important;
+	width: 70% !important;
+}
+
+#ModalDeleteRecomendation{
+	max-height: 63% !important;
+}
+
+/* Tabla ASM y Recomendaciones*/
+
+
+.table-Id_Recomendacion{
+	width: 50px !important;
+	text-align: center;
+}
+
+.table-ASM{
+	width: 250px !important;
+	text-align: center;
+}
+
+.table-ActoresSolucion{
+	width: 200px !important;
+	text-align: center;
+}
+
+.table-Prioridad{
+	width: 80px !important;
+	text-align: center;
+}
+
+.table-AccionMejora{
+	width: 150px !important;
+	text-align: center;
+}
+
+.table-AreaResponsable{
+	width: 150px !important;
+	text-align: center;
+}
+
+.table-Fecha{
+	width: 150px !important;
+	text-align: center;
+}
+
+.table-Resultados{
+	width: 150px !important;
+	text-align: center;
+}
+
+.table-Evidencias {
+	width: 150px !important;
+	text-align: center;
+}
+
+.table-ASM-atendidas{
+	width: 600px !important;
+}
+
+.table-documento-evidencia{
+	width: 200px !important;
+ }
+
+.table-observaciones{
+	width: 500px !important;
+}
+
+.table-ApartadoEvaluacion{
+	width: 20% !important;
+}
+
+.table-ObservacionEspecifica{
+	width: 50% !important;
+}
+
+.table-ObservacionAtender{
+	width: 30% !important;
+}
+
+.collapsible {
+	webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+.table-body-content-mejoras tr td{
+    padding-left: 5px;
+    overflow-y: clip;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 5px;
+	padding: 10px 5px !important;
+}
+
+.table-body-content-mejoras tr td:hover{
+	cursor: pointer;
+}
+
+.asm-status-style-complete, .asm-status-style-incomplete,
+.asm-status-style-in-process{
+	margin-left: 15px;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+}
+
+.asm-status-style-incomplete{
+	background-color: rgba(200, 0, 0, 0.8);
+}
+
+.asm-status-style-complete{
+	background-color: rgba(0, 200, 0, 0.8);
+}
+
+.asm-status-style-in-process{
+	background-color: orange;
+}
+
+.options-recomendation-container{
+	display: none;
+	position: relative;
+	z-index: 80;
+
+	right: 30px;
+	margin-top: -43px;
+	top: 10px;
+	padding: 5px 20px 5px 35px;
+
+	width: 150px;
+	background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 1) 100%);
+}
+
+/* -  - - - - - - - - - - - - - - - -- - - - - - - - - */
+
+.no-data-recomendaciones, .with-data-recomendaciones{
+	margin: 12px 40px 20px 20px !important;
+}
+
+.with-data-recomendaciones{
+	font-size: 32px;
+	font-weight: 600;
+}
+
+.modal.modal-fixed-footer .modal-content {
+    height: calc(100% - 45px);
+    max-height: 90%;
+}
+
+.row-m-b-0{
+	margin-bottom: -10px !important;
+}
+
+.card-title-comments{
+	margin-bottom: 20px !important;
+}
+
+.title-general-comments, .title-specific-comments{
+	margin-top: 0 !important;
+	font-size: 36px;
+	font-weight: 600;
+}
+
+.card-content-new-recomendation{
+	padding: 5px 150px 15px 125px !important;
+}
+
+.card{
+	border-radius: 25px !important;
+}
+
+.card-recomendation:hover{
+	cursor: pointer;
+}
+
+.button-options-recomendation-container{
+	display: none;
+	position: absolute;
+	width: 60px;
+	height: 100px;
+	margin-right: 8px;
+	margin-top: 8px;
+	top: 1px;
+	right: 1px;
+	background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 1) 100%);
+	border-top-right-radius: 15px;
+}
+
+#txtASM{
+	height: 165px !important;
+}
+
+.txt-fecha-style{
+	margin-bottom: 0 !important;
+}
+
+.btn-edit-recomendation,
+.btn-delete-recomendation{
+	margin-right: 8px;
+}
+
+/* DELETE RECOMENDATION */
+
+.collection .c-item-delete-reco{
+	border-radius: 0 !important;
+	border-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.collection .c-item-delete-reco:first-child{
+	border-top: 1px solid #e0e0e0 !important;
+}
+
+.collection.with-header .collection-header {
+    border-bottom: 1px solid #e0e0e0 !important;
+}
+/* - - - - - --  - - - - - - - - - - - */
+
+.modal-overlay{
+	background-color: rgba(0, 0, 0, 0.3) !important;
+	backdrop-filter: blur(5px) !important;
+	opacity: 1 !important;
+}
+
+.modal-footer-options{
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+}
+
+.title-modal-add-project-info, .modal-add-evaluation-info{
+	margin-top: 5px;
+	margin-bottom: 30px;
+}
+
+.modal .modal-content {
+    padding: 24px 24px 0 24px !important;
+}
+
+.modal{
+	border-radius: 24px !important;
+}
+
+.modal.modal-fixed-footer .modal-footer{
+	padding-right: 15px !important;
+}
+
+.m-b0{
+	margin-bottom: 0 !important;
+}
+
+/* Collections styles */
+
+.collection-step-menu > .collection-item:hover{
+	background-color: rgb(245, 245, 245);
+	cursor: pointer;
+}
+
+.collection-step-menu{
+	box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%) !important;
+}
+
+.collection-active{
+	background-color: rgb(230, 230, 230) !important;
+}
+
+.documento-informe-evaluacion{
+	width:  830px;
+	height: 500px !important;
+}
+
+.document-show{
+	width: 100%;
+	height: 520px;
+}
+
+.active-document{
+	background-color: rgb(230, 230, 230) !important;
+}
+
+.collection-menu-documentos-items .type-document:hover{
+	background-color: rgb(245, 245, 245);
+	cursor: pointer;
+}
+
+.collection-menu-documentos-header{
+	margin-top: 0px !important;
+	margin-bottom: 10px !important;
+}
+
+.collection-menu-documentos-items{
+	margin-top: 0px !important;
+}
+
+.collection-menu-documentos-header, .collection-menu-documentos-items{
+	border: 1px solid rgb(180, 180, 180);
+/*	box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%); */
+}
+
+.collapsible-posicionamiento-asm .collapsible-header:hover, .collapsible-plan-de-trabajo-asm .collapsible-header:hover{
+	background-color: rgb(245, 245, 245);
+}
+
+.collapsible-posicionamiento-asm, .collapsible-plan-de-trabajo-asm{
+	display: none;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------- */
+/* RECOMENDACIONES */
+.id_recomendation, .recomendation_preview{
+	font-style: normal !important;
+	color: black;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------- */
+/* EVIDENCIAS */
+.collection-documents-evidence .collection-documents-evidence-item{
+	cursor: pointer;
+}
+
+.buttons-evidence-documents-hide{
+	display: none;
+}
+
+.buttons-evidence-documents-show{
+	display: block;
+}
+
+.btn-delete-document{
+	margin-top: -5px !important;
+	margin-left: 5px !important;
+}
+
+.btn-edit-document{
+	margin-top: -5px !important;
+}
+
+.btn-upload-documents{
+	right: 0px;
+}
+
+.img-alert{
+	width: 150px;
+}
+
+.img-upload{
+	width: 150px;
+}
+
+.img-edit-document{
+	width: 150px;
+}
+
+.content-image-modal{
+	display: flex;
+	justify-content: center;
+}
+
+.text-confirm-delete{
+	text-align: center;
+}
+
+#modal-confirm-delete-document{
+	width: 30% !important;
+	height: 35%;
+}
+
+#modal-confirm-delete-document-recomendation{
+	width: 30% !important;
+	height: 45%;
+}
+
+#modal-upload-document{
+	width: 35% !important;
+	height: 40% !important;
+}
+
+#modal-show-document{
+	top: 5% !important;
+	width: 80% !important;
+	max-height: 100%;
+	height: 90% !important;
+}
+
+.show-pdf-document{
+	position: inherit;
+	width: 95%;
+	height: 96%;
+}
+
+.pdf-generated{
+	width: 100%;
+	height: 100%;
+}
+
+#modal-edit-asm-document{
+	width: 40% !important;
+	height: 55% !important;
+}
+
+.file-path-input-hide{
+	display: none !important;
+}
+
+#modal-edit-document{
+	width: 50% !important;
+	height: 40% !important;
+}
+
+#modal-delete-document{
+	width: 40% !important;
+	height: 35% !important;
+}
+
+#iddoc_modal, #iddoc_modify_modal{
+	display: none !important;
+}
+
+.field-upload-document{
+	margin-bottom: 0px !important;
+}
+
+.others-documents{
+	box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%) !important;
+}
+
+/* Icono del documento dentro del collection-item tipo avatar */
+.collection .collection-item.avatar:not(.circle-clipper)>.format-svg-avatar, .collection .collection-item.avatar :not(.circle-clipper)>.format-svg-avatar {
+    position: absolute;
+    width: 50px;
+    height: 45px;
+    overflow: hidden;;
+    display: inline-block;
+    vertical-align: middle;
+	left: 10px;
+    top: 15px;
+}
+
+.action-buttons-docs{
+	position: absolute;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: middle;
+	right: -1px;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 102% !important;
+	line-height: 78px;
+	display: none;
+
+	background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(248, 248, 248, 1) 30%, rgba(248, 248, 248, 1) 100% );
+	padding: 0 15px 0 55px;
+	border-top: 1px solid rgba(210, 210, 210, 0.8);
+	border-bottom: 1px solid rgba(210, 210, 210, 0.8);
+	border-right: 1px solid rgba(210, 210, 210, 0.8);
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+
+.btn-modify-document, .btn-delete-document, .btn-add-doc-recomendation{
+	margin: 5px 2px 5px 5px !important;
+}
+
+.collection .collection-item.avatar p {
+    margin-top: 8px !important;
+}
+
+.title-document{
+	font-size: 19px !important;
+	font-weight: 400;
+	padding-bottom: 4px !important;
+}
+
+.document-status{
+	font-size: 14px !important;
+    padding: 1px 12px 2px 12px;
+    background-color: rgba(240, 240, 240, 0.8);
+	color: rgb(40, 40, 40, 0.9) !important;
+	border: 1px solid rgba(80, 80, 80, 0.2);
+    border-radius: 15px;
+	width: fit-content;
+    margin: 7px 5px 0 0 !important;
+}
+/*
+.document-aprobed{
+	color: #26a69a !important;
+}
+
+.document-send{
+	color: royalblue;
+}
+
+.document-observations{
+	color: orange;
+}
+*/
+.document-aprobed, .document-send, .document-observations{
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.document-selected{
+	 background-color: rgba(240, 240, 240, 1) !important;
+}
+
+.icon-status-document{
+	margin: 3px 5px 0 0 !important;
+	font-size: 18px !important;
+	color: rgb(120, 120, 120, 0.9) !important;
+	font-weight: lighter;
+}
+
+.collection .collection-item-document.avatar {
+	padding: 12px 100px 15px 75px !important;
+}
+
+.collection .collection-item {
+    padding: 10px 20px !important;
+}
+
+.collection-documents, .collection-document-recomendations{
+	border: 0 !important;
+}
+
+.collection-item-document, .collection-item-recomendations{
+	border: 1px solid rgba(210, 210, 210, 0.8) !important;
+	border-radius: 15px !important;
+	margin-bottom: 10px !important;
+}
+
+.card-messages-general-comments{
+	max-height: 100% !important;
+}
+
+.collection-messages-general-comments{
+	border-radius: 15px !important;
+	cursor: pointer;
+}
+
+.collection-item-reco-rg{
+	
+}
+
+.reco-cg-options{
+	display: none !important;
+	position: absolute;
+	right: 0;
+	display: inline-block;
+	margin: -35px 0px 0px 8px;
+	
+	height: 45px !important;
+	width: 120px;
+	background-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-delete-reco-cg{
+	position: relative;
+}
+
+/*
+position: absolute;
+overflow: hidden;
+display: inline-block;
+vertical-align: middle;
+right: -1px;
+top: 50%;
+transform: translateY(-50%);
+height: 102% !important;
+line-height: 78px;
+display: none;
+
+background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(248, 248, 248, 1) 30%, rgba(248, 248, 248, 1) 100% );
+padding: 0 15px 0 55px;
+border-top: 1px solid rgba(210, 210, 210, 0.8);
+border-bottom: 1px solid rgba(210, 210, 210, 0.8);
+border-right: 1px solid rgba(210, 210, 210, 0.8);
+border-top-right-radius: 15px;
+border-bottom-right-radius: 15px;
+*/
+
+.card-messages-general-comments .card-content{
+	padding: 20px 20px 5px 20px !important;
+}
+
+.collection-item-recomendations-complete{
+	border: 1px solid #1b5e20 !important;
+}
+
+.collection-item-recomendations-incomplete{
+	border: 1px solid rgba(210, 210, 210, 0.8) !important;
+}
+
+.collection-item-document, .collection-item-recomendations{
+	margin-bottom: 5px !important;
+}
+
+.collection-item-document:hover, .collection-item-recomendations:hover{
+	background-color: rgba(248, 248, 248, 1);
+	cursor: pointer;
+}
+
+.collection-document-recomendations .collection-item{
+	padding: 10px 20px 10px 20px !important;
+	width: 100% !important;
+}
+
+.collection-document-recomendations{
+	margin-top: 66px !important;
+}
+
+.action-buttons-docs-recomendations{
+	position: absolute;
+	overflow: hidden;
+	display: none;
+	margin-top: -32px;
+	right: 2px !important;
+	height: 40px !important;
+
+	background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(248, 248, 248, 1) 30%, rgba(248, 248, 248, 1) 100% );
+	padding: 5px 25px 0 55px;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+
+.id_doc_proyecto, .id_doc_recomendation, .idDocumentProject, .idRecomendationDocumentProject,
+.idDocumentProject_Modify, .idRecomendationDocumentProject_Modify,
+.bandera_recomendacion_completada{
+	display: none !important;
+}
+
+.btn-delete-document-recomendation{
+	margin-left: 8px;
+}
+
+.title-document-container{
+	display: block;
+}
+
+.title-document-container span{
+	display: block;
+}
+
+.document-recomendations-container{
+	margin-top: 26px;
+}
+
+.btn-recomendation, .action-buttons-recomendations{
+	display: block;
+}
+
+.action-buttons-recomendations{
+	position: absolute;
+	overflow: hidden;
+	display: inline-block;
+	right: 0;
+	transform: translateY(-75%);
+
+	background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(248, 248, 248, 1) 30%, rgba(248, 248, 248, 1) 100% );
+	padding: 0.5px 15px 0 35px;
+	border-top: 1px solid rgba(200, 200, 200, 0.6);
+	border-bottom: 1px solid rgba(200, 200, 200, 0.6);
+	border-right: 1px solid rgba(200, 200, 200, 0.6);
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+
+	display: none;
+}
+
+/* ESTILOS RÁPIDOS */
+#recomendations{
+	
+}
+

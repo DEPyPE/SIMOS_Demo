@@ -1,0 +1,236 @@
+
+body{
+	margin: 0;
+	padding: 0;
+	background-color: #e7e7e7 !important;
+}
+
+/* MENU DE OPCIONES */
+
+.seg-logo{
+    margin-right: 10px;
+    width: 129px;
+    border-radius: 50px;
+}
+
+/* ESTILOS DEL MENU */
+
+.notification-alert{
+	color: white;
+	margin-left: 5px;
+	padding: 0px 10px 0px 10px;
+	border-radius: 15px;
+	background-color: rgba(230, 230, 230, 0.4) !important;
+	font-weight: normal;
+}
+
+.icon-exit-session{
+    transform: rotate(180deg);
+}
+
+.row-menu-and-title{
+	margin-bottom: 0 !important;
+}
+
+.icon-title{
+	font-size: 35px !important;
+}
+
+.collection a.collection-item{
+	color: black;
+}
+
+.menu-revisiones{
+	background-color: white !important;
+}
+
+.steps-menu-color{
+	color: green !important;
+}
+
+.step-error-color{
+	color: red !important;
+}
+
+.step-in-process-color{
+	color: blue;
+}
+
+.step-alert-color{
+	color: yellow;
+}
+
+.step-finished-color{
+	color: green;
+}
+
+.step-non-start-color{
+	color: gray;
+}
+
+.title-column{
+	width: 35% !important;
+}
+
+.card-evaluation, .card-program{
+	height: 545px !important;
+}
+
+.table-evaluation{
+	margin-top: auto !important;
+}
+
+.modal-informe-evaluacion{
+	top: 5% !important;
+	height: 85% !important;
+	max-height: 85% !important;
+}
+
+.icon-document{
+	margin-right: -10px;
+}
+
+.textbox-update-document, .btn-update-document, .btn-send-validation{
+	margin-bottom: 0px !important;
+	margin-top: 0px !important;
+}
+
+.btn-update-document, .btn-send-validation{
+	margin-top: 5px !important;
+}
+
+.collapsible-body{
+	padding: 10px 20px 15px 20px !important;
+}
+
+.collapsible-body{
+	background-color: white;
+}
+
+.collapsible-active{
+	background-color: rgb(230, 230, 230) !important;
+}
+
+/* Collections styles */
+
+.collection-step-menu > .collection-item:hover{
+	background-color: rgb(245, 245, 245);
+	cursor: pointer;
+}
+
+.collection-step-menu{
+	box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%) !important;
+}
+
+.collection-active{
+	background-color: rgb(230, 230, 230) !important;
+}
+
+.documento-informe-evaluacion{
+	width:  830px;
+	height: 500px !important;
+}
+
+.document-show{
+	width: 100%;
+	height: 520px;
+}
+
+.active-document{
+	background-color: rgb(230, 230, 230) !important;
+}
+
+.collection-menu-documentos-items .type-document:hover{
+	background-color: rgb(245, 245, 245);
+	cursor: pointer;
+}
+
+.collection-menu-documentos-header{
+	margin-top: 0px !important;
+	margin-bottom: 10px !important;
+}
+
+.collection-menu-documentos-items{
+	margin-top: 0px !important;
+}
+
+.collection-menu-documentos-header, .collection-menu-documentos-items{
+	border: 1px solid rgb(180, 180, 180);
+/*	box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%); */
+}
+
+.collapsible-posicionamiento-asm .collapsible-header:hover, .collapsible-plan-de-trabajo-asm .collapsible-header:hover{
+	background-color: rgb(245, 245, 245);
+}
+
+.collapsible-posicionamiento-asm, .collapsible-plan-de-trabajo-asm{
+	display: none;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------- */
+/* RECOMENDACIONES */
+.id_recomendation, .recomendation{
+	font-style: normal !important;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------- */
+/* EVIDENCIAS */
+.collection-documents-evidence .collection-documents-evidence-item{
+	cursor: pointer;
+}
+
+.buttons-evidence-documents-hide{
+	display: none;
+}
+
+.buttons-evidence-documents-show{
+	display: block;
+}
+
+.btn-delete-document{
+	margin-top: -5px !important;
+	margin-left: 5px !important;
+}
+
+.btn-edit-document{
+	margin-top: -5px !important;
+}
+
+.img-alert{
+	width: 150px;
+}
+
+.img-upload{
+	width: 150px;
+}
+
+.img-edit-document{
+	width: 150px;
+}
+
+.content-image-modal{
+	display: flex;
+	justify-content: center;
+}
+
+.text-confirm-delete{
+	text-align: center;
+}
+
+#modal-confirm-delete-document, #modal-upload-document{
+	width: 30% !important;
+	height: 45% !important;
+}
+
+#modal-edit-document{
+	width: 30% !important;
+	height: 52% !important;
+}
+
+.field-upload-document{
+	margin-bottom: 0px !important;
+}
+
+.others-documents{
+	box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%) !important;
+}

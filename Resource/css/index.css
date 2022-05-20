@@ -1,0 +1,109 @@
+
+body{
+    background-color: #e7e7e7 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.row-slider-and-login{
+    margin-top: 4% !important;
+    margin-bottom: 4% !important;
+}
+
+/* MENU DE OPCIONES */
+
+.seg-logo{
+    margin-right: 10px;
+    width: 129px;
+    border-radius: 50px;
+}
+
+/* TARJETA DE INICIO DE SESIÓN */
+
+.card-login{
+    border-radius: 10px !important;
+}
+
+.btn-login, .btn-register{
+    width: 100% !important;
+}
+
+.btn-login{
+    margin-bottom: 8px;
+}
+
+.title-login{
+    margin: 0 !important;
+}
+
+/* CAJAS DE TEXTO PARA EL LOGIN O LOS CAMPOS DE REGISTRO */
+
+/* label color */
+.input-field label {
+    color: black !important;
+}
+
+.txtbox-input-password{
+    margin-bottom: 30px !important;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: #01579b !important;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #01579b !important;
+    box-shadow: 0 1px 0 0 #01579b !important;
+}
+
+/* valid color */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid #01579b !important;
+    box-shadow: 0 1px 0 0 #01579b !important;
+}
+
+/* invalid color */
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid #01579b !important;
+    box-shadow: 0 1px 0 0 #01579b !important;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: #01579b !important;
+}
+
+/* SLIDES */
+
+.slider-content{
+    border-radius: 10px !important;
+}
+
+.card-slider{
+    background-color: #e7e7e7 !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.card-slider-content{
+    padding: 0 !important;
+}
+
+.slides-content{
+    border-radius: 10px !important;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%) !important;
+}
+
+.background-slide{
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    color: white;
+}
+
+/* FOOTER CONTENT */
+.seg-logo-footer{
+    height: 100px;
+    border-radius: 50px;
+}
+

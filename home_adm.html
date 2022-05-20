@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sistema de Monitoreo y Seguimiento a Recomendaciones (SIMOS) / Proyecto Horizonte de Oportunidades </title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Resource/Materialize/materialize.min.css"> 
+	<link rel="stylesheet" type="text/css" href="Resource/css/home_epp.css">
+</head>
+<body>
+
+    <!-- MENU PRINCIPAL -->
+    <nav class="nav-extended light-blue darken-4">
+        <div class="nav-wrapper">
+            <div class="row row-menu-and-title">
+                <div class="col l1"></div>
+                <div class="col l10">
+                    <a href="#" class="brand-logo white-text"> <img class="seg-logo left" src="Resource/files/images/seg-logo.jpeg"> <strong class="main-title-project truncate">SIMOS </strong> </a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="index.php" class="close-session"><i class="material-icons left icon-exit-session">exit_to_app</i>Cerrar sesión</a></li>
+                    </ul>
+                </div>
+                <div class="col l1"></div>
+            </div>
+        </div>
+
+        <div class="nav-content">
+            <div class="row">
+                <div class="col l1"></div>
+                <div class="col l10">
+                    <ul class="tabs tabs-transparent">
+                        <li class="tab"><a class="active" href="#general_information">Información general</a></li>
+                        <li class="tab"><a href="#opinion_general">Posicionamiento</a></li>
+                        <li class="tab"><a href="#plan_de_mejora">Plan de mejora y monitoreo</a></li>
+                        <li class="tab"><a href="#documents">Formalización</a></li>
+                    </ul>
+                </div>
+                <div class="col l1"></div>
+            </div>
+        </div>
+    </nav>
+
+      
+<!--    SECCIÓN PARA LA INFORMACIÓN GENERAL DEL PROGRAMA SOCIAL -->
+        <div id="general_information">
+
+            <div class="row">
+                <div class="col l1"></div>
+                
+                <div class="col l5">
+                    <div class="card card-program">
+                        <div class="card-content card-content-ft-proyecto">
+                            
+                            <span class="card-title">
+                                <h4 class="card-title-ficha-tecnica">
+                                  <strong>Ficha técnica del programa <i class="material-icons right validation-ft-programa tooltipped" data-position="bottom" data-tooltip="Información validada">check_circle</i> </strong>
+                                  <a class="btn-floating btn-small btn-add-project-information  waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar información" href="#ModalAddModifyTechnicalProjectInfo"><i class="material-icons">add</i></a>
+                                  <a class="btn-floating btn-small btn-edit-project-information waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar información" href="#ModalAddModifyTechnicalProjectInfo"><i class="material-icons">edit</i></a>
+                                </h4>
+                            </span>
+                            
+                            <table class="striped table-ficha-tecnica-proyecto">
+                                <tbody>
+                                  <tr>
+                                    <td class="title-column"><strong>Programa <br>social:</strong></td>
+                                    <td class="left-align NombreProyecto"></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="title-column"><strong>Clave del proyecto de inversión o proceso:</strong></td>
+                                    <td class="left-align ClaveProyecto"></td>
+                                  </tr>
+                                  <tr>
+                                      <td class="title-column"><strong>Dependencia o entidad responsable del programa:</strong></td>
+                                      <td class="DependenciaProyecto"></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="title-column"><strong>Siglas:</strong></td>
+                                    <td class="SiglasDependencia"></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="title-column"><strong>Unidad Responsable (UR):</strong></td>
+                                    <td class="UnidadResponsable"> </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="title-column"><strong>Siglas:</strong></td>
+                                    <td class="SiglasUnidadResponsable"></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="title-column"><strong>Responsable:</strong></td>
+                                    <td class="NombreResponsable"></td>
+                                  </tr>
+
+                                </tbody>
+                            </table>
+
+                            <h6 class="NoFTProjectInformation">Sin información registrada</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col l5">
+                    <div class="card card-evaluation">
+                        <div class="card-content card-content-evaluation">
+                            <span class="card-title card-title-ficha-tecnica">
+                                <h4 class="card-title-ficha-tecnica">
+                                    <strong> Ficha técnica de la evaluación <i class="material-icons right validation-ft-evaluation tooltipped" data-position="bottom" data-tooltip="Información validada">check_circle</i> </strong>
+                                    <a class="btn-floating btn-small btn-add-evaluation-information waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar información" href="#ModalAddModifyTechnicalEvaluationInfo"><i class="material-icons">add</i></a>
+                                    <a class="btn-floating btn-small btn-edit-evaluation-information waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar información" href="#ModalAddModifyTechnicalEvaluationInfo"><i class="material-icons">edit</i></a>
+                                </h4>
+                            </span>
+                            
+                            <table class="striped table-evaluation">
+                                <tbody>
+                                  <tr>
+                                    <td class="title-column"><strong>Instancia Evaluadora:</strong></td>
+                                    <td class="left-align InstanciaEvaluadora"></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="title-column"><strong>Nombre de la evaluación:</strong></td>
+                                    <td class="left-align NombreDeEvaluacion"></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="title-column"><strong>Tipo de evaluación:</strong></td>
+                                    <td  class="TipoEvaluacion"></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="title-column"><strong>Año de evaluación:</strong></td>
+                                    <td class="AñoDeEvaluacion"></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="title-column"><strong>Nombre del informe:</strong></td>
+                                    <td class="NombreDelInforme"></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="title-column"><strong>Costo de la evaluación:</strong></td>
+                                    <td class="CostoEvaluacion">  </td>
+                                  </tr>
+
+                                </tbody>
+                            </table>
+
+                            <h6 class="NoFTEvaluationInformation">Sin información registrada</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col l1"></div>
+            </div>
+
+        </div>
+
+            <!-- MODAL PARA AGREGAR INFORMACIÓN SOBRE EL PROYECTO -->
+            <div id="ModalAddModifyTechnicalProjectInfo" class="modal modal-add-project-info modal-fixed-footer">
+              <div class="modal-content">
+                
+                  <h4 class="title-modal-add-project-info">Información del programa ó proyecto</h4>
+                  
+                  <div class="row m-b0">                
+                      <div class="col l8 m8 s12">
+                          <h6><strong>Nombre del programa/proyecto social:</strong></h6>
+
+                          <div class="input-field">
+                              <input placeholder="Programa social" id="txtNombreProyecto" type="text" class="validate">
+                          </div>
+                      </div>
+
+                      <div class="col l4 m4 s12">
+                          <h6><strong>Clave del proyecto:</strong></h6>
+                          <div class="input-field">
+                          <input placeholder="Clave del proyecto" id="txtClaveProyecto" type="text" class="validate">
+                      </div>
+                      </div>
+                  </div>
+
+                  <div class="row m-b0">
+                      <div class="col l8 m8 s12">
+                          <h6><strong>Dependencia o entidad responsable del programa:</strong></h6>
+
+                          <div class="input-field">
+                              <input placeholder="Dependencia responsable" id="txtDepen" type="text" class="validate">
+                          </div>
+                      </div>
+
+                      <div class="col l4 m4 s12">
+                          <h6><strong>Siglas de la dependencia</strong></h6>
+
+                          <div class="input-field">
+                              <input placeholder="Siglas de la dependencia" id="txtSiglasDependencia" type="text" class="validate">
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row m-b0">
+                      <div class="col l8 m8 s12">
+                          <h6><strong>Unidad Responsable (UR):</strong></h6>
+
+                          <div class="input-field">
+                              <input placeholder="Unidad responsable" id="txtUR" type="text" class="validate">
+                          </div>
+                      </div>
+
+                      <div class="col l4 m4 s12">
+                          <h6><strong>Siglas de la UR:</strong></h6>
+
+                          <div class="input-field">
+                              <input placeholder="Siglas de la UR" id="txtSiglasUR" type="text" class="validate">
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row m-b0">
+                      <div class="col l8 m8 s6">
+                          <h6><strong>Reponsable del proyecto</strong></h6>
+
+                          <div class="input-field">
+                              <input placeholder="Reponsable del proyecto" id="txtResponsable" type="text" class="validate">
+                          </div>
+                      </div>
+
+                      <div class="col l4 m4 s4">
+                          <h6><strong>Verifica que la información sea correcta</strong></h6>
+                          <p>
+                            <label>
+                              <input class="ValidateInformationProjectCheckbox" type="checkbox" />
+                              <span>Validar información</span>
+                            </label>
+                          </p>
+                      </div>
+
+
+                  </div>
+
+              </div>
+
+              <div class="modal-footer">
+                <a class="btn-small waves-effect blue darken-2 btn-save-project-information">Guardar información</a>
+                <a class="btn-small waves-effect yellow darken-3 btn-update-project-information">Actualizar información</a>
+                <a class="btn-small waves-effect grey lighten-1 modal-close">Cancelar</a>
+              </div>
+            </div>
+
+            <!-- MODAL PARA AGREGAR INFORMACIÓN SOBRE LA EVALUACIÓN -->
+            <div id="ModalAddModifyTechnicalEvaluationInfo" class="modal modal-add-evaluation-info modal-fixed-footer">
+              <div class="modal-content">
+                
+                  <h5 class="title-modal-add-project-info">Información de la evaluación</h5>
+                  
+                  <div class="row m-b0">                
+                      <div class="col l5 m5 s12">
+                          <h6><strong>Nombre de la instancia evaluadora:</strong></h6>
+
+                          <div class="input-field">
+                              <input placeholder="Instancia evaluadora" id="txtInstanciaEvaluadora" type="text" class="validate">
+                          </div>
+                      </div>
+
+                      <div class="col l4 m4 s12">
+                          <h6><strong>Nombre de la evaluación:</strong></h6>
+                          <div class="input-field">
+                              <input placeholder="Nombre de la evaluación" id="txtNombreEvaluacion" type="text" class="validate">
+                          </div>
+                      </div>
+
+                      <div class="col l3 m3 s12">
+                          <h6><strong>Año de la evaluación:</strong></h6>
+
+                          <div class="input-field">
+                              <input placeholder="Año evaluación" id="txtYearEvaluation" class="center-align" type="text" class="validate">
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row m-b0">
+                      <div class="col l4 m4 s12">
+                          <h6><strong>Tipo de evaluación:</strong></h6>
+
+                          <div class="input-field">
+                              <input placeholder="Tipo de evaluación" id="txtTipoEvaluacion" type="text" class="validate">
+                          </div>
+                      </div>
+
+                      <div class="col l4 m4 s12">
+                          <h6><strong>Nombre del informe:</strong></h6>
+
+                          <div class="input-field">
+                              <input placeholder="Informe" id="txtNombreInforme" type="text" class="validate">
+                          </div>
+                      </div>
+
+                      <div class="col l4 m4 s12">
+                          <h6><strong>Costo de la evaluación:</strong></h6>
+
+                          <div class="input-field">
+                              <input placeholder="Costo de la evaluación" id="txtCostoEvaluacion" class="center-align" type="text" class="validate">
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row m-b0">
+                      <div class="col l4 m4 s4">
+                          <h6><strong>Verifica que la información sea correcta</strong></h6>
+                          <p>
+                            <label>
+                              <input class="ValidateInformationEvaluationCheckbox" type="checkbox" />
+                              <span>Validar información</span>
+                            </label>
+                          </p>
+                      </div>
+                  </div>
+
+              </div>
+
+              <div class="modal-footer">
+                <a class="btn-small waves-effect blue darken-2   btn-insert-evaluation-information">Agregar información</a>
+                <a class="btn-small waves-effect yellow darken-3 btn-update-evaluation-information">Actualizar información</a>
+                <a class="btn-small waves-effect grey lighten-1 modal-close">Cancelar</a>
+              </div>
+            </div>
+
+<!--    SECCIÓN PARA LA OPINIÓN GENERAL POR PARTE DEL ENCARGADO DEL PROGRAMA -->
+        <div id="opinion_general">
+            <div class="row">
+
+              <div class="col m1 l1"></div>
+              <div class="col s12 m10 l10">
+
+                  <div class="card">
+
+                    <div class="card-content card-content-comments">
+                      <span class="card-title card-title-comments">
+                        <strong>
+                          <h4 class="title-general-comments">
+                            Comentarios y observaciones generales
+                            <a class="btn-floating btn-small btn-add-opinion-general waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar comentarios y observaciones <br> generales y específicos por tema" href="#ModalAddOpinionGeneral"><i class="material-icons">add</i></a>
+                            <a class="btn-floating btn-small btn-edit-general-comments waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar los comentarios <br> y observaciones generales" href="#ModalModifyGeneralSpecificComments"><i class="material-icons">edit</i></a>
+                          </h4>
+                        </strong>
+                      </span>
+                      <!-- <a class="btn-floating btn-small right orange"><i class="material-icons">edit</i></a>-->
+                      <textarea disabled id="ComentariosObservacionesGenerales" class="materialize-textarea"></textarea>
+                      <h6 class="OG_SinInfo">Sin información registrada</h6>
+
+                      <br><br>
+                      <ul class="collapsible">
+                        <li>
+                          <div class="collapsible-header"><i class="material-icons">expand_more</i>Observaciones por antender</div>
+                          <div class="collapsible-body">
+                              <div class="collection collection-messages-general-comments"> </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+
+                  </div>
+
+              </div>
+              <div class="col m1 l1"></div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col m1 l1"></div>
+              <div class="col s12 m10 l10">
+
+                  <div class="card">
+                    <div class="card-content card-content-comments">
+                        <span class="card-title card-title-comments">
+                          <strong>
+                            <h4 class="title-specific-comments">
+                                <strong>Comentarios y observaciones específicos por tema</strong>
+                            </h4>
+                          </strong>
+                        </span>
+                        <br>
+
+                        <table class="highlight">
+                          <thead>
+                            <tr>
+                                <th class="table-ApartadoEvaluacion">Apartado de la evaluación</th>
+                                <th class="table-ObservacionEspecifica">Observación específica</th>
+                                <th class="table-ObservacionAtender">Observación por atender</th>
+                                <th></th>
+                            </tr>
+                          </thead>
+
+                          <tbody class="">
+                              <td>Diseño</td>
+                              <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos veniam quaerat voluptate consequuntur magnam recusandae repellat eum voluptatem, nostrum, id fugiat quae? Minus dolor in unde ad voluptates sint nulla. </td>
+                              <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae nam obcaecati labore ipsam suscipit aperiam iusto ex, sunt dolore a?</td>
+                              <td><a class="btn-floating btn-small btn-edit-specific-comments waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar" href="#ModalModifyGeneralSpecificComments"><i class="material-icons">edit</i></a></td>
+                          </tbody>
+                        </table>
+
+                        <h6 class="OG_SinInfo">Sin información registrada</h6>
+                    </div>
+                  </div>
+
+              </div>
+
+              <div class="col m1 l1"></div>
+
+              </div>
+        </div>
+        
+            <!-- MODAL PARA VER LAS CORRESIONES PARA LOS COMENTARIOS Y OBSERVACIONES GENERALES -->
+            <div id="ModalRecomendacionComentariosGenerales" class="modal modal-view-recomendacion-comentarios-generales modal-fixed-footer">
+              <div class="modal-content">
+                
+                  <h4>Comentarios:</h4>
+                  
+
+              </div>
+
+              <div class="modal-footer">
+                <a href="#!" class="btn-small waves-effect blue darken-2 btn-rec-comm-generales">Aceptar</a>
+                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
+              </div>
+            </div>
+
+            <!-- MODAL PARA AGREGAR INFORMACIÓN SOBRE LOS COMENTARIOS Y OBSERVACIONES GENERALES -->
+            <div id="ModalRecomendacionComentariosGenerales" class="modal modal-view-recomendacion-comentarios-generales modal-fixed-footer">
+              <div class="modal-content">
+                
+                  <h4>Recomendación:</h4>
+                  
+
+              </div>
+
+              <div class="modal-footer">
+                <a href="#!" class="btn-small waves-effect blue darken-2 btn-rec-comm-generales">Agregar información</a>
+                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
+              </div>
+            </div>
+
+            <!-- MODAL PARA AGREGAR INFORMACIÓN SOBRE LA EVALUACIÓN -->
+            <div id="ModalAddOpinionGeneral" class="modal modal-add-opinion-general modal-fixed-footer">
+              <div class="modal-content">
+                
+                  <!--<h5 class="title-modal-add-project-info">Información de la opinión general </h5>-->
+                  
+                  <div class="row m-b0">                
+                      <div class="col l12 m12 s12">
+                          <h4><strong>Comentarios y observaciones generales:</strong></h4>
+
+                          <div class="input-field">
+                              <textarea id="txtObservacionesGenerales" class="materialize-textarea" placeholder="Comentarios y observaciones generales"></textarea>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row m-b0">                
+                      <div class="col l12 m12 s12">
+                          <h6><strong>Comentarios y observaciones específicos por tema:</strong></h6>
+
+                          <div class="input-field">
+                              <textarea placeholder="Comentarios y observaciones específicos por tema" id="txtPorTema" class="materialize-textarea"></textarea>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+
+              <div class="modal-footer">
+                <a href="#!" class="btn-small waves-effect blue darken-2 btn-insert-opinion-general">Agregar información</a>
+                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
+              </div>
+            </div>
+
+            <!-- MODAL PARA MODIFICAR LA INFORMACIÓN SOBRE LOS COMENTARIOS GENERALES Y ESPECÍFICOS -->
+            <div id="ModalModifyGeneralSpecificComments" class="modal modal-add-opinion-general modal-fixed-footer">
+              <div class="modal-content">
+                
+                  <!--<h5 class="title-modal-add-project-info">Información de la opinión general </h5>-->
+                  
+                  <div class="row m-b0">                
+                      <div class="col l12 m12 s12">
+                          <h4><strong>Comentarios y observaciones generales:</strong></h4>
+
+                          <div class="input-field">
+                              <textarea id="txtComentarios" class="materialize-textarea" placeholder="Comentarios y observaciones generales"></textarea>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+
+              <div class="modal-footer">
+                <a href="#!" class="btn-small waves-effect yellow darken-2 btn-modify-general-comments">Modificar información</a>
+                <a href="#!" class="btn-small waves-effect yellow darken-2 btn-modify-specific-comments">Modificar información</a>
+                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
+              </div>
+            </div>
+
+<!--    SECCIÓN PARA EL PLAN DE MEJORA POR PARTE DEL ENCARGADO DEL PROGRAMA -->
+        <div id="plan_de_mejora">
+
+            <div class="row">
+                <div class="col l1"></div>
+                <div class="col l10">
+                    <div class="card">
+                        <div class="card-content card-content-mejoras">
+                        
+                          <span class="card-title">
+                                <h5 class="no-data-recomendaciones">
+                                    Sin información registrada
+                                    <a class="btn-floating btn-small btn-add-plan-mejora waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar recomendación" href="#ModalAddModifyPlanMejora"><i class="material-icons">add</i></a>
+                                </h5>
+                                <h5 class="with-data-recomendaciones">
+                                    Recomendaciones a atender
+                                    <a class="btn-floating btn-small btn-add-plan-mejora waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar recomendación" href="#ModalAddModifyPlanMejora"><i class="material-icons">add</i></a>
+                                </h5>
+                            </span>
+
+                            <table class="highlight table-plan-de-mejora">
+                              <thead>
+                                <tr>
+                                    <th class="table-status">Estado</th>
+                                    <th class="table-Id_Recomendacion">   No.</th>
+                                    <th class="table-ASM">                Aspectos Susceptibles de Mejora/Recomendaciones</th>
+                                    <th class="table-ActoresSolucion">    Actores involucrados en la solución</th>
+                                    <th class="table-Prioridad">          Nivel de prioridad</th>
+                                    <th class="table-AccionMejora">       Acción de mejora</th>
+                                    <th class="table-AreaResponsable">    Área responsable</th>
+                                    <th class="table-Fecha">              Fecha compromiso de cumplimiento</th>
+                                    <th class="table-Resultados">         Resultados esperados</th>
+                                    <th class="table-Evidencias">         Evidencias</th>
+                                </tr>
+                              </thead>
+
+                              <tbody class="table-body-content-mejoras"></tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col l1"></div>
+            </div>
+
+            <div class="row">
+                <div class="col l1"></div>
+                <div class="col l10">
+                    <div class="card">
+                        <div class="card-content card-content-mejoras">
+                        
+                            <span class="card-title">
+                                <h5 class="no-data-recomendaciones">
+                                    Sin información registrada
+                                    <a class="btn-floating btn-small btn-add-plan-mejora waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar recomendación" href="#ModalAddModifyPlanMejora"><i class="material-icons">add</i></a>
+                                </h5>
+                                <h5 class="with-data-recomendaciones">
+                                    Recomendaciones atendidas
+                                    <a class="btn-floating btn-small btn-add-plan-mejora waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar recomendación" href="#ModalAddModifyPlanMejora"><i class="material-icons">add</i></a>
+                                </h5>
+                            </span>
+
+                            <table class="highlight table-plan-de-mejora">
+                              <thead>
+                                <tr>
+                                    <th class="table-ASM-atendidas">Aspectos Susceptibles de Mejora/Recomendaciones</th>
+                                    <th class="table-documento-evidencia">Evidencia</th>
+                                    <th class="table-observaciones">Observaciones</th>
+                                </tr>
+                              </thead>
+
+                              <tbody class="">
+                                  <td class="ASM-Atendidas">Contribución y destino: Considerar la elaboración de un compendio normativo y acciones de Capacitación/Difusión por parte de la SFIA al instituto y en lo particular al personal que interviene en los procesos de distribución de las aportaciones.</td>
+                                  <td class="center-align"> documento_de_evidencia.pdf </td>
+                                  <td>Observaciones del documento de evidencia</td>
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col l1"></div>
+            </div>
+
+            <div class="row">
+                <div class="col l1"></div>
+                <div class="col l10">      
+                    <div class="card">
+                        <div class="card-content card-content-mejoras">
+                        
+                            <span class="card-title">
+                                <h5 class="no-data-recomendaciones">
+                                    Sin información registrada
+                                    <a class="btn-floating btn-small btn-add-plan-mejora waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar recomendación" href="#ModalAddModifyPlanMejora"><i class="material-icons">add</i></a>
+                                </h5>
+                                <h5 class="with-data-recomendaciones">
+                                    Recomendaciones rechazadas
+                                    <a class="btn-floating btn-small btn-add-plan-mejora waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar recomendación" href="#ModalAddModifyPlanMejora"><i class="material-icons">add</i></a>
+                                </h5>
+                            </span>
+
+                            <table class="highlight table-plan-de-mejora">
+                              <thead>
+                                <tr>
+                                    <th class="table-ASM-atendidas">Aspectos Susceptibles de Mejora/Recomendaciones</th>
+                                    <th class="table-documento-evidencia">Observaciones</th>
+                                </tr>
+                              </thead>
+
+                              <tbody class="">
+                                  <td class="ASM-Atendidas">Contribución y destino: Considerar la elaboración de un compendio normativo y acciones de Capacitación/Difusión por parte de la SFIA al instituto y en lo particular al personal que interviene en los procesos de distribución de las aportaciones.</td>
+                                  <td> La recomendación fue rechazada debido a que ya se atendió la recomendación en años pasados </td>
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col l1"></div>
+            </div>
+
+        </div>
+
+            <!-- MODAL PARA AGREGAR NUEVA RECOMENDACION AL PROYECTO -->
+            <div id="ModalAddModifyPlanMejora" class="modal modal-add-opinion-general modal-fixed-footer">
+              <div class="modal-content">
+                
+                  <h5 class="title-modal-add-project-info">Aspectos Susceptibles de mejora y recomendaciones del proyecto </h5>
+                  
+                  <div class="row m-b0">
+                      <div class="col l1 m1 s1">
+                          <h6><strong>No.</strong></h6>
+
+                          <div class="input-field">
+                              <input placeholder="No" id="txtNumRecomendation" type="text" class="validate center-align">
+                          </div>
+                      </div>
+
+                      <div class="col l5 m5 s5">
+                          <h6><strong>Aspecto Susceptible de Mejora/Recomendación</strong></h6>
+
+                          <div class="input-field">
+                              <textarea id="txtASM" class="materialize-textarea" placeholder="Aspecto Susceptible de Mejora/Recomendación"></textarea>
+                          </div>
+                      </div>
+
+                      <div class="col l6 m6 s6">
+                          <div class="row">
+                            <div class="col l12">
+                                <h6><strong>Actores involucrados en la solución:</strong></h6>
+
+                                <div class="input-field">
+                                    <textarea placeholder="Solución" id="txtActoresInvolucrados" class="materialize-textarea" type="text" class="validate"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col l4 m4 s4">
+                                <h6><strong>Nivel de prioridad:</strong></h6>
+                                <select id="select-nivel-prioridad" class="browser-default">
+                                  <option value="" disabled selected>Prioridad</option>
+                                  <option value="1">Baja</option>
+                                  <option value="2">Media</option>
+                                  <option value="3">Alta</option>
+                                </select>
+                            </div>
+
+                            <div class="col l4 m4 s4">
+                                <h6><strong>Estatus:</strong></h6>
+                                <select id="select-estatus" class="browser-default">
+                                  <option value="" disabled selected>Estado actual</option>
+                                  <option value="1">Corregido</option>
+                                  <option value="2">En proceso</option>
+                                  <option value="3">Sin antender</option>
+                                </select>
+                            </div>
+
+                            <div class="col l4 m4 s4">
+                                  <h6><strong>Fecha:</strong></h6>
+
+                                  <div class="input-field txt-fecha-style">
+                                      <input placeholder="Fecha de cumplimiento" id="txtFecha" type="text" class="validate center-align">
+                                  </div>
+                            </div>
+                            
+                          </div>
+
+                      </div>
+                  </div>
+
+                  <div class="row row-m-b-0">
+                      <div class="col l1 m1"></div>
+                      <div class="col 5 m5 s5">
+                          <div class="row">
+                              <div class="col l12 m12 s12">
+                                  <h6><strong>Acción de mejora:</strong></h6>
+
+                                  <div class="input-field">
+                                      <textarea id="txtAccionMejora" class="materialize-textarea" placeholder="Acción de mejora"></textarea>
+                                  </div>
+                              </div>
+
+                              <div class="col l12 m12 s12">
+                                  <h6><strong>Área responsable:</strong></h6>
+
+                                  <div class="input-field">
+                                      <textarea id="txtAreaResponsable" class="materialize-textarea" placeholder="Área resposable"></textarea>
+                                  </div>
+                              </div>
+
+
+                          </div>
+                      </div>
+
+                      <div class="col l6 m6 s6">
+                          <div class="row">
+                              <div class="col l12 m12 s12">
+                                  <h6><strong>Resultados esperados:</strong></h6>
+
+                                  <div class="input-field">
+                                      <textarea placeholder="Área resposable" id="txtResultadosEsperados" class="materialize-textarea"></textarea>
+                                  </div>
+                              </div>
+
+                              <div class="col l12 m12 s12">
+                                  <h6><strong>Evidencias solicitadas:</strong></h6>
+
+                                  <div class="input-field">
+                                      <textarea placeholder="Evidencias" id="txtEvidenciasSolicitadas" class="materialize-textarea"></textarea>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+
+              <div class="modal-footer">
+                <a href="#!" class="btn-small waves-effect blue darken-2 btn-insert-recomendacion">Agregar información</a>
+                <a href="#!" class="btn-small waves-effect yellow darken-3 btn-update-recomendacion">Guardar información</a>
+                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
+              </div>
+            </div>
+
+            <!-- MODAL PARA AGREGAR NUEVA RECOMENDACION AL PROYECTO -->
+            <div id="ModalDeleteRecomendation" class="modal modal-delete-recomendation modal-fixed-footer">
+              <div class="modal-content">
+
+                  <h4>¿Eliminar esta recomendación?</h4><br>
+                  
+                  <table class="highlight table-plan-de-mejora-delete">
+                    <thead>
+                      <tr>
+                          <th class="table-delete-status">Estado</th>
+                          <th class="table-delete-Id_Recomendacion">   No.</th>
+                          <th class="table-delete-ASM">                Aspectos Susceptibles de Mejora/Recomendaciones</th>
+                          <th class="table-delete-ActoresSolucion">    Actores involucrados en la solución</th>
+                          <th class="table-delete-Prioridad">          Nivel de prioridad</th>
+                          <th class="table-delete-AccionMejora">       Acción de mejora</th>
+                          <th>...</th>
+                      </tr>
+                    </thead>
+
+                    <tbody class="table-body-content-mejoras-delete"></tbody>
+                  </table>
+
+                  <h5 class="title-modal-add-project-info"> </h5>
+                
+                  <h6 class="info-recomendation-delete"></h6>              
+
+              </div>
+
+              <div class="modal-footer">
+                <a href="#!" class="btn-small waves-effect red darken-3 btn-delete-recomendation">Borrar recomendación</a>
+                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
+              </div>
+            </div>
+
+<!--    SECCIÓN PARA LOS DOCUMENTOS CREADOS POR PARTE DEL ENCARGADO DEL PROGRAMA ##### -->
+        <div id="documents">
+
+            <div class="row">
+              <div class="col l1"></div>
+              <div class="col l10 m12 s12">
+
+                <div class="card">
+                  <div class="card-content">
+
+                      <div class="row">
+                        <div class="col l5 m5 s12">
+                            <span class="card-title">
+                              <strong class="card-title-documents">Docs</strong>
+                            </span>
+                            
+                            <div class="show-docs-option">
+
+                            </div> <br>
+                            
+
+                            <ul class="collection collection-documents"></ul>
+                        </div>
+
+                        <div class="col l7 m7 s12">
+                            <!--<a class="waves-effect blue darken-2 btn btn-small btn-upload-documents btn-rounded right modal-trigger" href="#modal-upload-document"><i class="material-icons left">cloud_upload</i>Subir nuevo documento</a>-->
+                            <a class="waves-effect blue darken-2 btn btn-small btn-generate-documents btn-rounded right"><i class="material-icons left">cached</i>Generar documentos</a>
+                            <a class="waves-effect  red darken-2 btn btn-small btn-del-documents    btn-rounded right"><i class="material-icons left">delete</i>Borrar documentos</a>
+                            <div class="collection-document-evidence">
+                              <br><br><br>
+                                <div class="row">
+                                    <div class="col l7">
+                                      <h5>Subir documento firmado:</h5>
+                                    </div>
+                                    <div class="col l5">
+
+                                      <form action="#">
+                                        <div class="file-field input-field">
+                                          <div class="btn">
+                                            <span>File</span>
+                                            <input type="file">
+                                          </div>
+                                          <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text">
+                                          </div>
+                                        </div>
+                                      </form>
+
+                                      <a class="waves-effect green darken-2 btn btn-small btn-upload-doc-formalice btn-rounded right"><i class="material-icons left">upload</i>Subir documento</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col l1"></div>
+            </div>
+        </div>
+
+            <!-- Modal para mostrar cada recomendación o aspecto susceptible de mejora -->
+            <div id="modal-recomendation-description" class="modal">
+              <div class="modal-content">
+                  <h5 class="modal_id_recomendation"></h5>
+                  
+                  <strong>Aspecto Susceptible de Mejora/Recomendaciones:</strong>
+                  <h6 class="modal_apartado"> VI. Matriz de Indicadores para Resultados (MIR). </h6>
+
+                  <strong>Respecto al tipo de actores involucrados en solución:</strong>
+                  <h6 class="modal_rubro">Valoración final de la MIR</h6>
+
+                  <strong>Nivel de prioridad:</strong>
+                  <h6 class="modal_rubro">Medio</h6>
+
+                  <strong>Acción de mejora</strong>
+                  <h6 class="modal_recomendation_info"></h6>
+
+                  <strong>Área responsable:</strong>
+                  <h6 class="modal_rubro">Dirección de planeación</h6>
+
+                  <strong>Fecha compromiso de cumplimiento:</strong>
+                  <h6 class="modal_rubro">22/12/2021</h6>
+
+                  <strong>Resultados esperados:</strong>
+                  <h6 class="modal_rubro">Mejora de los indicadores de 2017</h6>
+
+                  <strong>Evidencias:</strong>
+                  <h6 class="modal_rubro">Fichas técnicas de los indicadores 2018</h6>
+              </div>
+              <div class="modal-footer">
+                <a class=" waves-effect btn green lighten-1 btn-recomendation-complete">Marcar como completada</a>
+                <a class="modal-close waves-effect btn red lighten-1  ">Cerrar</a>
+              </div>
+            </div>
+
+            <!-- Modal para mostrar el informe de la evaluación realizada -->
+            <div id="modal1" class="modal modal-informe-evaluacion">
+              <div class="modal-content">
+                <embed class="documento-informe-evaluacion" src="Resource/files/Formato de posicionamiento_2019.pdf" type="application/pdf"/>
+              </div>
+              <div class="modal-footer">
+                <a class="modal-close waves-effect grey btn">Cerrar</a>
+              </div>
+            </div>
+
+            <!-- Modal confirmación eliminar documento-->
+            <div id="modal-confirm-delete-document" class="modal">
+              <div class="modal-content">
+                <div class="content-image-modal">
+                  <img class="img-alert center-align" src="Resource/files/images/alert.png">
+                </div>
+                <h5 class="text-confirm-delete">¿Está seguro de eliminar este documento?</h5>
+              </div>
+              <div class="modal-footer">
+                <a class="modal-close waves-effect red lighten-2 btn btn-confirm-delete">Aceptar</a>
+                <a class="modal-close waves-effect blue lighten-3 btn">Cancelar</a>
+              </div>
+            </div>
+
+            <!-- Modal subir documento-->
+            <div id="modal-upload-document" class="modal modal-fixed-footer">
+              <div class="modal-content">
+
+                <h5 class="">Seleccione un documento</h5><br><br>
+
+                <div class="row">
+                    <div class="col l2 m2 s2">
+                      
+                      <div class="file-field input-field field-upload-document">
+                          <div class="btn btn-rounded blue darken-3" data-position="bottom" data-tooltip="Seleccionar documento">
+                            <span><i class="material-icons">cloud_upload</i></span>
+                            <input type="file" class="form-control-update-file" name="doc" id="fileDoc"> 
+                          </div>
+                          <div class="file-path-wrapper">
+                            <input class="file-path validate file-path-input-hide" type="text">
+                          </div>
+                      </div>
+
+                    </div>
+                    
+                    <div class="input-field col l7 m7 s7">
+                      <input disabled placeholder="Nombre" id="txtNameFile" type="text" class="validate">
+                      <label class="lblNameFile" for="txtNameFile">Nombre del archivo</label>
+                    </div>
+
+                    <div class="input-field col l3 m3 s3">
+                      <input disabled placeholder="Extensión" id="txtExtension" type="text" class="validate center-align">
+                      <label for="first_name">Extensión</label>
+                    </div>
+                </div>
+
+              </div>
+              <div class="modal-footer">
+                <a class="waves-effect blue darken-2 btn btn-load-doc-server btn-rounded">Subir documento</a>
+                <a class="modal-close waves-effect grey btn btn-rounded">Cancelar</a>
+              </div>
+            </div>
+
+            <!-- modal-new-recomendation-document -->
+            <div id="modal-show-document" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                  <div class="show-pdf-document">
+                    <embed class="pdf-generated" src="Resource\files\Informacion_y_Opinion_General.pdf" type="application/pdf" />
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <a class="modal-close waves-effect grey btn btn-rounded">Cerrar</a>
+              </div>
+            </div>
+
+            <!-- Modal confirmación eliminar documento-->
+            <div id="modal-confirm-delete-document-recomendation" class="modal modal-fixed-footer">
+
+              <div class="modal-content">
+                <div class="content-image-modal">
+                  <img class="img-alert center-align" src="Resource/files/images/alert.png">
+                </div>
+                <h5 class="text-confirm-delete">¿Está seguro de eliminar esta recomendación?</h5>
+                <p class="idDocumentProject"></p> 
+                <p class="idRecomendationDocumentProject"></p>
+              </div>
+
+              <div class="modal-footer">
+                <a class="modal-close waves-effect red darken-3 btn btn-confirm-delete-doc-recomendation">Aceptar</a>
+                <a class="modal-close waves-effect blue darken-2 btn">Cancelar</a>
+              </div>
+            </div>
+
+            <!-- modal-edit-recomendation-document -->
+            <div id="modal-edit-asm-document" class="modal modal-fixed-footer">
+              <div class="modal-content">
+
+                <h5 class="">Recomendación seleccionada</h5><br><br>
+
+                <div class="row">
+                    <p class="idDocumentProject_Modify"></p>
+                    <p class="idRecomendationDocumentProject_Modify"></p>
+                    
+                    <div class="col l4 m4 s4">
+                        <div class="row">
+
+                          <div class="col input-field l12 m12 s12">
+                              <input disabled placeholder=" " id="txt-NumDocRecomendation_modify" type="text" class="validate center-align">
+                              <label>No.</label>
+                          </div>
+
+                          <div class="col l12 m12 s12">
+                            <label>Recomendación atendida</label> <br><br>
+                            <div class="switch">
+                              <label>
+                                No
+                                <input id="CBoxRecomendacionAtendida" type="checkbox">
+                                <span class="lever"></span>
+                                Si
+                              </label>
+                            </div>
+                          </div>
+
+                        </div>
+                    </div>
+                    
+                    <div class="input-field col l8 m8 s8">
+                      <textarea id="txt-doc-ASM_modify" class="materialize-textarea" placeholder="Aspecto Susceptible de Mejora"></textarea>
+                      <label class="lblDocASM">Aspecto Susceptible de Mejora</label>
+                    </div>
+                </div>
+
+              </div>
+              <div class="modal-footer">
+                <a class="waves-effect yellow darken-3 btn btn-modify-document-recomendation btn-rounded">Guardar recomendación</a>
+                <a class="modal-close waves-effect grey btn btn-rounded">Cancelar</a>
+              </div>
+            </div>
+
+            <!-- Modal modificar documento-->
+            <div id="modal-edit-document" class="modal modal-fixed-footer">
+              <div class="modal-content">
+
+                <h5 class="">Edite el documento seleccionado</h5><br><br>
+
+                <div class="row">
+                  <!--
+                    <div class="col l2 m2 s2">
+                      <div class="file-field input-field field-upload-document">
+                          <div class="btn btn-rounded yellow darken-3 tooltipped" data-position="bottom" data-tooltip="Cambiar documento">
+                            <span><i class="material-icons">cloud_upload</i></span>
+                            <input type="file" class="form-control-file" name="doc" id="fileUpdateDoc"> 
+                          </div>
+                          <div class="file-path-wrapper">
+                            <input class="file-path validate file-path-input-hide" type="text">
+                          </div>
+                      </div>
+                    </div>
+                    -->
+
+                    <div class="input-field col l6 m6 s6">
+                      <input placeholder="Nombre" id="txt-EditNameFile" type="text" class="validate">
+                      <label id="iddoc_modify_modal"></label>
+                      <label class="lblNameFile" for="txt-EditNameFile">Nombre del archivo</label>
+                    </div>
+
+                    <div class="input-field col l2 m2 s2">
+                      <input disabled placeholder="Extensión" id="txt-EditExtension" type="text" class="validate center-align">
+                      <label for="first_name">Extensión</label>
+                    </div>
+
+                    <div class="col l4 m4 s4">
+                        <label>Estado del documento</label>
+                        <select id="select-estatus-document" class="browser-default">
+                          <option value="" disabled selected>Selecciona una opción</option>
+                          <option value="1">Nuevo</option>
+                          <option value="2">Aprobado</option>
+                          <option value="3">En revisión</option>
+                          <option value="4">Con recomendaciones</option>
+                        </select>
+                    </div>
+
+                </div>
+
+              </div>
+              <div class="modal-footer">
+                <a class="waves-effect yellow darken-2 btn btn-modify-document btn-rounded">Actualizar documento</a>
+                <a class="modal-close waves-effect grey btn btn-rounded">Cancelar</a>
+              </div>
+            </div>
+
+            <!-- Modal eliminar documento-->
+            <div id="modal-delete-document" class="modal modal-fixed-footer">
+              <div class="modal-content">
+
+                <span id="iddoc_modal"></span>
+                <h5 class="">¿Está seguro de borrar el documento <span class="name-delete-file"></span> de su proyecto? </h5><br><br>
+
+              </div>
+              <div class="modal-footer">
+                <a class="waves-effect red darken-2 btn btn-delete-project-document btn-rounded">Borrar documento</a>
+                <a class="modal-close waves-effect grey btn btn-rounded">Cancelar</a>
+              </div>
+            </div>
+
+        <!-- Moment JS library 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/locale/es.js"></script>-->
+        
+        <!-- JQuery library -->
+        <script src="Resource/jQuery/jquery-3.2.1.min.js"></script>
+
+        <!-- Materialize CSS Framework -->
+        <script src="Resource/Materialize/materialize.min.js"></script>
+
+        <!-- Scripts of JS -->
+        <script src="Resource/js/home_epp.js"></script>
+</body>
+</html>
+
