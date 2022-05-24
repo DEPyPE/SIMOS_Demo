@@ -20,7 +20,7 @@
                     <a href="#" class="brand-logo white-text"> <img class="seg-logo left" src="Resource/files/images/seg-logo.jpeg"> <strong class="main-title-project truncate">SIMOS </strong> </a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="index.php" class="close-session"><i class="material-icons left icon-exit-session">exit_to_app</i>Cerrar sesión</a></li>
+                        <li><a href="index.html" class="close-session"><i class="material-icons left icon-exit-session">exit_to_app</i>Cerrar sesión</a></li>
                     </ul>
                 </div>
                 <div class="col l1"></div>
@@ -32,10 +32,10 @@
                 <div class="col l1"></div>
                 <div class="col l10">
                     <ul class="tabs tabs-transparent">
-                        <li class="tab"><a class="active" href="#general_information">Información general</a></li>
-                        <li class="tab"><a href="#opinion_general">Posicionamiento</a></li>
-                        <li class="tab"><a href="#plan_de_mejora">Plan de mejora y monitoreo</a></li>
-                        <li class="tab"><a href="#documents">Formalización</a></li>
+                        <li class="tab"><a href="#general_information">Información general <i class="material-icons right">check</i></a></li>
+                        <li class="tab"><a class="active" href="#opinion_general">Posicionamiento <i class="material-icons right">autorenew</i> </a></li>
+                        <li class="tab"><a href="#plan_de_mejora">Plan de mejora y monitoreo <i class="material-icons right">schedule</i> </a></li>
+                        <li class="tab"><a href="#documents">Formalización <i class="material-icons right">schedule</i> </a></li>
                     </ul>
                 </div>
                 <div class="col l1"></div>
@@ -219,24 +219,20 @@
                               <input placeholder="Reponsable del proyecto" id="txtResponsable" type="text" class="validate">
                           </div>
                       </div>
-
-                      <div class="col l4 m4 s4">
-                          <h6><strong>Verifica que la información sea correcta</strong></h6>
-                          <p>
-                            <label>
-                              <input class="ValidateInformationProjectCheckbox" type="checkbox" />
-                              <span>Validar información</span>
-                            </label>
-                          </p>
-                      </div>
-
-
                   </div>
 
               </div>
 
-              <div class="modal-footer">
-                <a class="btn-small waves-effect blue darken-2 btn-save-project-information">Guardar información</a>
+              <div class="modal-footer modal-footer-val-info-project">
+                <div class="validate-information-container-infoproject">
+                  <p>
+                    <label>
+                      <input class="ValidateInformationProjectCheckbox" type="checkbox" />
+                      <span>Validar información</span>
+                    </label>
+                  </p>
+                </div>
+
                 <a class="btn-small waves-effect yellow darken-3 btn-update-project-information">Actualizar información</a>
                 <a class="btn-small waves-effect grey lighten-1 modal-close">Cancelar</a>
               </div>
@@ -298,22 +294,18 @@
                           </div>
                       </div>
                   </div>
-
-                  <div class="row m-b0">
-                      <div class="col l4 m4 s4">
-                          <h6><strong>Verifica que la información sea correcta</strong></h6>
-                          <p>
-                            <label>
-                              <input class="ValidateInformationEvaluationCheckbox" type="checkbox" />
-                              <span>Validar información</span>
-                            </label>
-                          </p>
-                      </div>
-                  </div>
-
               </div>
 
-              <div class="modal-footer">
+              <div class="modal-footer modal-footer-val-info-eval">
+                <div class="validate-information-container-infoeval">
+                  <p>
+                    <label>
+                      <input class="ValidateInformationEvaluationCheckbox" type="checkbox" />
+                      <span>Validar información</span>
+                    </label>
+                  </p>
+                </div>
+
                 <a class="btn-small waves-effect blue darken-2   btn-insert-evaluation-information">Agregar información</a>
                 <a class="btn-small waves-effect yellow darken-3 btn-update-evaluation-information">Actualizar información</a>
                 <a class="btn-small waves-effect grey lighten-1 modal-close">Cancelar</a>
@@ -333,25 +325,14 @@
                       <span class="card-title card-title-comments">
                         <strong>
                           <h4 class="title-general-comments">
-                            Comentarios y observaciones generales
-                            <a class="btn-floating btn-small btn-add-opinion-general waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar comentarios y observaciones <br> generales y específicos por tema" href="#ModalAddOpinionGeneral"><i class="material-icons">add</i></a>
-                            <a class="btn-floating btn-small btn-edit-general-comments waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar los comentarios <br> y observaciones generales" href="#ModalModifyGeneralSpecificComments"><i class="material-icons">edit</i></a>
+                            Opinión general
+                            <a class="btn-floating btn-small btn-edit-general-comments waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar la opinión general" href="#ModalModifyGeneralComments"><i class="material-icons">edit</i></a>
                           </h4>
                         </strong>
                       </span>
                       <!-- <a class="btn-floating btn-small right orange"><i class="material-icons">edit</i></a>-->
                       <textarea disabled id="ComentariosObservacionesGenerales" class="materialize-textarea"></textarea>
                       <h6 class="OG_SinInfo">Sin información registrada</h6>
-
-                      <br><br>
-                      <ul class="collapsible">
-                        <li>
-                          <div class="collapsible-header"><i class="material-icons">expand_more</i>Observaciones por antender</div>
-                          <div class="collapsible-body">
-                              <div class="collection collection-messages-general-comments"> </div>
-                          </div>
-                        </li>
-                      </ul>
                     </div>
 
                   </div>
@@ -372,12 +353,15 @@
                           <strong>
                             <h4 class="title-specific-comments">
                                 <strong>Comentarios y observaciones específicos por tema</strong>
+                                <a class="btn-floating btn-small btn-edit-specific-comments-title waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar el titulo de la sección" href="#ModalModifyGeneralSpecificComments_Titulo"><i class="material-icons">edit</i></a>
                             </h4>
                           </strong>
                         </span>
                         <br>
 
-                        <table class="highlight">
+                        <textarea disabled id="ComentariosObservacionesEspecificosPorTema_Titulo" class="materialize-textarea"></textarea>
+
+                        <table class="highlight table-observaciones-especificas">
                           <thead>
                             <tr>
                                 <th class="table-ApartadoEvaluacion">Apartado de la evaluación</th>
@@ -387,11 +371,12 @@
                             </tr>
                           </thead>
 
-                          <tbody class="">
+                          <tbody class="Table_TemasComentariosPorTema">
+                            <!--
                               <td>Diseño</td>
                               <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos veniam quaerat voluptate consequuntur magnam recusandae repellat eum voluptatem, nostrum, id fugiat quae? Minus dolor in unde ad voluptates sint nulla. </td>
                               <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae nam obcaecati labore ipsam suscipit aperiam iusto ex, sunt dolore a?</td>
-                              <td><a class="btn-floating btn-small btn-edit-specific-comments waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar" href="#ModalModifyGeneralSpecificComments"><i class="material-icons">edit</i></a></td>
+                              <td><a class="btn-floating btn-small btn-edit-specific-comments waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar" href="#ModalModifyGeneralComments"><i class="material-icons">edit</i></a></td>-->
                           </tbody>
                         </table>
 
@@ -470,18 +455,18 @@
               </div>
             </div>
 
-            <!-- MODAL PARA MODIFICAR LA INFORMACIÓN SOBRE LOS COMENTARIOS GENERALES Y ESPECÍFICOS -->
-            <div id="ModalModifyGeneralSpecificComments" class="modal modal-add-opinion-general modal-fixed-footer">
+            <!-- MODAL PARA MODIFICAR LA INFORMACIÓN SOBRE LOS COMENTARIOS GENERALES -->
+            <div id="ModalModifyGeneralComments" class="modal modal-add-opinion-general modal-fixed-footer">
               <div class="modal-content">
                 
                   <!--<h5 class="title-modal-add-project-info">Información de la opinión general </h5>-->
                   
                   <div class="row m-b0">                
                       <div class="col l12 m12 s12">
-                          <h4><strong>Comentarios y observaciones generales:</strong></h4>
+                          <h4><strong>Opinión general:</strong></h4>
 
                           <div class="input-field">
-                              <textarea id="txtComentarios" class="materialize-textarea" placeholder="Comentarios y observaciones generales"></textarea>
+                              <textarea id="txtComentariosGenerales" class="materialize-textarea" placeholder="Comentarios y observaciones generales"></textarea>
                           </div>
                       </div>
                   </div>
@@ -490,7 +475,61 @@
 
               <div class="modal-footer">
                 <a href="#!" class="btn-small waves-effect yellow darken-2 btn-modify-general-comments">Modificar información</a>
-                <a href="#!" class="btn-small waves-effect yellow darken-2 btn-modify-specific-comments">Modificar información</a>
+                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
+              </div>
+            </div>
+
+            <!-- MODAL PARA MODIFICAR LA INFORMACIÓN DEL TITULO DE LOS COMENTARIOS ESPECIFICOS POR TEMA -->
+            <div id="ModalModifyGeneralSpecificComments_Titulo" class="modal modal-add-opinion-general modal-fixed-footer">
+              <div class="modal-content">
+                
+                  <!--<h5 class="title-modal-add-project-info">Información de la opinión general </h5>-->
+                  
+                  <div class="row m-b0">                
+                      <div class="col l12 m12 s12">
+                          <h4><strong>Comentarios y observaciones específicos por tema</strong></h4>
+
+                          <div class="input-field">
+                              <textarea id="txtComentariosPorTemaTitulo" class="materialize-textarea" placeholder="Comentarios y observaciones específicos por tema"></textarea>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+
+              <div class="modal-footer">
+                <a href="#!" class="btn-small waves-effect yellow darken-2 btn-modify-portema-titulo">Modificar información</a>
+                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
+              </div>
+            </div>
+
+            <!-- MODAL PARA MODIFICAR UN TEMA EN ESPECÍFICO Y SU INFORMACIÓN -->
+            <div id="ModalModifyDataTheme" class="modal modal-add-opinion-general modal-fixed-footer">
+              <div class="modal-content">
+                  
+                  <div class="row m-b0">              
+                      <div class="col l12 m12 s12">
+                          <h5>Título del tema:</h5>
+                          <div class="input-field">
+                            <textarea id="txtModalTituloTema" class="materialize-textarea"></textarea>
+                          </div>
+                          
+                          <h5>Contenido del tema:</h5>
+                          <div class="input-field">
+                              <textarea id="txtModalContenidoTema" class="materialize-textarea"></textarea>
+                          </div>
+
+                          <h5>Observación del validador:</h5>
+                          <div class="input-field">
+                              <textarea id="txtModalContenidoTema" class="materialize-textarea"></textarea>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+
+              <div class="modal-footer">
+                <a href="#!" class="btn-small waves-effect yellow darken-2 btn-modify-portema-titulo">Modificar información</a>
                 <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
               </div>
             </div>
@@ -1087,7 +1126,7 @@
         <script src="Resource/Materialize/materialize.min.js"></script>
 
         <!-- Scripts of JS -->
-        <script src="Resource/js/home_epp.js"></script>
+        <script src="Resource/js/home_adm.js"></script>
 </body>
 </html>
 

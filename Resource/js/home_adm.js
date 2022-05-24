@@ -1,8 +1,11 @@
 
-//var UserData    = JSON.parse( localStorage.getItem("UserData") );
-//var ProjectInfo = JSON.parse( localStorage.getItem("ProjectInfo") );
-
-var 
+var UserData                    = JSON.parse( localStorage.getItem("UserData")                  );
+var ProjectInfo                 = JSON.parse( localStorage.getItem("ProjectInfo")               ); 
+var FTProyecto                  = JSON.parse( localStorage.getItem("FTProyecto")                );
+var FTEvaluacion                = JSON.parse( localStorage.getItem("FTEvaluacion")              );
+var OpinionGeneral              = JSON.parse( localStorage.getItem("GeneralOpinion")            );
+var ComentariosPorTema          = JSON.parse( localStorage.getItem("ComentariosPorTema")        );
+var TemasComentariosPorTema     = JSON.parse( localStorage.getItem("TemasComentariosPorTema")   );
 
 function ShowInformationProject(){
 
@@ -10,7 +13,7 @@ function ShowInformationProject(){
     Read_FTEvaluation();
     Read_OpinionGeneral();
     Read_Recomendaciones();
-    Read_ProjectDocuments();
+    //Read_ProjectDocuments();
 
     var FichaTecnicaProyecto    = JSON.parse( localStorage.getItem("FichaTecnicaProyecto"   ));
     var FichaTecnicaEvaluacion  = JSON.parse( localStorage.getItem("FichaTecnicaEvaluacion" ));
@@ -30,38 +33,29 @@ $(function(){
     $('.tooltipped').tooltip();
     $('.datepicker').datepicker();
     $('select').formSelect();
-  
-/*
-    //$('#modal-upload-document').modal('open');
-    $('body .btn-document-viewer').addClass('tooltipped');
-    $('body .btn-document-viewer').attr('data-position', 'bottom');
-    $('body .btn-document-viewer').attr('data-tooltip', 'Ver documento');
-*/
 
     Read_ProjectData();
     Read_FTEvaluation();
     Read_OpinionGeneral();
+    Read_ComentariosEspecificosPorTema();
+    Read_TemasComentariosPorTema();
+
+
     Read_Recomendaciones();
-    Read_ProjectDocuments();
+    //Read_ProjectDocuments();
     Read_GeneralCommentRecomendation();
-    
-    console.log( 'Ready!' );
 });
 
 // *****   FICHA TÉCNICA DEL PROYECTO   ******
-// * * * * Funciones CRUD y eventos
+// * * * * Funciones CRUD y eventos:
 // * * (C) Create
 // * * (R) Read
 // * * (U) Update
 
-$('.ValidateInformationCheckbox').on('click', function(){
-    console.log( $('.ValidateInformationProjectCheckbox').prop('checked') );
-});
-
-function UpdateView_FTProject(FichaTecnicaProyecto){
+function UpdateView_FTProject(){
     //console.log( "Ficha técnica del proyecto => ",  FichaTecnicaProyecto );
 
-    if( FichaTecnicaProyecto.Status == "Correct" ){
+    if( FTProyecto.Status == "Correct" ){
         $('.btn-add-project-information').hide();
         $('.btn-edit-project-information').show();
         $('.btn-save-project-information').hide();
@@ -69,9 +63,7 @@ function UpdateView_FTProject(FichaTecnicaProyecto){
         $('.table-ficha-tecnica-proyecto').show();
         $('.NoFTProjectInformation').hide();
 
-        console.log(FichaTecnicaProyecto.ValidacionInfo);
-
-        if( FichaTecnicaProyecto.ValidacionInfo == 0 ){
+        if( FTProyecto.ValidacionInfo == 0 ){
             $('.validation-ft-programa').hide();
             $('.btn-edit-project-information').show();
         }else{
@@ -79,15 +71,15 @@ function UpdateView_FTProject(FichaTecnicaProyecto){
             $('.btn-edit-project-information').hide();
         }
 
-        $('.main-title-project').text( 'SIMOS / '+FichaTecnicaProyecto.ClaveProyecto);
-        $('.NombreProyecto').text( FichaTecnicaProyecto.NombreProyecto );
-        $('.ClaveProyecto').text( FichaTecnicaProyecto.ClaveProyecto );
-        $('.DependenciaProyecto').text( FichaTecnicaProyecto.DependenciaDelProyecto );
-        $('.SiglasDependencia').text( FichaTecnicaProyecto.SiglasDependenciaProyecto );
-        $('.UnidadResponsable').text( FichaTecnicaProyecto.UnidadResponsable );
-        $('.SiglasUnidadResponsable').text( FichaTecnicaProyecto.SiglasUnidadResponsable );
-        $('.NombreResponsable').text( FichaTecnicaProyecto.NombreResponsable );
-    }else if( FichaTecnicaProyecto.Status == "Sin resultados" ){
+        $('.main-title-project').text( 'SIMOS / '+FTProyecto.ClaveProyecto);
+        $('.NombreProyecto').text( FTProyecto.NombreProyecto );
+        $('.ClaveProyecto').text( FTProyecto.ClaveProyecto );
+        $('.DependenciaProyecto').text( FTProyecto.DependenciaDelProyecto );
+        $('.SiglasDependencia').text( FTProyecto.SiglasDependenciaProyecto );
+        $('.UnidadResponsable').text( FTProyecto.UnidadResponsable );
+        $('.SiglasUnidadResponsable').text( FTProyecto.SiglasUnidadResponsable );
+        $('.NombreResponsable').text( FTProyecto.NombreResponsable );
+    }else if( FTProyecto.Status == "Sin resultados" ){
         $('.table-ficha-tecnica-proyecto').hide();
         $('.NoFTProjectInformation').show();
         $('.validation-ft-programa').hide();
@@ -101,74 +93,30 @@ function UpdateView_FTProject(FichaTecnicaProyecto){
     }else{
         M.toast({html: 'Error al mostrar la ficha técnica \n del proyecto. Err. 0001', classes: 'red lighten-1 rounded'});
     }
+
+    $('.ValidateInformationProjectCheckbox').prop('checked')
 }
 
-function Create_ProjectData(ProjectData){    
-    var TypeQry = "InsertProjectInfo";
-
-    $.post('Controller/HomeEPP_CreateController.php', {ProjectInfo: ProjectData, TypeData: TypeQry}, function(DataRcv){
-        var Data = JSON.parse( DataRcv );
-
-        if( Data.Status == "Correct" ){
-            localStorage.setItem('FichaTecnicaProyecto', JSON.stringify(ProjectData));
-            $('#ModalAddModifyTechnicalProjectInfo').modal('close');
-            ProjectData.Status = "Correct";
-
-            M.toast({html: 'Datos guardados correctamente', classes: 'green darken-2 rounded'});
-            UpdateView_FTProject(ProjectData);
-        }
-    });
+function Create_ProjectData(ProjectData){
+    // ASIGNAR DATOS AL OBJETO
 }
 
 function Read_ProjectData(){
-    var TypDat = "TechnicalInformationProject";
-    var ID_Project = ProjectInfo.ID_ProgramaProyecto;
-
-    $.post("Controller/HomeEPP_ReadController.php", {ID: ID_Project, TypeData: TypDat}, function( DataTechProject ){
-        FichaTecnicaProyecto = JSON.parse( DataTechProject );
-        localStorage.setItem("FichaTecnicaProyecto", JSON.stringify(FichaTecnicaProyecto) );
-
-        UpdateView_FTProject(FichaTecnicaProyecto);
-    });
+    UpdateView_FTProject();
 }
 
-function Update_ProjectData( ProjectData ){
-    var TypeQry = "UpdateProjectInfo";
+function Update_ProjectData(){
+    FTProyecto.NombreProyecto = $('#txtNombreProyecto').val();
+    FTProyecto.ClaveProyecto = $('#txtClaveProyecto').val();
+    FTProyecto.DependenciaDelProyecto = $('#txtDepen').val();
+    FTProyecto.SiglasDependenciaProyecto = $('#txtSiglasDependencia').val();
+    FTProyecto.UnidadResponsable = $('#txtUR').val();
+    FTProyecto.SiglasUnidadResponsable = $('#txtSiglasUR').val();
+    FTProyecto.NombreResponsable = $('#txtResponsable').val();
+    FTProyecto.ValidacionInfo = $('.ValidateInformationProjectCheckbox').prop('checked');
 
-    $.post('Controller/HomeEPP_UpdateController.php', {Data: ProjectData, TypeData: TypeQry}, function(DataRcv){
-        console.log(DataRcv);
-        var Data = JSON.parse( DataRcv );
-
-        if( Data.Status == "Correct" ){
-            localStorage.setItem('FichaTecnicaProyecto', JSON.stringify(ProjectData));
-            $('#ModalAddModifyTechnicalProjectInfo').modal('close');
-            ProjectData.Status = "Correct";
-
-            M.toast({html: 'Datos actualizados correctamente', classes: 'green darken-2 rounded'});
-            UpdateView_FTProject(ProjectData);
-        }else if( Data.Status == "Error" ){
-            M.toast({html: 'Error en el servidor.', classes: 'red darken-2 rounded'});
-        }else{
-            M.toast({html: 'Error. Agregue los datos correctamente <br> en su respectivo campo.', classes: 'green darken-2 rounded'});
-        }
-
-    });
-}
-
-function ReadForm_ProjectData(){
-    var ProjectData = { 
-        ID_Project: ProjectInfo.ID_ProgramaProyecto,
-        NombreProyecto: $('#txtNombreProyecto').val(),
-        ClaveProyecto: $('#txtClaveProyecto').val(),
-        DependenciaDelProyecto: $('#txtDepen').val(),
-        SiglasDependenciaProyecto: $('#txtSiglasDependencia').val(),
-        UnidadResponsable: $('#txtUR').val(),
-        SiglasUnidadResponsable: $('#txtSiglasUR').val(),
-        NombreResponsable: $('#txtResponsable').val(),
-        ValidacionInfo: $('.ValidateInformationProjectCheckbox').prop('checked')
-    }
-
-    return ProjectData;
+    localStorage.setItem('FTProyecto', JSON.stringify(FTProyecto) );
+    UpdateView_FTProject();
 }
 
 $('.btn-save-project-information').on('click', function(){
@@ -177,33 +125,28 @@ $('.btn-save-project-information').on('click', function(){
 });
 
 $('.btn-update-project-information').on('click', function(){
-    var ProjectData = ReadForm_ProjectData();
-    Update_ProjectData( ProjectData );
+    Update_ProjectData();
+    $('#ModalAddModifyTechnicalProjectInfo').modal('close');
 });
 
 $('.btn-edit-project-information').on('click', function(){
-    var FT_Project = JSON.parse( localStorage.getItem("FichaTecnicaProyecto"));
-
-    $('#txtNombreProyecto').val( FT_Project.NombreProyecto ),
-    $('#txtClaveProyecto').val( FT_Project.ClaveProyecto ),
-    $('#txtDepen').val( FT_Project.DependenciaDelProyecto ),
-    $('#txtSiglasDependencia').val( FT_Project.SiglasDependenciaProyecto ),
-    $('#txtUR').val( FT_Project.UnidadResponsable ),
-    $('#txtSiglasUR').val( FT_Project.SiglasUnidadResponsable ),
-    $('#txtResponsable').val( FT_Project.NombreResponsable )
+    $('#txtNombreProyecto').val( FTProyecto.NombreProyecto ),
+    $('#txtClaveProyecto').val( FTProyecto.ClaveProyecto ),
+    $('#txtDepen').val( FTProyecto.DependenciaDelProyecto ),
+    $('#txtSiglasDependencia').val( FTProyecto.SiglasDependenciaProyecto ),
+    $('#txtUR').val( FTProyecto.UnidadResponsable ),
+    $('#txtSiglasUR').val( FTProyecto.SiglasUnidadResponsable ),
+    $('#txtResponsable').val( FTProyecto.NombreResponsable )
 });
 
-
 // *****   FICHA TÉCNICA DE LA EVALUACIÓN   ******
-// * * * * Funciones CRUD y eventos
+// * * * * Funciones CRUD y eventos:
 // * * (C) Create
 // * * (R) Read
 // * * (U) Update
 
-function UpdateView_FTEvaluation(FichaTecnicaEvaluacion){
-    //console.log( "Ficha técnica de la evaluacion => ", FichaTecnicaEvaluacion );
-
-    if( FichaTecnicaEvaluacion.Status == "Correct" ){
+function UpdateView_FTEvaluation(){
+    if( FTEvaluacion.Status == "Correct" ){
         $('.table-evaluation').show();
         $('.NoFTEvaluationInformation').hide();
         
@@ -212,9 +155,7 @@ function UpdateView_FTEvaluation(FichaTecnicaEvaluacion){
         $('.btn-insert-evaluation-information').hide();
         $('.btn-update-evaluation-information').show();
 
-        console.log(FichaTecnicaEvaluacion.ValidacionInfo);
-
-        if( FichaTecnicaEvaluacion.ValidacionInfo == 0 ){
+        if( FTEvaluacion.ValidacionInfo == 0 ){
             $('.validation-ft-evaluation').hide();
             $('.btn-edit-evaluation-information').show();
         }else{
@@ -222,13 +163,13 @@ function UpdateView_FTEvaluation(FichaTecnicaEvaluacion){
             $('.btn-edit-evaluation-information').hide();
         }
         
-        $('.InstanciaEvaluadora').text( FichaTecnicaEvaluacion.InstanciaEvaluadora );
-        $('.NombreDeEvaluacion').text( FichaTecnicaEvaluacion.NombreDeEvaluacion );
-        $('.TipoEvaluacion').text( FichaTecnicaEvaluacion.TipoEvaluacion );
-        $('.AñoDeEvaluacion').text( FichaTecnicaEvaluacion.AñoDeEvaluacion );
-        $('.NombreDelInforme').text( FichaTecnicaEvaluacion.NombreDelInforme );
-        $('.CostoEvaluacion').text( '$'+FichaTecnicaEvaluacion.CostoEvaluacion );
-    }else if( FichaTecnicaEvaluacion.Status == "Sin resultados" ){
+        $('.InstanciaEvaluadora').text( FTEvaluacion.InstanciaEvaluadora );
+        $('.NombreDeEvaluacion').text( FTEvaluacion.NombreDeEvaluacion );
+        $('.TipoEvaluacion').text( FTEvaluacion.TipoEvaluacion );
+        $('.AñoDeEvaluacion').text( FTEvaluacion.AñoDeEvaluacion );
+        $('.NombreDelInforme').text( FTEvaluacion.NombreDelInforme );
+        $('.CostoEvaluacion').text( '$'+FTEvaluacion.CostoEvaluacion );
+    }else if( FTEvaluacion.Status == "Sin resultados" ){
         $('.table-evaluation').hide();
         $('.NoFTEvaluationInformation').show();
         $('.validation-ft-evaluation').hide();
@@ -242,93 +183,43 @@ function UpdateView_FTEvaluation(FichaTecnicaEvaluacion){
     }
 }
 
-function Create_EvaluationData(EvaluationData){
-    var TypeQry = "InsertEvaluationInfo";
-
-    $.post('Controller/HomeEPP_CreateController.php', {EvalData: EvaluationData, TypeData: TypeQry}, function(DataRcv){
-        var Data = JSON.parse( DataRcv );
-
-        if( Data.Status == "Correct" ){
-            localStorage.setItem('FichaTecnicaEvaluacion', JSON.stringify(EvaluationData) );
-            $('#ModalAddModifyTechnicalEvaluationInfo').modal('close');
-            EvaluationData.Status = "Correct";
-
-            M.toast({html: 'Datos guardados correctamente', classes: 'green darken-2 rounded'});
-            UpdateView_FTEvaluation(EvaluationData);
-        }else{
-            M.toast({html: 'Error al guardar los datos', classes: 'red rounded'});
-        }
-    });
+function Create_EvaluationData(){
+    // ASIGNAR A UN OBJETO LOS DATOS DEL FORMULARIO
 }
 
 function Read_FTEvaluation(){
-    var TypDat = "TechnicalInformationEvaluation";
-    var ID_Project = ProjectInfo.ID_ProgramaProyecto;
-
-    $.post("Controller/HomeEPP_ReadController.php", {ID: ID_Project, TypeData: TypDat}, function( DataTechEvaluator ){
-        FichaTecnicaEvaluacion = JSON.parse( DataTechEvaluator );
-        localStorage.setItem("FichaTecnicaEvaluacion", JSON.stringify(FichaTecnicaEvaluacion) );
-
-        UpdateView_FTEvaluation(FichaTecnicaEvaluacion);
-    });
+    UpdateView_FTEvaluation();
 }
 
-function Update_EvaluationData( EvaluationData ){
-    var TypeQry = "UpdateEvaluationInfo";
+function Update_EvaluationData(){
+    FTEvaluacion.InstanciaEvaluadora = $("#txtInstanciaEvaluadora").val();
+    FTEvaluacion.NombreDeEvaluacion = $("#txtNombreEvaluacion").val();
+    FTEvaluacion.TipoEvaluacion = $("#txtTipoEvaluacion").val();
+    FTEvaluacion.AñoDeEvaluacion = $("#txtYearEvaluation").val();
+    FTEvaluacion.NombreDelInforme = $("#txtNombreInforme").val();
+    FTEvaluacion.CostoEvaluacion = $("#txtCostoEvaluacion").val();
+    FTEvaluacion.ValidacionInfo = $('.ValidateInformationEvaluationCheckbox').prop('checked');
 
-    $.post('Controller/HomeEPP_UpdateController.php', {Data: EvaluationData, TypeData: TypeQry}, function(DataRcv){
-        var Data = JSON.parse( DataRcv );
-
-        if( Data.Status == "Correct" ){
-            localStorage.setItem('FichaTecnicaEvaluacion', JSON.stringify(EvaluationData));
-            $('#ModalAddModifyTechnicalEvaluationInfo').modal('close');
-            EvaluationData.Status = "Correct";
-
-            M.toast({html: 'Datos actualizados correctamente', classes: 'green darken-2 rounded'});
-            UpdateView_FTEvaluation(EvaluationData);
-        }else if( Data.Status == "Error" ){
-            M.toast({html: 'Error en el servidor.', classes: 'red darken-2 rounded'});
-        }else{
-            M.toast({html: 'Error. Agregue los datos correctamente <br> en su respectivo campo.', classes: 'green darken-2 rounded'});
-        }
-
-    });    
-}
-
-function ReadForm_EvaluationData(){
-    var EvaluationData = {
-        ID_Project: ProjectInfo.ID_ProgramaProyecto,
-        InstanciaEvaluadora: $("#txtInstanciaEvaluadora").val(),
-        NombreDeEvaluacion: $("#txtNombreEvaluacion").val(),
-        TipoEvaluacion: $("#txtTipoEvaluacion").val(),
-        AñoDeEvaluacion: $("#txtYearEvaluation").val(),
-        NombreDelInforme: $("#txtNombreInforme").val(),
-        CostoEvaluacion: $("#txtCostoEvaluacion").val(),
-        ValidacionInfo: $('.ValidateInformationEvaluationCheckbox').prop('checked')
-    }
-
-    return EvaluationData;
+    localStorage.setItem('FTEvaluacion', JSON.stringify(FTEvaluacion) );
+    UpdateView_FTEvaluation();
 }
 
 $('.btn-insert-evaluation-information').on('click', function(){
-    var EvaluationData = ReadForm_EvaluationData();
-    Create_EvaluationData( EvaluationData );
+    Create_EvaluationData();
 });
 
 $('.btn-update-evaluation-information').on('click', function(){
-    var EvaluationData = ReadForm_EvaluationData();
-    Update_EvaluationData( EvaluationData );
+    Update_EvaluationData();
+    $('#ModalAddModifyTechnicalEvaluationInfo').modal('close');
 });
 
 $('.btn-edit-evaluation-information').on('click', function(){
-    var FT_Evaluation = JSON.parse( localStorage.getItem("FichaTecnicaEvaluacion") );
-
-    $("#txtInstanciaEvaluadora").val( FT_Evaluation.InstanciaEvaluadora );
-    $("#txtNombreEvaluacion").val( FT_Evaluation.NombreDeEvaluacion );
-    $("#txtTipoEvaluacion").val( FT_Evaluation.TipoEvaluacion );
-    $("#txtYearEvaluation").val( FT_Evaluation.AñoDeEvaluacion );
-    $("#txtNombreInforme").val( FT_Evaluation.NombreDelInforme );
-    $("#txtCostoEvaluacion").val( FT_Evaluation.CostoEvaluacion );
+    $("#txtInstanciaEvaluadora").val( FTEvaluacion.InstanciaEvaluadora );
+    $("#txtNombreEvaluacion").val( FTEvaluacion.NombreDeEvaluacion );
+    $("#txtTipoEvaluacion").val( FTEvaluacion.TipoEvaluacion );
+    $("#txtYearEvaluation").val( FTEvaluacion.AñoDeEvaluacion );
+    $("#txtNombreInforme").val( FTEvaluacion.NombreDelInforme );
+    $("#txtCostoEvaluacion").val( FTEvaluacion.CostoEvaluacion );
 });
 
 
@@ -338,16 +229,11 @@ $('.btn-edit-evaluation-information').on('click', function(){
 // * * (R) Read
 // * * (U) Update
 
-function UpdateView_OpinionGeneral(OpinionGeneral){
+function UpdateView_OpinionGeneral(){
     if( OpinionGeneral.Status == "Correct" ){
         $('#ComentariosObservacionesGenerales').show();
-        $('.ComentariosObservacionesPorTema').show();
-
         $('#ComentariosObservacionesGenerales').val( OpinionGeneral.ComentariosObservacionesGenerales );
         M.textareaAutoResize($('#ComentariosObservacionesGenerales'));
-
-        $('.ComentariosObservacionesPorTema').val( OpinionGeneral.ComentariosObservacionesPorTema );
-        M.textareaAutoResize($('.ComentariosObservacionesPorTema'));
         
         $('.OG_SinInfo').css('display', 'none');
         
@@ -359,7 +245,67 @@ function UpdateView_OpinionGeneral(OpinionGeneral){
         $('.OG_SinInfo').css('display', 'block');
 
         $('#ComentariosObservacionesGenerales').hide();
-        $('.ComentariosObservacionesPorTema').hide();
+        $('.btn-add-opinion-general').show();
+        $('.btn-edit-general-comments').hide();
+        $('.btn-edit-specific-comments').hide();
+        $('.btn-insert-opinion-general').show();
+    }else{
+        M.toast({html: 'Error al mostrar la opinión general. Err. 0001', classes: 'red rounded'});
+    }
+}
+
+function Create_OpinionGeneral(OpinionForm){
+    UpdateView_OpinionGeneral();
+}
+
+function Read_OpinionGeneral(){
+    UpdateView_OpinionGeneral();
+}
+
+function Update_GeneralComments(){
+    OpinionGeneral.ComentariosObservacionesGenerales = $('#txtComentariosGenerales').val();
+    localStorage.setItem("GeneralOpinion", JSON.stringify(OpinionGeneral) );
+    
+    UpdateView_OpinionGeneral();
+}
+
+$('.btn-insert-opinion-general').on('click', function(){
+    Create_OpinionGeneral();
+});
+
+$('.btn-modify-general-comments').on('click', function(){   
+    $('#ModalModifyGeneralComments').modal('close');
+    Update_GeneralComments();
+});
+
+$('.btn-edit-general-comments').on('click', function(){
+     $('#txtComentariosGenerales').val( $('#ComentariosObservacionesGenerales').val() );
+     M.textareaAutoResize($('#txtComentariosGenerales'));
+});
+
+// *****   COMENTARIOS Y OBSERVACIONES ESPECÍFICOS POR TEMA   ******
+// * * * * Funciones CRUD y eventos
+// * * (C) Create
+// * * (R) Read
+// * * (U) Update
+
+function UpdateView_ComPorTema(){
+
+    if( ComentariosPorTema.Status == "Correct" ){
+        $('#ComentariosObservacionesEspecificosPorTema_Titulo').show();
+
+        $('#ComentariosObservacionesEspecificosPorTema_Titulo').val( ComentariosPorTema.ComentariosObservacionesPorTema );
+        M.textareaAutoResize($('#ComentariosObservacionesEspecificosPorTema_Titulo'));
+        
+        $('.OG_SinInfo').css('display', 'none');
+        
+        $('.btn-add-opinion-general').hide();
+        $('.btn-edit-general-comments').show();
+        $('.btn-edit-specific-comments').show();
+        $('.btn-insert-opinion-general').hide()
+    }else if( ComentariosPorTema.Status == "Sin resultados" ){
+        $('.OG_SinInfo').css('display', 'block');
+        $('.ComentariosObservacionesEspecificosPorTema_Titulo').hide();
 
         $('.btn-add-opinion-general').show();
         $('.btn-edit-general-comments').hide();
@@ -370,146 +316,74 @@ function UpdateView_OpinionGeneral(OpinionGeneral){
     }
 }
 
-function ReadForm_OpinionGeneral(){
-    var OpinionGeneral = {
-        ID_Project: ProjectInfo.ID_ProgramaProyecto,
-        ComentariosObservacionesGenerales: $('#txtObservacionesGenerales').val(),
-        ComentariosObservacionesPorTema: $('#txtPorTema').val()
-    }
-
-    return OpinionGeneral;
+function Read_ComentariosEspecificosPorTema(){
+    UpdateView_ComPorTema();
 }
 
-function Create_OpinionGeneral(OpinionForm){
-    var TypeQry = "InsertOpinionGeneral";
+function Update_ComentariosPorTema(){
+    ComentariosPorTema.ComentariosObservacionesPorTema = $('#txtComentariosPorTemaTitulo').val()
+    localStorage.setItem('ComentariosPorTema', ComentariosPorTema);
+    $('#ModalModifyGeneralSpecificComments_Titulo').modal('close');
 
-    $.post('Controller/HomeEPP_CreateController.php', {OpinionData: OpinionForm, TypeData: TypeQry}, function(DataRcv){
-        var Data = JSON.parse( DataRcv );
-
-        if( Data.Status == "Correct" ){
-            localStorage.setItem('OpinionGeneral', JSON.stringify(OpinionForm) );
-            $('#ModalAddOpinionGeneral').modal('close');
-            OpinionForm.Status = "Correct";
-
-            M.toast({html: 'Datos guardados correctamente', classes: 'green darken-2 rounded'});
-            UpdateView_OpinionGeneral(OpinionForm);
-        }else{
-            M.toast({html: 'Error al guardar los datos', classes: 'red rounded'});
-        }
-    });
+    UpdateView_ComPorTema();
 }
 
-function Read_OpinionGeneral(){
-    var TypDat = "OpinionGeneral";
-    var ID_Project = ProjectInfo.ID_ProgramaProyecto;
+$('.btn-edit-specific-comments-title').on('click', function(){
+    $('#txtComentariosPorTemaTitulo').val( $('#ComentariosObservacionesEspecificosPorTema_Titulo').val() );
+    M.textareaAutoResize($('#txtComentariosPorTemaTitulo'));
+});
 
-    $.post("Controller/HomeEPP_ReadController.php", {ID: ID_Project, TypeData: TypDat}, function( DataOpinionGeneral ){
-        OpinionGeneral = JSON.parse( DataOpinionGeneral );
-//        OpinionGeneral.ComentariosObservacionesGenerales = OpinionGeneral.ComentariosObservacionesGenerales.replace(/\n/g, '<br>');
-//        OpinionGeneral.ComentariosObservacionesPorTema = OpinionGeneral.ComentariosObservacionesPorTema.replace(/\n/g, '<br>');
+$('.btn-modify-portema-titulo').on('click', function(){
+    Update_ComentariosPorTema();
+});
 
-        localStorage.setItem("OpinionGeneral", JSON.stringify(OpinionGeneral) );
+// *****   TEMAS Y CONTENIDO DE LOS COMENTARIOS Y OBSERVACIONES ESPECÍFICOS POR TEMA   ******
+// * * * * Funciones CRUD y eventos
+// * * (C) Create
+// * * (R) Read
+// * * (U) Update
 
-        //console.log( "Opinión general => ", DataOG );
-        UpdateView_OpinionGeneral(OpinionGeneral);
-        UpdateView_GeneralCommentsRecomendation();
-    });
-}
-
-function Update_GeneralComments( GeneralComments ){
-    var TypeQry = "UpdateGeneralComments";
+function UpdateVIew_TemasComentariosPorTema(){
     
-    $.post('Controller/HomeEPP_UpdateController.php', {Data: GeneralComments, TypeData: TypeQry}, function(DataRcv){
-        var Data = JSON.parse( DataRcv );
+    if( TemasComentariosPorTema.Status == "Correct" ){
+        
+        var TextInner = "<tr>";
 
-        if( Data.Status == "Correct" ){
-            localStorage.setItem('OpinionGeneral', JSON.stringify(GeneralComments));
-            $('#ModalModifyGeneralSpecificComments').modal('close');
-            GeneralComments.Status = "Correct";
-
-            M.toast({html: 'Datos actualizados correctamente', classes: 'green darken-2 rounded'});
-            UpdateView_OpinionGeneral(GeneralComments);
-        }else if( Data.Status == "Error" ){
-            M.toast({html: 'Error en el servidor.', classes: 'red darken-2 rounded'});
-        }else{
-            M.toast({html: 'Error. Agregue los datos correctamente <br> en su respectivo campo.', classes: 'green darken-2 rounded'});
+        for(var i=0; i<TemasComentariosPorTema.Length; i++ ){
+            TextInner = TextInner + "<tr class='rowtable'>"+
+                                         "<td> <i class='hide-id-tema'>"+TemasComentariosPorTema[i].ID_TemaComentariosPorTema+"</i> <strong>"+TemasComentariosPorTema[i].TituloTema+"</strong></td>"+
+                                         "<td>"+TemasComentariosPorTema[i].TextoTema+"</td>"+
+                                         "<td></td><td></td>"+
+                                    "</tr>";
         }
 
-    });    
-}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-
-function Update_SpecificComments( SpecificComments ){
-    var TypeQry = "UpdateSpecificComments";
-    
-    $.post('Controller/HomeEPP_UpdateController.php', {Data: SpecificComments, TypeData: TypeQry}, function(DataRcv){
-        var Data = JSON.parse( DataRcv );
-
-        if( Data.Status == "Correct" ){
-            localStorage.setItem('OpinionGeneral', JSON.stringify(SpecificComments));
-            $('#ModalModifyGeneralSpecificComments').modal('close');
-            SpecificComments.Status = "Correct";
-
-            M.toast({html: 'Datos actualizados correctamente', classes: 'green darken-2 rounded'});
-            UpdateView_OpinionGeneral(SpecificComments);
-        }else if( Data.Status == "Error" ){
-            M.toast({html: 'Error en el servidor.', classes: 'red darken-2 rounded'});
-        }else{
-            M.toast({html: 'Error. Agregue los datos correctamente <br> en su respectivo campo.', classes: 'green darken-2 rounded'});
-        }
-
-    });
+        $('.Table_TemasComentariosPorTema').html( TextInner )
+        
+        console.log(  );
+        
+    }else if( TemasComentariosPorTema.Status == "Sin resultados" ){
+        
+    }else{
+        M.toast({html: 'Error al mostrar la opinión general. Err. 0001', classes: 'red rounded'});
+    }
 }
 
-$('.btn-insert-opinion-general').on('click', function(){
-    var OpinionGeneral = ReadForm_OpinionGeneral();
-    Create_OpinionGeneral( OpinionGeneral );
-});
+function Read_TemasComentariosPorTema(){
+    UpdateVIew_TemasComentariosPorTema();
+}
 
-$('.btn-modify-general-comments').on('click', function(){
-    var GeneralComments = {
-        ID_Project: ProjectInfo.ID_ProgramaProyecto,
-        ComentariosObservacionesGenerales: $('#txtComentarios').val(),
-        ComentariosObservacionesPorTema:   $('.ComentariosObservacionesPorTema').val()
-    }
+$('.table-observaciones-especificas').on('click', '.Table_TemasComentariosPorTema .rowtable', function(){
+    var id_tema = $(this).find('.hide-id-tema')[0].innerText;
+
+    $('#ModalModifyDataTheme').modal('open');
+    $('#txtModalTituloTema').val( TemasComentariosPorTema[id_tema-1].TituloTema );
+    M.textareaAutoResize($('#txtModalTituloTema'));
+
+    $('#txtModalContenidoTema').val( TemasComentariosPorTema[id_tema-1].TextoTema );
+    M.textareaAutoResize($('#txtModalContenidoTema'));
     
-    Update_GeneralComments(GeneralComments);
-});
-
-$('.btn-modify-specific-comments').on('click', function(){
-    var GeneralComments = {
-        ID_Project: ProjectInfo.ID_ProgramaProyecto,
-        ComentariosObservacionesGenerales: $('#ComentariosObservacionesGenerales').val(),
-        ComentariosObservacionesPorTema:   $('#txtComentarios').val()
-    }
-    
-    Update_GeneralComments(GeneralComments);
-});
-
-$('.btn-edit-opinion-general').on('click', function(){
-
-    $('#txtPorTema').val( OpinionGeneral.ComentariosObservacionesPorTema ) ;
-    M.textareaAutoResize($('#txtPorTema'));
-});
-
-$('.btn-edit-general-comments').on('click', function(){
-    var OpinionGeneral = JSON.parse( localStorage.getItem("OpinionGeneral") );
-
-    $('#txtComentarios').val( OpinionGeneral.ComentariosObservacionesGenerales );
-    M.textareaAutoResize($('#txtComentarios'));
-
-    $('.btn-modify-specific-comments').hide();
-    $('.btn-modify-general-comments').show();
-});
-
-$('.btn-edit-specific-comments').on('click', function(){
-    var OpinionGeneral = JSON.parse( localStorage.getItem("OpinionGeneral") );
-
-    $('#txtComentarios').val( OpinionGeneral.ComentariosObservacionesPorTema );
-    M.textareaAutoResize($('#txtComentarios'));
-
-    $('.btn-modify-specific-comments').show();
-    $('.btn-modify-general-comments').hide();
-});
+    console.log(  );
+})
 
 // *****   COMENTARIOS A LA OPINIÓN GENERAL   ******
 // * * * * Funciones CRUD y eventos
@@ -1035,7 +909,7 @@ function Create_ProjectDocument(){
                 success: function(response){
                     M.toast({html: 'Archivo subido correctamente', classes: 'green darken-2 rounded'});
                     
-                    Read_ProjectDocuments();
+                    //Read_ProjectDocuments();
 
                     $('#txtNameFile').val('');
                     $('#txtExtension').val('');
