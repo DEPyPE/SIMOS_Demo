@@ -32,10 +32,10 @@
                 <div class="col l1"></div>
                 <div class="col l10">
                     <ul class="tabs tabs-transparent">
-                        <li class="tab"><a href="#general_information">Información general <i class="material-icons right">check</i></a></li>
-                        <li class="tab"><a class="active" href="#opinion_general">Posicionamiento <i class="material-icons right">autorenew</i> </a></li>
-                        <li class="tab"><a href="#plan_de_mejora">Plan de mejora y monitoreo <i class="material-icons right">schedule</i> </a></li>
-                        <li class="tab"><a href="#documents">Formalización <i class="material-icons right">schedule</i> </a></li>
+                        <li class="tab"><a href="#general_information">Información general <i class="material-icons left">check</i></a></li>
+                        <li class="tab"><a class="active" href="#opinion_general">Posicionamiento <i class="material-icons left">check</i> </a></li>
+                        <li class="tab"><a href="#plan_de_mejora">Plan de mejora y monitoreo <i class="material-icons left">autorenew</i> </a></li>
+                        <li class="tab"><a href="#documents">Formalización <i class="material-icons left">schedule</i> </a></li>
                     </ul>
                 </div>
                 <div class="col l1"></div>
@@ -366,7 +366,7 @@
                             <tr>
                                 <th class="table-ApartadoEvaluacion">Apartado de la evaluación</th>
                                 <th class="table-ObservacionEspecifica">Observación específica</th>
-                                <th class="table-ObservacionAtender">Observación por atender</th>
+                                <th class="table-ObservacionAtender"></th>
                                 <th></th>
                             </tr>
                           </thead>
@@ -509,27 +509,39 @@
                   
                   <div class="row m-b0">              
                       <div class="col l12 m12 s12">
-                          <h5>Título del tema:</h5>
+                          <h5 class="modal-titleTheme">Título del tema</h5>
                           <div class="input-field">
                             <textarea id="txtModalTituloTema" class="materialize-textarea"></textarea>
                           </div>
                           
-                          <h5>Contenido del tema:</h5>
+                          <h5 class="modal-contentTheme">Contenido del tema</h5>
                           <div class="input-field">
                               <textarea id="txtModalContenidoTema" class="materialize-textarea"></textarea>
                           </div>
 
-                          <h5>Observación del validador:</h5>
-                          <div class="input-field">
-                              <textarea id="txtModalContenidoTema" class="materialize-textarea"></textarea>
+                          <div class="row">
+                              <div class="col l9">
+                                  <h5 class="title-ObservacionValidador">Observación del validador </h5>
+
+                                  <h6 class="NoValidatorComment"><br>Sin observaciones del validador</h6>
+                                  <div class="input-field InputFieldValidatorComment">
+                                      <textarea disabled id="txtModalObservacionValidador" class="materialize-textarea"></textarea>
+                                  </div>
+                                  <i class="estatus-observacion-enviada-container"> Estatus: <i class="status-observacion-enviada"></i> </i><br>
+
+                                  <a class="waves-effect waves-light btn btn-send-for-validation blue darken-3 ">Enviar para validación <i class="material-icons right">send</i></a>
+                                  <br>
+                              </div>
                           </div>
+
+                          <p class="id_observacion_modal"></p>
                       </div>
                   </div>
 
               </div>
 
               <div class="modal-footer">
-                <a href="#!" class="btn-small waves-effect yellow darken-2 btn-modify-portema-titulo">Modificar información</a>
+                <a href="#!" class="btn-small waves-effect yellow darken-2 btn-modify-tema-especifico">Modificar información</a>
                 <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
               </div>
             </div>

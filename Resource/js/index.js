@@ -71,25 +71,49 @@ var TemasComentariosPorTema =
         "ID_TemaComentariosPorTema": "1",
         "ID_ProgramaProyecto": "1",
         "TituloTema": "Contribución y destino",
-        "TextoTema": "Considerar la elaboración de un compendio normativo y acciones de Capacitación/difusión por parte de la SFIA al instituto y en lo particular al personal que interviene en los procesos de distribución de las aportaciones.- En la acción de mejora N°. 2, se plasma lo correspondiente al instituto."
+        "TextoTema": "Considerar la elaboración de un compendio normativo y acciones de Capacitación/difusión por parte de la SFIA al instituto y en lo particular al personal que interviene en los procesos de distribución de las aportaciones.- En la acción de mejora N°. 2, se plasma lo correspondiente al instituto.",
+        "Observaciones":  {
+            "Status": false,
+            "ObservacionTexto": "",
+            "IconState": "",
+            "ObservationState": ""
+        }
     },
     "1": {
         "ID_TemaComentariosPorTema": "2",
         "ID_ProgramaProyecto": "1",
         "TituloTema": "Procedimientos documentados de planeación de los recursos para la prestación de los servicios de educación tecnológica y de adultos",
-        "TextoTema": "Documentr y/o actualizar y hacer énfasis en las cartas proceso, donde se registren las etapas, responsables, flujogramas, instructivos y formatos de planeación, haciendo referencia a la correspondiente de FAETA.- El instituto cuenta con un Sistema de Gestión de la Calidad, bajo la norma ISO 9001-2015, con la cual se certificó los diversos procesos de operación del INAEBA, dichos procesos consideran la operación de recursos estatal y federal, según aplique. Considerar la viabilidad de una estructura organizativa contable y presupuestal, que permita transitar a un esquema de registro y seguimiento sobre el destino de las aportaciones por tipo de servicio y/o distribución geográfico y/o operación de Coordinación Regional y sus Coordinaciones Zona.- La operación actual del fondo, no cuenta con el detalle del destino de las aportaciones por tipo de servicio o distribución geográfica en relación a la estructura financiera del Instituto, como se requería en la evaluación. Lo anterior, no ha impedido la toma de decisiones o la inoperatividad del Instituto, ya que dichos controles a registros del fondo, no se han requerido por los entes Coordinadores a nivel financiero (SFIA, INEA) o Fiscalizadores (ASF, ASEG, OIC) con dicho detalle y permite la identificación y revisión del fondo."
+        "TextoTema": "Documentr y/o actualizar y hacer énfasis en las cartas proceso, donde se registren las etapas, responsables, flujogramas, instructivos y formatos de planeación, haciendo referencia a la correspondiente de FAETA.- El instituto cuenta con un Sistema de Gestión de la Calidad, bajo la norma ISO 9001-2015, con la cual se certificó los diversos procesos de operación del INAEBA, dichos procesos consideran la operación de recursos estatal y federal, según aplique. Considerar la viabilidad de una estructura organizativa contable y presupuestal, que permita transitar a un esquema de registro y seguimiento sobre el destino de las aportaciones por tipo de servicio y/o distribución geográfico y/o operación de Coordinación Regional y sus Coordinaciones Zona.- La operación actual del fondo, no cuenta con el detalle del destino de las aportaciones por tipo de servicio o distribución geográfica en relación a la estructura financiera del Instituto, como se requería en la evaluación. Lo anterior, no ha impedido la toma de decisiones o la inoperatividad del Instituto, ya que dichos controles a registros del fondo, no se han requerido por los entes Coordinadores a nivel financiero (SFIA, INEA) o Fiscalizadores (ASF, ASEG, OIC) con dicho detalle y permite la identificación y revisión del fondo.",
+        "Observaciones":  {
+            "Status": true,
+            "ObservacionTexto": "Revisar la ortografía",
+            "IconState": "assignment",
+            "ObservationState": "Con observaciones"
+        }
     },
     "2": {
         "ID_TemaComentariosPorTema": "3",
         "ID_ProgramaProyecto": "1",
         "TituloTema": "Generación de Información y rendición de cuentas",
-        "TextoTema": "Contar con mecanismos de desagregación de la información del ejercicio, destino y resultados del FAETA, de acuerdo con la Guía Sistema de la SHCP. Establecer un protocolo de verificación de la instancia normativa para control de calidad de la información. El Instituto reporta trimestralmente el ejercicio de los recursos del fondo, dichos reportes se realizan con la desagregación a nivel partida; por lo que se anexa al presente el reporte de la información trimestral reportada por la Instituto (Evidencia en Carpeta: Validado FAETA 2020-2021). Referente al \"protocolo de verificación de la instancia normativa\", se comparte el Oficio circular N° DGIP/1516/2020 donde la SFIA indica los periodos de captura en el Sistema de Recursos Federales Transferidos (SRFT) Portal SHCP, en lo particular, se establece en Numeral 4, la validación por SFIA: \"Gestión/validación por parte de esta Secretaría del 16 de diciembre de 2020 al 20 de enero del 2021.\": por lo que, en apego a las acciones. se sugiere la atención de dicha acción de mejora por la SFIA."
+        "TextoTema": "Contar con mecanismos de desagregación de la información del ejercicio, destino y resultados del FAETA, de acuerdo con la Guía Sistema de la SHCP. Establecer un protocolo de verificación de la instancia normativa para control de calidad de la información. El Instituto reporta trimestralmente el ejercicio de los recursos del fondo, dichos reportes se realizan con la desagregación a nivel partida; por lo que se anexa al presente el reporte de la información trimestral reportada por la Instituto (Evidencia en Carpeta: Validado FAETA 2020-2021). Referente al \"protocolo de verificación de la instancia normativa\", se comparte el Oficio circular N° DGIP/1516/2020 donde la SFIA indica los periodos de captura en el Sistema de Recursos Federales Transferidos (SRFT) Portal SHCP, en lo particular, se establece en Numeral 4, la validación por SFIA: \"Gestión/validación por parte de esta Secretaría del 16 de diciembre de 2020 al 20 de enero del 2021.\": por lo que, en apego a las acciones. se sugiere la atención de dicha acción de mejora por la SFIA.",
+        "Observaciones":  {
+            "Status": false,
+            "ObservacionTexto": "",
+            "IconState": "",
+            "ObservationState": ""
+        }
     },
     "3": {
         "ID_TemaComentariosPorTema": "4",
         "ID_ProgramaProyecto": "1",
         "TituloTema": "Orientación y medición de resultados",
-        "TextoTema": "A partir de lo contingencia Covid-15, generar esquemas de controles de riesgos que minimicen los impactos negativas en las metas iniciales. Asi como el replanteamiento de metas en dichos casos. - Se estableció un Comité y Subcomité de Seguridad Sanitaria, con el objetivo de regular y establecer los protocolos sanitarios a implementar en los diversos centros de trabajo del Instituto, con la finalidad de salvaguardar la salud de los colaboradores y de los jóvenes y adultos atendidos en los diversos servicios educativos del Inaeba. Todo esto, apegado a los criterios establecidos por la Secretaria de Salud del Estado (Evidencia en Carpeta: Contingencia Covid-19). Referente al replanteamiento de las metas Institucionales derivado de la contingencia sanitaria, se recibió por parte de Inea el oficio con el ajuste a las metas originales programadas para el ejercicio fiscal 2020, derivado de esto, se genera el POA apegado a los criterios que se establecen en dicho documento (Evidencia en Carpeta: METAS)."
+        "TextoTema": "A partir de lo contingencia Covid-15, generar esquemas de controles de riesgos que minimicen los impactos negativas en las metas iniciales. Asi como el replanteamiento de metas en dichos casos. - Se estableció un Comité y Subcomité de Seguridad Sanitaria, con el objetivo de regular y establecer los protocolos sanitarios a implementar en los diversos centros de trabajo del Instituto, con la finalidad de salvaguardar la salud de los colaboradores y de los jóvenes y adultos atendidos en los diversos servicios educativos del Inaeba. Todo esto, apegado a los criterios establecidos por la Secretaria de Salud del Estado (Evidencia en Carpeta: Contingencia Covid-19). Referente al replanteamiento de las metas Institucionales derivado de la contingencia sanitaria, se recibió por parte de Inea el oficio con el ajuste a las metas originales programadas para el ejercicio fiscal 2020, derivado de esto, se genera el POA apegado a los criterios que se establecen en dicho documento (Evidencia en Carpeta: METAS).",
+        "Observaciones":  {
+            "Status": true,
+            "ObservacionTexto": "Agregar referencias a los datos citados",
+            "IconState": "assignment",
+            "ObservationState": "Con observaciones"
+        }
     },
     "Status": "Correct",
     "Length": 4
@@ -114,7 +138,7 @@ $('.btn-login').on('click', function(){
     var user = $('#txt_user').val();
     var pass = $('#txt_password').val();
 
-    if( user == 'mguzmanhu@guanajuato.gob.mx' && pass == 'Marta123' ){
+    if( user == 'marta' && pass == 'Marta123' ){
         localStorage.setItem("UserData",                 JSON.stringify(UserData)                 );
         localStorage.setItem("ProjectInfo",              JSON.stringify(ProjectInfo)              );
         localStorage.setItem("FTProyecto",               JSON.stringify(FTProyecto)               );

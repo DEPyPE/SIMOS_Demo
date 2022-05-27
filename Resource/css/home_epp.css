@@ -51,6 +51,24 @@ nav .brand-logo {
     width: 85% !important;
 }
 
+#txtModalObservacionValidador{
+	margin-bottom: -10px !important;
+}
+
+.btn-send-for-validation{
+	margin-top: 25px;
+}
+
+.estatus-observacion-enviada-container{
+	font-size: 15px !important;
+	color: gray;
+	margin-bottom: 20px !important;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    line-height: 48px;
+}
+
 /* 	ESTILOS PARA LA SECCIÓN DE <<INFORMACIÓN GENERAL>>    */
 .card-title-ficha-tecnica{
 	margin: 10px 0px 30px 0px !important;
@@ -272,16 +290,20 @@ td, th {
 	width: 500px !important;
 }
 
+/* Tabla de observaciones en la sección de Posicionamiento */
 .table-ApartadoEvaluacion{
 	width: 20% !important;
+	text-align: center;
 }
 
 .table-ObservacionEspecifica{
-	width: 60% !important;
+	width: 70% !important;
+	text-align: center;
 }
 
 .table-ObservacionAtender{
-	width: 20% !important;
+	width: 15% !important;
+	text-align: center;
 }
 
 .hide-id-tema{
@@ -381,6 +403,19 @@ td, th {
 	margin-top: 0 !important;
 	font-size: 36px;
 	font-weight: 600;
+}
+
+.modal-titleTheme, .modal-contentTheme, .title-ObservacionValidador{
+	font-size: 32px;
+	font-weight: 600;
+}
+
+.id_observacion_modal{
+	display: none !important;
+}
+
+#txtModalTituloTema, #txtModalContenidoTema, #txtModalObservacionValidador{
+	font-size: 19px;
 }
 
 .card-content-new-recomendation{
@@ -670,7 +705,7 @@ td, th {
 #ModalModifyDataTheme{
 	top: 5% !important;
 	max-height: 90%;
-	height: 90%;
+	height: 80%;
 	max-width: 95%;
 	width: 80%;
 }

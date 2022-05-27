@@ -266,6 +266,7 @@ function Update_GeneralComments(){
     OpinionGeneral.ComentariosObservacionesGenerales = $('#txtComentariosGenerales').val();
     localStorage.setItem("GeneralOpinion", JSON.stringify(OpinionGeneral) );
     
+    M.toast({html: 'Opinión general actualizada correctamente', classes: 'green rounded'});
     UpdateView_OpinionGeneral();
 }
 
@@ -344,16 +345,23 @@ $('.btn-modify-portema-titulo').on('click', function(){
 // * * (U) Update
 
 function UpdateVIew_TemasComentariosPorTema(){
-    
+
     if( TemasComentariosPorTema.Status == "Correct" ){
         
         var TextInner = "<tr>";
 
         for(var i=0; i<TemasComentariosPorTema.Length; i++ ){
+
+            if( TemasComentariosPorTema[i].Observaciones.Status ){
+                ObservationStatus = "<td class='center-align'><i class='material-icons'>"+TemasComentariosPorTema[i].Observaciones.IconState+"</i></td>";
+            }else{
+                ObservationStatus = "<td></td>";
+            }
+
             TextInner = TextInner + "<tr class='rowtable'>"+
                                          "<td> <i class='hide-id-tema'>"+TemasComentariosPorTema[i].ID_TemaComentariosPorTema+"</i> <strong>"+TemasComentariosPorTema[i].TituloTema+"</strong></td>"+
                                          "<td>"+TemasComentariosPorTema[i].TextoTema+"</td>"+
-                                         "<td></td><td></td>"+
+                                         ObservationStatus+
                                     "</tr>";
         }
 
@@ -372,18 +380,71 @@ function Read_TemasComentariosPorTema(){
     UpdateVIew_TemasComentariosPorTema();
 }
 
+function Update_TemasComentariosPorTema(id_tema){    
+    TemasComentariosPorTema[id_tema-1].TituloTema = $('#txtModalTituloTema').val();
+    TemasComentariosPorTema[id_tema-1].TextoTema = $('#txtModalContenidoTema').val();
+    TemasComentariosPorTema[id_tema-1].Observaciones.ObservationState = 'Enviado para validacion';
+
+    localStorage.setItem('TemasComentariosPorTema', JSON.stringify(TemasComentariosPorTema));
+    
+    $('#ModalModifyDataTheme').modal('close');
+    M.toast({html: 'Información actualizada correctamente', classes: 'green rounded'});
+
+    UpdateVIew_TemasComentariosPorTema();
+}
+
 $('.table-observaciones-especificas').on('click', '.Table_TemasComentariosPorTema .rowtable', function(){
     var id_tema = $(this).find('.hide-id-tema')[0].innerText;
+
+    $('.id_observacion_modal').text( id_tema );
 
     $('#ModalModifyDataTheme').modal('open');
     $('#txtModalTituloTema').val( TemasComentariosPorTema[id_tema-1].TituloTema );
     M.textareaAutoResize($('#txtModalTituloTema'));
 
     $('#txtModalContenidoTema').val( TemasComentariosPorTema[id_tema-1].TextoTema );
-    M.textareaAutoResize($('#txtModalContenidoTema'));
+    M.textareaAutoResize( $('#txtModalContenidoTema') );
+
+    if( TemasComentariosPorTema[id_tema-1].Observaciones.Status ){
+        $('.title-ObservacionValidador').show();
+        $('.NoValidatorComment').hide();
+
+        $('#txtModalObservacionValidador').show();
+        $('#txtModalObservacionValidador').val( TemasComentariosPorTema[id_tema-1].Observaciones.ObservacionTexto );
+        $('.status-observacion-enviada').text( TemasComentariosPorTema[id_tema-1].Observaciones.ObservationState );
+
+        if( TemasComentariosPorTema[id_tema-1].Observaciones.ObservationState == 'Con observaciones' ){
+            $('.btn-send-for-validation').show();
+            $('.btn-modify-tema-especifico').show();
+        }else{
+            $('.btn-send-for-validation').hide();
+            $('.btn-modify-tema-especifico').hide();
+            $('.estatus-observacion-enviada-container').show();
+        }
+
+        $('.estatus-observacion-enviada-container').show();
+    }else{
+        $('.NoValidatorComment').show();
+        $('.title-ObservacionValidador').hide();
+        $('.btn-send-for-validation').hide();
+        $('#txtModalObservacionValidador').hide();
+        $('.btn-modify-tema-especifico').hide();
+        $('.estatus-observacion-enviada-container').hide();
+    }
+});
+
+$('.btn-modify-tema-especifico').on('click', function(){
+    var idtema = $('.id_observacion_modal').text();
     
-    console.log(  );
-})
+    Update_TemasComentariosPorTema(idtema);
+});
+
+$('.btn-send-for-validation').on('click', function(){
+    var idtema = $('.id_observacion_modal').text();
+
+    $(this).attr('disabled', 'disabled');
+    TemasComentariosPorTema[idtema - 1].Observaciones.IconState = 'unarchive';
+});
 
 // *****   COMENTARIOS A LA OPINIÓN GENERAL   ******
 // * * * * Funciones CRUD y eventos
