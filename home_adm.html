@@ -314,81 +314,76 @@
 
 <!--    SECCIÓN PARA LA OPINIÓN GENERAL POR PARTE DEL ENCARGADO DEL PROGRAMA -->
         <div id="opinion_general">
-            <div class="row">
 
-              <div class="col m1 l1"></div>
-              <div class="col s12 m10 l10">
+          <div class="row">
+            <div class="container">
+              <div class="card">
+  
+                <div class="card-content card-content-comments">
+                  <span class="card-title card-title-comments">
+                    <strong>
+                      <h4 class="title-general-comments">
+                        Opinión general
+                        <a class="btn-floating btn-small btn-edit-general-comments waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar la opinión general" href="#ModalModifyGeneralComments"><i class="material-icons">edit</i></a>
+                      </h4>
+                    </strong>
+                  </span>
+                  <!-- <a class="btn-floating btn-small right orange"><i class="material-icons">edit</i></a>-->
+                  <textarea disabled id="ComentariosObservacionesGenerales" class="materialize-textarea"></textarea>
 
-                  <div class="card">
+                  <h5 class="title-ValidatorObservationOG">Observación del validador:</h5>
+                  <textarea disabled id="OpinionGeneral_ObservacionesValidador" class="materialize-textarea">Muestra de una observación del validador</textarea>
+                  <i class="estatus-observacion-posicionamiento-container"> Estatus: <i class="estatus-observacion-posicionamiento"></i> </i><br>
 
-                    <div class="card-content card-content-comments">
+                  <h5 class="">Sin observaciones del validador</h5> 
+                  <h6 class="OG_SinInfo">Sin información registrada</h6>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="container">
+                <div class="card">
+                  <div class="card-content card-content-comments">
                       <span class="card-title card-title-comments">
                         <strong>
-                          <h4 class="title-general-comments">
-                            Opinión general
-                            <a class="btn-floating btn-small btn-edit-general-comments waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar la opinión general" href="#ModalModifyGeneralComments"><i class="material-icons">edit</i></a>
+                          <h4 class="title-specific-comments">
+                              <strong>Comentarios y observaciones específicos por tema</strong>
+                              <a class="btn-floating btn-small btn-edit-specific-comments-title waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar el titulo de la sección" href="#ModalModifyGeneralSpecificComments_Titulo"><i class="material-icons">edit</i></a>
                           </h4>
                         </strong>
                       </span>
-                      <!-- <a class="btn-floating btn-small right orange"><i class="material-icons">edit</i></a>-->
-                      <textarea disabled id="ComentariosObservacionesGenerales" class="materialize-textarea"></textarea>
+                      <br>
+    
+                      <textarea disabled id="ComentariosObservacionesEspecificosPorTema_Titulo" class="materialize-textarea"></textarea>
+    
+                      <table class="highlight table-observaciones-especificas">
+                        <thead>
+                          <tr>
+                              <th class="table-ApartadoEvaluacion">Apartado de la evaluación</th>
+                              <th class="table-ObservacionEspecifica">Observación específica</th>
+                              <th class="table-ObservacionAtender"></th>
+                              <th></th>
+                          </tr>
+                        </thead>
+    
+                        <tbody class="Table_TemasComentariosPorTema">
+                          <!--
+                            <td>Diseño</td>
+                            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos veniam quaerat voluptate consequuntur magnam recusandae repellat eum voluptatem, nostrum, id fugiat quae? Minus dolor in unde ad voluptates sint nulla. </td>
+                            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae nam obcaecati labore ipsam suscipit aperiam iusto ex, sunt dolore a?</td>
+                            <td><a class="btn-floating btn-small btn-edit-specific-comments waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar" href="#ModalModifyGeneralComments"><i class="material-icons">edit</i></a></td>-->
+                        </tbody>
+                      </table>
+    
                       <h6 class="OG_SinInfo">Sin información registrada</h6>
-                    </div>
-
                   </div>
-
-              </div>
-              <div class="col m1 l1"></div>
-
+                </div>
             </div>
+          </div>
 
-            <div class="row">
-
-              <div class="col m1 l1"></div>
-              <div class="col s12 m10 l10">
-
-                  <div class="card">
-                    <div class="card-content card-content-comments">
-                        <span class="card-title card-title-comments">
-                          <strong>
-                            <h4 class="title-specific-comments">
-                                <strong>Comentarios y observaciones específicos por tema</strong>
-                                <a class="btn-floating btn-small btn-edit-specific-comments-title waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar el titulo de la sección" href="#ModalModifyGeneralSpecificComments_Titulo"><i class="material-icons">edit</i></a>
-                            </h4>
-                          </strong>
-                        </span>
-                        <br>
-
-                        <textarea disabled id="ComentariosObservacionesEspecificosPorTema_Titulo" class="materialize-textarea"></textarea>
-
-                        <table class="highlight table-observaciones-especificas">
-                          <thead>
-                            <tr>
-                                <th class="table-ApartadoEvaluacion">Apartado de la evaluación</th>
-                                <th class="table-ObservacionEspecifica">Observación específica</th>
-                                <th class="table-ObservacionAtender"></th>
-                                <th></th>
-                            </tr>
-                          </thead>
-
-                          <tbody class="Table_TemasComentariosPorTema">
-                            <!--
-                              <td>Diseño</td>
-                              <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos veniam quaerat voluptate consequuntur magnam recusandae repellat eum voluptatem, nostrum, id fugiat quae? Minus dolor in unde ad voluptates sint nulla. </td>
-                              <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae nam obcaecati labore ipsam suscipit aperiam iusto ex, sunt dolore a?</td>
-                              <td><a class="btn-floating btn-small btn-edit-specific-comments waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar" href="#ModalModifyGeneralComments"><i class="material-icons">edit</i></a></td>-->
-                          </tbody>
-                        </table>
-
-                        <h6 class="OG_SinInfo">Sin información registrada</h6>
-                    </div>
-                  </div>
-
-              </div>
-
-              <div class="col m1 l1"></div>
-
-              </div>
         </div>
         
             <!-- MODAL PARA VER LAS CORRESIONES PARA LOS COMENTARIOS Y OBSERVACIONES GENERALES -->

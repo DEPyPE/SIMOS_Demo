@@ -132,9 +132,14 @@ td, th {
 	font-size: 18px !important;
 }
 
-#ComentariosObservacionesGenerales, #ComentariosObservacionesEspecificosPorTema_Titulo{
+#ComentariosObservacionesGenerales, #ComentariosObservacionesEspecificosPorTema_Titulo,
+#OpinionGeneral_ObservacionesValidador{
 	color: black !important;
 	border-bottom: 0 !important;
+}
+
+.title-ValidatorObservationOG{
+	font-weight: bold !important;
 }
 
 #ModalModifyGeneralSpecificComments_Titulo{
