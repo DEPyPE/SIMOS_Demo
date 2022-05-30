@@ -226,17 +226,56 @@ td, th {
 
 #ModalAddModifyPlanMejora{
 	top: 4% !important;
-	max-height: 87% !important;
-	height: 87% !important;
-	width: 70% !important;
+	max-height: 90% !important;
+	height: 90% !important;
+	width: 80% !important;
 }
 
 #ModalDeleteRecomendation{
 	max-height: 63% !important;
 }
 
-/* Tabla ASM y Recomendaciones*/
+#ModalShowObservation{
+	max-height: 60% !important;
+	max-width: 50% !important;
+}
 
+#ModalShowAtendedRecomendation, #ModalShowRefusedRecomendation{
+	max-height: 80% !important;
+	height: 70% !important;
+	max-width: 85% !important;
+	width: 55% !important;
+}
+
+.modal.modal-fixed-footer .modal-footer {
+    background-color: rgba(240, 240, 240, 1);
+}
+
+/* RECOMENDATIONS STYLE */
+
+.id_RecomendacionAtendida{
+	display: none;
+}
+
+.RecomendationObservation_StatusContainer{
+	float: left;
+	margin-left: 25px;
+	margin-top: 13px;
+}
+
+.RecomendationObservation_StatusValue{
+	text-decoration: none !important;
+}
+
+.card-RecomendacionesAtendidas	{
+	border: 1px solid #388e3c !important;
+}
+
+.card-RecomendacionesRechazadas	{
+	border: 1px solid red !important;
+}
+
+/* Tabla ASM y Recomendaciones*/
 
 .table-Id_Recomendacion{
 	width: 50px !important;
@@ -333,7 +372,7 @@ td, th {
 	box-shadow: none !important;
 }
 
-.table-body-content-mejoras tr td{
+.TableBody-RecomendacionesAComprometer tr td{
     padding-left: 5px;
     overflow-y: clip;
     white-space: nowrap;
@@ -342,7 +381,33 @@ td, th {
 	padding: 10px 5px !important;
 }
 
-.table-body-content-mejoras tr td:hover{
+.TableBody-RecomendacionesAComprometer tr td:hover{
+	cursor: pointer;
+}
+
+.TableBody-RecomendacionesAtendidas tr td{
+    padding-left: 5px;
+    overflow-y: clip;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 5px;
+	padding: 10px 5px !important;
+}
+
+.TableBody-RecomendacionesAtendidas tr td:hover{
+	cursor: pointer;
+}
+
+.TableBody-RecomendacionesRechazadas tr td{
+    padding-left: 5px;
+    overflow-y: clip;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 5px;
+	padding: 10px 5px !important;
+}
+
+.TableBody-RecomendacionesRechazadas tr td:hover{
 	cursor: pointer;
 }
 
@@ -362,8 +427,24 @@ td, th {
 	background-color: rgba(0, 200, 0, 0.8);
 }
 
+.ml-20px{
+	margin-left: 20px !important;
+}
+
+.mr-20px{
+	margin-right: 20px !important;
+}
+
+.mr-10px{
+	margin-right: 10px !important;
+}
+
+.ObservationInRecomendation{
+	font-size: 24px;
+}
+
 .asm-status-style-in-process{
-	background-color: orange;
+	background-color: #0277bd;
 }
 
 .options-recomendation-container{
@@ -371,12 +452,12 @@ td, th {
 	position: relative;
 	z-index: 80;
 
-	right: 30px;
+	right: 55px;
 	margin-top: -43px;
 	top: 10px;
 	padding: 5px 20px 5px 35px;
 
-	width: 150px;
+	width: 200px;
 	background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 1) 100%);
 }
 
@@ -457,7 +538,8 @@ td, th {
 }
 
 .btn-edit-recomendation,
-.btn-delete-recomendation{
+.btn-delete-recomendation,
+.btn-show-observation{
 	margin-right: 8px;
 }
 

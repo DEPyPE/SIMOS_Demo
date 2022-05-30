@@ -33,9 +33,9 @@
                 <div class="col l10">
                     <ul class="tabs tabs-transparent">
                         <li class="tab"><a href="#general_information">Información general <i class="material-icons left">check</i></a></li>
-                        <li class="tab"><a class="active" href="#opinion_general">Posicionamiento <i class="material-icons left">check</i> </a></li>
-                        <li class="tab"><a href="#plan_de_mejora">Plan de mejora y monitoreo <i class="material-icons left">autorenew</i> </a></li>
-                        <li class="tab"><a href="#documents">Formalización <i class="material-icons left">schedule</i> </a></li>
+                        <li class="tab"><a href="#opinion_general">Posicionamiento <i class="material-icons left">check</i> </a></li>
+                        <li class="tab"><a class="active" href="#plan_de_mejora">Plan de mejora y monitoreo <i class="material-icons left">autorenew</i> </a></li>
+                        <li class="tab"><a href="#documents">Formalización <i class="material-icons left">autorenew</i> </a></li>
                     </ul>
                 </div>
                 <div class="col l1"></div>
@@ -331,11 +331,17 @@
                   <!-- <a class="btn-floating btn-small right orange"><i class="material-icons">edit</i></a>-->
                   <textarea disabled id="ComentariosObservacionesGenerales" class="materialize-textarea"></textarea>
 
-                  <h5 class="title-ValidatorObservationOG">Observación del validador:</h5>
-                  <textarea disabled id="OpinionGeneral_ObservacionesValidador" class="materialize-textarea">Muestra de una observación del validador</textarea>
-                  <i class="estatus-observacion-posicionamiento-container"> Estatus: <i class="estatus-observacion-posicionamiento"></i> </i><br>
+                  <div class="ValidatorObservationContainer">
+                      <h5 class="title-ValidatorObservationOG">Observación del validador:</h5>
+                      <textarea disabled id="ValidatorObservation_Text" class="materialize-textarea"></textarea>
+                      <i class="estatus-observacion-posicionamiento-container"> Estatus: <i class="estatus-observacion-posicionamiento"></i> </i><br>
+                  </div>
 
-                  <h5 class="">Sin observaciones del validador</h5> 
+                  <div class="NoValidatorObservationContainer">
+                      <h5 class="NoValidatorObservation"></h5> 
+                      <i class="estatus-observacion-posicionamiento"></i>
+                  </div>
+                  
                   <h6 class="OG_SinInfo">Sin información registrada</h6>
                 </div>
 
@@ -547,7 +553,7 @@
             <div class="row">
                 <div class="col l1"></div>
                 <div class="col l10">
-                    <div class="card">
+                    <div class="card card-RecomendacionesAComprometer">
                         <div class="card-content card-content-mejoras">
                         
                           <span class="card-title">
@@ -556,7 +562,7 @@
                                     <a class="btn-floating btn-small btn-add-plan-mejora waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar recomendación" href="#ModalAddModifyPlanMejora"><i class="material-icons">add</i></a>
                                 </h5>
                                 <h5 class="with-data-recomendaciones">
-                                    Recomendaciones a atender
+                                    Recomendaciones a comprometer
                                     <a class="btn-floating btn-small btn-add-plan-mejora waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar recomendación" href="#ModalAddModifyPlanMejora"><i class="material-icons">add</i></a>
                                 </h5>
                             </span>
@@ -577,7 +583,7 @@
                                 </tr>
                               </thead>
 
-                              <tbody class="table-body-content-mejoras"></tbody>
+                              <tbody class="TableBody-RecomendacionesAComprometer"></tbody>
                             </table>
 
                         </div>
@@ -589,7 +595,7 @@
             <div class="row">
                 <div class="col l1"></div>
                 <div class="col l10">
-                    <div class="card">
+                    <div class="card card-RecomendacionesAtendidas">
                         <div class="card-content card-content-mejoras">
                         
                             <span class="card-title">
@@ -609,13 +615,11 @@
                                     <th class="table-ASM-atendidas">Aspectos Susceptibles de Mejora/Recomendaciones</th>
                                     <th class="table-documento-evidencia">Evidencia</th>
                                     <th class="table-observaciones">Observaciones</th>
+                                    <!--<th> COLUMNA PARA MOSTRAR EL ICONO INDICADOR DE UNA OBSERVACIÓN </th>-->
                                 </tr>
                               </thead>
 
-                              <tbody class="">
-                                  <td class="ASM-Atendidas">Contribución y destino: Considerar la elaboración de un compendio normativo y acciones de Capacitación/Difusión por parte de la SFIA al instituto y en lo particular al personal que interviene en los procesos de distribución de las aportaciones.</td>
-                                  <td class="center-align"> documento_de_evidencia.pdf </td>
-                                  <td>Observaciones del documento de evidencia</td>
+                              <tbody class="TableBody-RecomendacionesAtendidas">
                               </tbody>
                             </table>
 
@@ -628,7 +632,7 @@
             <div class="row">
                 <div class="col l1"></div>
                 <div class="col l10">      
-                    <div class="card">
+                    <div class="card card-RecomendacionesRechazadas">
                         <div class="card-content card-content-mejoras">
                         
                             <span class="card-title">
@@ -650,9 +654,7 @@
                                 </tr>
                               </thead>
 
-                              <tbody class="">
-                                  <td class="ASM-Atendidas">Contribución y destino: Considerar la elaboración de un compendio normativo y acciones de Capacitación/Difusión por parte de la SFIA al instituto y en lo particular al personal que interviene en los procesos de distribución de las aportaciones.</td>
-                                  <td> La recomendación fue rechazada debido a que ya se atendió la recomendación en años pasados </td>
+                              <tbody class="TableBody-RecomendacionesRechazadas">
                               </tbody>
                             </table>
 
@@ -708,12 +710,12 @@
                             </div>
 
                             <div class="col l4 m4 s4">
-                                <h6><strong>Estatus:</strong></h6>
+                                <h6><strong>Estatus actual:</strong></h6>
                                 <select id="select-estatus" class="browser-default">
-                                  <option value="" disabled selected>Estado actual</option>
-                                  <option value="1">Corregido</option>
+                                  <option value="" disabled selected>Seleccione</option>
+                                  <option value="1">Atendido</option>
                                   <option value="2">En proceso</option>
-                                  <option value="3">Sin antender</option>
+                                  <option value="3">Sin atender</option>
                                 </select>
                             </div>
 
@@ -743,24 +745,22 @@
                               </div>
 
                               <div class="col l12 m12 s12">
-                                  <h6><strong>Área responsable:</strong></h6>
+                                  <h6><strong>Resultados esperados:</strong></h6>
 
                                   <div class="input-field">
-                                      <textarea id="txtAreaResponsable" class="materialize-textarea" placeholder="Área resposable"></textarea>
+                                      <textarea placeholder="Área resposable" id="txtResultadosEsperados" class="materialize-textarea"></textarea>
                                   </div>
                               </div>
-
-
                           </div>
                       </div>
 
                       <div class="col l6 m6 s6">
                           <div class="row">
                               <div class="col l12 m12 s12">
-                                  <h6><strong>Resultados esperados:</strong></h6>
+                                  <h6><strong>Área responsable:</strong></h6>
 
                                   <div class="input-field">
-                                      <textarea placeholder="Área resposable" id="txtResultadosEsperados" class="materialize-textarea"></textarea>
+                                      <textarea id="txtAreaResponsable" class="materialize-textarea" placeholder="Área resposable"></textarea>
                                   </div>
                               </div>
 
@@ -815,6 +815,94 @@
               <div class="modal-footer">
                 <a href="#!" class="btn-small waves-effect red darken-3 btn-delete-recomendation">Borrar recomendación</a>
                 <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
+              </div>
+            </div>
+
+            <!-- MODAL PARA MOSTRAR LAS OBSERVACIONES HECHAS POR EL VALIDADOR A LAS RECOMENDACIONES -->
+            <div id="ModalShowObservation" class="modal modal-fixed-footer">
+              <div class="modal-content">
+
+                  <h4>Observación del validador</h4>
+                  <p class="ObservationInRecomendation">
+                    
+                  </p>
+                               
+
+              </div>
+
+              <div class="modal-footer">
+                <div class="RecomendationObservation_StatusContainer">
+                  <i class="RecomendationObservation_Status"> Estatus: <i class="RecomendationObservation_StatusValue"></i> </i><br>
+                </div>
+
+                <a href="#!" class="btn-small waves-effect light-blue darken-3 btn-update-observation mr-10px">Enviar para validación <i class="material-icons right">send</i></a>
+                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1 mr-20px">Cerrar</a>
+              </div>
+            </div>
+
+            <!-- MODAL PARA MOSTRAR LAS OBSERVACIONES HECHAS POR EL VALIDADOR A LAS RECOMENDACIONES -->
+            <div id="ModalShowAtendedRecomendation" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <div class="row">
+
+                  <div class="col s12 m12 l12">
+                      <h5><strong>Aspectos Susceptibles de Mejora/Recomendaciones</strong></h5>
+                      <textarea class="txtASM-AtendedRecomendation materialize-textarea"></textarea>
+
+                      <h5><strong>Evidencia</strong></h5>
+                      <textarea class="txtEvidencia-AtendedRecomendation materialize-textarea"></textarea>
+                  </div>
+
+                  <div class="col s12 m12 l12">
+                      <div class="ValidatorObservation-AtendedRecomendation-Container">
+                          <h5><strong>Observación del validador:</strong></h5>
+                          <textarea disabled class="txtValidatorObservation-AtendedRecomendation materialize-textarea"></textarea>                        
+                      </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <div class="RecomendationObservation_StatusContainer">
+                  <i class="RecomendationObservation_Status"> Estatus: <i class="RecomendationObservation_StatusValue"></i> </i><br>
+                </div>
+
+                <a href="#!" class="btn-small waves-effect light-blue darken-3 btn-update-observation mr-10px">Enviar para validación <i class="material-icons right">send</i></a>
+                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1 mr-20px">Cerrar</a>
+              </div>
+            </div>
+
+            <!-- MODAL PARA MOSTRAR LAS OBSERVACIONES HECHAS POR EL VALIDADOR A LAS RECOMENDACIONES -->
+            <div id="ModalShowRefusedRecomendation" class="modal modal-delete-recomendation modal-fixed-footer">
+              <div class="modal-content">
+
+                <div class="row">
+                  <div class="col s12 m12 l12">
+                      <h5><strong>Aspectos Susceptibles de Mejora/Recomendaciones</strong></h5>
+                      <textarea class="txtASM-RefusedRecomendation materialize-textarea"></textarea>
+
+                      <h5><strong>Evidencia</strong></h5>
+                      <textarea class="txtEvidencia-RefusedRecomendation materialize-textarea"></textarea>
+                  </div>
+
+                  <div class="col s12 m12 l12">
+                      <div class="ValidatorObservation-RefusedRecomendation-Container">
+                          <h5><strong>Observación del validador:</strong></h5>
+                          <textarea disabled class="txtValidatorObservation-RefusedRecomendation materialize-textarea"></textarea>                        
+                      </div>
+                  </div>
+                </div>        
+
+              </div>
+
+              <div class="modal-footer">
+                <div class="RecomendationObservation_StatusContainer">
+                  <i class="RecomendationObservation_Status"> Estatus: <i class="RecomendationObservation_StatusValue"></i> </i><br>
+                </div>
+
+                <a href="#!" class="btn-small waves-effect light-blue darken-3 btn-update-observation mr-10px">Enviar para validación <i class="material-icons right">send</i></a>
+                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1 mr-20px">Cerrar</a>
               </div>
             </div>
 

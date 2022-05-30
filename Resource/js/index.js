@@ -57,10 +57,10 @@ var GeneralOpinion = {
     "ComentariosObservacionesGenerales": "El instituto, atendió por primera vez una evaluación de desempeño específica a los recursos del FAETA. Dicho proceso permitió conocer y reafirmar que las acciones, procesos, controles, estructuras, infraestructura y actividades diarias se realizan en apego a la normativa y cumplimiento con los requisitos de operación del Fondo de Aportaciones para la Educación Tecnológica y de Adultos, sin embargo, se identifican áreas de oportunidad que requieren de acciones para fortalecer la operacion del mismo. \n        El INAEBA, cuenta con la aportación de recursos federal y estatal, lo que permite la operación de los servicios del instituto con la combinación de recurso, no obstante, se tienen registros contables-presupuestales y controles administrativos de manera particular por cada fuente de funcionamiento a nivel general de gasto.\n        Los apartados siguientes, son llenados con base en las posibilidades del INAEBA, derivado a que exiten recomendaciones en los que se involucra la participación de la SFIA o INEA.",
     "Status": "Correct",
     "Observaciones": {
-        "Status": false,
-        "ObservacionTexto": "",
-        "IconState": "",
-        "ObservationState": "Sin observaciones"
+        "Status": true,
+        "ObservacionTexto": "Muestra de una observación por parte del validador para la sección de Opinión General.",
+        "IconState": "assignment",
+        "ObservationState": "Con observación"
     }
 }
 
@@ -127,6 +127,7 @@ var TemasComentariosPorTema =
 
 var PlanDeMejora = {
     "0": {
+        "NumRecomendacion": "1",
         "ASM": "Contribución y destino: Considerar en el diagnóstico los elementos que se atienden mediante las diferentes fuentes de financiamiento, para tener claridad que eel rezago educativo se ha disminuido con diferentes estrategias y recursos.",
         "TipoDeActores": "Institucional",
         "Prioridad": "Medio",
@@ -134,9 +135,20 @@ var PlanDeMejora = {
         "AreaResponsable": "Dirección de Planeación y Enlace Regional Coordinación de Planeación y Programación.",
         "FechaCompromiso": "30/11/2021",
         "ResultadosEsperados": "Diagnóstico actualizado",
-        "Evidencias": "Documento de pdf",
+        "Evidencia": "Documento de pdf",
+        "Propiedades": {
+            "EstatusRecomendacion": "Sin atender",
+            "TipoRecomendacion": "AComprometer",
+            "Observaciones": {
+                "Status": true,
+                "IconState": "assignment",
+                "ObservacionTexto": "Muestra de una observación por parte del validador para la sección de Opinión General.",
+                "ObservationState": "Con observación"
+            }
+        }
     },
     "1": {
+        "NumRecomendacion": "1",
         "ASM": "Contribución y destino: Considerar la elaboración de un compendio normativo y acciones de capacitación/difusión por parte de la SFIA al instituto y en lo particular al personal que interviene en los procesos de distribución de las aportaciones.",
         "TipoDeActores": "Interinstitucional",
         "Prioridad": "Medio",
@@ -144,7 +156,17 @@ var PlanDeMejora = {
         "AreaResponsable": "Dirección de Administración Coordinación de Recursos Financieros",
         "FechaCompromiso": "01/10/2021",
         "ResultadosEsperados": "Estructura normativa de consulta y presonal informado en relación al fondo.",
-        "Evidencias": "Repositorio digital, lista de participantes/difusión",
+        "Evidencia": "Repositorio digital, lista de participantes/difusión",
+        "Propiedades": {
+            "EstatusRecomendacion": "En proceso",
+            "TipoRecomendacion": "AComprometer",
+            "Observaciones": {
+                "Status": false,
+                "IconState": "assignment",
+                "ObservacionTexto": "Muestra de una observación por parte del validador para la sección del Plan de Mejora y Monitoreo.  Observación 1.",
+                "ObservationState": "Con observación"
+            }
+        }
     },
     "2": {
         "ASM": "Contribución y destino: Un planteamiento presupuestal atingente para finalizar con el rezago educativo en 2040 como lo indica el PED.",
@@ -154,7 +176,17 @@ var PlanDeMejora = {
         "AreaResponsable": "Dirección General, Dirección de Planeación y Enlace Regional.",
         "FechaCompromiso": "30/11/2021",
         "ResultadosEsperados": "Análisis del resultado",
-        "Evidencias": "Minuta de reunión",
+        "Evidencia": "Minuta de reunión",
+        "Propiedades": {
+            "EstatusRecomendacion": "En proceso",
+            "TipoRecomendacion": "Atendida",
+            "Observaciones": {
+                "Status": false,
+                "IconState": "assignment",
+                "ObservacionTexto": "Muestra de una observación por parte del validador para la sección de Opinión General.",
+                "ObservationState": "Con observación"
+            }
+        }
     },
     "3": {
         "ASM": "Contribución y destino: Considerar la viabilidad de una estructura organizativa contable y presupuestal, que permita transitar a un esquema de registro y seguimiento sobre el destino de las aportaciones por tipo de servicio y/o distribución geográfica y/o por operación de Coordinación Regional y sus Coordinaciones Zona.",
@@ -164,7 +196,17 @@ var PlanDeMejora = {
         "AreaResponsable": "Dirección de Administración y Coordinación de Recursos Humanos.",
         "FechaCompromiso": "01/10/2021",
         "ResultadosEsperados": "Derivarán de la reunión con la SFIA y del análisis del costo-beneficio.",
-        "Evidencias": "Minuta de reunión",
+        "Evidencia": "Minuta de reunión",
+        "Propiedades": {
+            "EstatusRecomendacion": "Atendido",
+            "TipoRecomendacion": "Atendida",
+            "Observaciones": {
+                "Status": true,
+                "IconState": "assignment",
+                "ObservacionTexto": "Muestra de una observación por parte del validador para la sección de Opinión General.",
+                "ObservationState": "Con observación"
+            }
+        }
     },
     "4": {
         "ASM": "Gestión: Documentar y/o actualizar y hacer énfasis en las cartas proceso, donde se registren las etapas, responsables, flujogramas, instructivos y formatos de planeación, haciendo referencia a lo correspondiente de FAETA.",
@@ -174,7 +216,17 @@ var PlanDeMejora = {
         "AreaResponsable": "Dirección de Planeacióny Enlace Regional, Coordinación de Recursos Financieros.",
         "FechaCompromiso": "01/20/2021",
         "ResultadosEsperados": "Procedimientos e instrucciones de trabjo en el SGC actualizado",
-        "Evidencias": "Emisión de oficio circular a los directores/as de área para la identificación de documentos del Sistema de Gestión de la Calidad, que afecten exclusivamente la operación con recursos de FAETA y su atenció y seguimiento.",
+        "Evidencia": "Emisión de oficio circular a los directores/as de área para la identificación de documentos del Sistema de Gestión de la Calidad, que afecten exclusivamente la operación con recursos de FAETA y su atenció y seguimiento.",
+        "Propiedades": {
+            "EstatusRecomendacion": "En proceso",
+            "TipoRecomendacion": "AComprometer",
+            "Observaciones": {
+                "Status": true,
+                "IconState": "assignment",
+                "ObservacionTexto": "Muestra de una observación por parte del validador para la sección del Plan de Mejora y Monitoreo. Observación 4.",
+                "ObservationState": "Con observación"
+            }
+        }
     },
     "5": {
         "ASM": "Gestión: Se propone analizar la viabilidad de focalización del recurso, para llevar con precisión los procesos de planeación presupuestal, ejecución y seguimiento del recursos gastado por municipio y por tipo de alfabetización, primaria y secundaria o por operación de Coordinación Regional y sus Coordinadores Zona.",
@@ -184,7 +236,17 @@ var PlanDeMejora = {
         "AreaResponsable": "Dirección de Administración, Coordinación de Recursos Financieros, Dirección de Planeación y Enlace Regional.",
         "FechaCompromiso": "01/10/2021",
         "ResultadosEsperados": "Derivarán de la reunión con la SFIA y del análisis del costo-beneficio.",
-        "Evidencias": "Minuta de reunión",
+        "Evidencia": "Minuta de reunión",
+        "Propiedades": {
+            "EstatusRecomendacion": "Atendido",
+            "TipoRecomendacion": "Rechazada",
+            "Observaciones": {
+                "Status": true,
+                "IconState": "assignment",
+                "ObservacionTexto": "Muestra de una observación por parte del validador para la sección de Opinión General.",
+                "ObservationState": "Con observación"
+            }
+        }
     },
     "6": {
         "ASM": "Gestión: Considerando el abatimiento eventual del rezago educativo se puede hacer convenios con los ayuntamientos y empresas para habilitar espacios. Asimismo, considerar hacer gestiones con fondos internacionales para avanzar en los ODS.",
@@ -194,9 +256,20 @@ var PlanDeMejora = {
         "AreaResponsable": "Dirección de Planeación y Enlace Regional, Coodinación de Enlace Institucional.",
         "FechaCompromiso": "30/11/2021",
         "ResultadosEsperados": "Espacios para la presetación de los servicios educativos.",
-        "Evidencias": "Convenios, acuerdos, minutas.",
-    }
-
+        "Evidencia": "Convenios, acuerdos, minutas.",
+        "Propiedades": {
+            "EstatusRecomendacion": "Atendido",
+            "TipoRecomendacion": "Rechazada",
+            "Observaciones": {
+                "Status": true,
+                "IconState": "assignment",
+                "ObservacionTexto": "Muestra de una observación por parte del validador para la sección de Opinión General.",
+                "ObservationState": "Con observación"
+            }
+        }
+    },
+    "Status": "Correct",
+    "Length": 7
 }
 
 $(function(){
