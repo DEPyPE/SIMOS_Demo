@@ -7,6 +7,7 @@ var OpinionGeneral              = JSON.parse( localStorage.getItem("GeneralOpini
 var ComentariosPorTema          = JSON.parse( localStorage.getItem("ComentariosPorTema")        );
 var TemasComentariosPorTema     = JSON.parse( localStorage.getItem("TemasComentariosPorTema")   );
 var PlanDeMejora                = JSON.parse( localStorage.getItem("PlanDeMejora")              );
+var ProjectDocuments            = JSON.parse( localStorage.getItem("ProjectDocuments")          );
 
 function ShowInformationProject(){
 
@@ -41,8 +42,18 @@ $(function(){
     Read_ComentariosEspecificosPorTema();
     Read_TemasComentariosPorTema();
     Read_Recomendaciones();
+    Read_ProjectDocuments();
 
+//  FECHA DE HOY PARA EL SELECTOR DE FECHA
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
 
+    today_fmt1 = dd + '-' + mm + '-' + yyyy;
+    today_fmt2 = yyyy + '-' + mm + '-' + dd;
+
+    $('.datepicker-fecha-cumplimiento').val( today_fmt2 );
 });
 
 // *****   EVENTOS PARA FUNCIONES PRINCIPALES DE LA SESIÓN ******
@@ -53,7 +64,7 @@ $('.close-session').on('click', function(){
 
     setTimeout( function(){
         window.location = 'index.html';
-    }, 2000 );
+    }, 500 );
 });
 
 // *****   FICHA TÉCNICA DEL PROYECTO   ******
@@ -63,7 +74,7 @@ $('.close-session').on('click', function(){
 // * * (U) Update
 
 function UpdateView_FTProject(){
-    //console.log( "Ficha técnica del proyecto => ",  FichaTecnicaProyecto );
+    //console.log( "Ficha técnica del proyecto => ",  FTProyecto );
 
     if( FTProyecto.Status == "Correct" ){
         $('.btn-add-project-information').hide();
@@ -73,15 +84,21 @@ function UpdateView_FTProject(){
         $('.table-ficha-tecnica-proyecto').show();
         $('.NoFTProjectInformation').hide();
 
-        if( FTProyecto.ValidacionInfo == 0 ){
+        if( FTProyecto.ValidacionInfo == "Información_capturada" ){
             $('.validation-ft-programa').hide();
+            $('.wait-validation-ft-programa').hide();
             $('.btn-edit-project-information').show();
-        }else{
+        }else if( FTProyecto.ValidacionInfo == "En_validación" ){
+            $('.validation-ft-programa').hide();
+            $('.wait-validation-ft-programa').show();
+            $('.btn-edit-project-information').hide();
+        }else if( FTProyecto.ValidacionInfo == "Información_validada" ){
             $('.validation-ft-programa').show();
+            $('.wait-validation-ft-programa').hide();
             $('.btn-edit-project-information').hide();
         }
 
-        $('.main-title-project').text( 'SIMOS / '+FTProyecto.ClaveProyecto+' (Admin)');
+        $('.main-title-project').text( 'SIMOS / '+FTProyecto.ClaveProyecto+' (Capturista)');
         $('.NombreProyecto').text( FTProyecto.NombreProyecto );
         $('.ClaveProyecto').text( FTProyecto.ClaveProyecto );
         $('.DependenciaProyecto').text( FTProyecto.DependenciaDelProyecto );
@@ -123,7 +140,12 @@ function Update_ProjectData(){
     FTProyecto.UnidadResponsable = $('#txtUR').val();
     FTProyecto.SiglasUnidadResponsable = $('#txtSiglasUR').val();
     FTProyecto.NombreResponsable = $('#txtResponsable').val();
-    FTProyecto.ValidacionInfo = $('.ValidateInformationProjectCheckbox').prop('checked');
+
+    console.log( $('.ValidateInformationProjectCheckbox').prop('checked') );
+    if( $('.ValidateInformationProjectCheckbox').prop('checked') )
+        FTProyecto.ValidacionInfo = 'En_validación';
+    else
+        FTProyecto.ValidacionInfo = 'Información_capturada';
 
     localStorage.setItem('FTProyecto', JSON.stringify(FTProyecto) );
     UpdateView_FTProject();
@@ -156,7 +178,8 @@ $('.btn-edit-project-information').on('click', function(){
 // * * (U) Update
 
 function UpdateView_FTEvaluation(){
-    if( FTEvaluacion.Status == "Correct" ){
+    var FTEvaluacion2UpdateView = JSON.parse( localStorage.getItem("FTEvaluacion") );
+    if( FTEvaluacion2UpdateView.Status == "Correct" ){
         $('.table-evaluation').show();
         $('.NoFTEvaluationInformation').hide();
         
@@ -165,21 +188,27 @@ function UpdateView_FTEvaluation(){
         $('.btn-insert-evaluation-information').hide();
         $('.btn-update-evaluation-information').show();
 
-        if( FTEvaluacion.ValidacionInfo == 0 ){
+        if( FTEvaluacion2UpdateView.ValidacionInfo == "Información_capturada" ){
             $('.validation-ft-evaluation').hide();
+            $('.wait-validation-ft-evaluation').hide();
             $('.btn-edit-evaluation-information').show();
-        }else{
+        }else if( FTEvaluacion2UpdateView.ValidacionInfo == "En_validación" ){
+            $('.validation-ft-evaluation').hide();
+            $('.wait-validation-ft-evaluation').show();
+            $('.btn-edit-evaluation-information').hide();
+        }else if( FTEvaluacion2UpdateView.ValidacionInfo == "Información_validada" ){
             $('.validation-ft-evaluation').show();
+            $('.wait-validation-ft-evaluation').hide();
             $('.btn-edit-evaluation-information').hide();
         }
         
-        $('.InstanciaEvaluadora').text( FTEvaluacion.InstanciaEvaluadora );
-        $('.NombreDeEvaluacion').text( FTEvaluacion.NombreDeEvaluacion );
-        $('.TipoEvaluacion').text( FTEvaluacion.TipoEvaluacion );
-        $('.AñoDeEvaluacion').text( FTEvaluacion.AñoDeEvaluacion );
-        $('.NombreDelInforme').text( FTEvaluacion.NombreDelInforme );
-        $('.CostoEvaluacion').text( '$'+FTEvaluacion.CostoEvaluacion );
-    }else if( FTEvaluacion.Status == "Sin resultados" ){
+        $('.InstanciaEvaluadora').text( FTEvaluacion2UpdateView.InstanciaEvaluadora );
+        $('.NombreDeEvaluacion').text( FTEvaluacion2UpdateView.NombreDeEvaluacion );
+        $('.TipoEvaluacion').text( FTEvaluacion2UpdateView.TipoEvaluacion );
+        $('.AñoDeEvaluacion').text( FTEvaluacion2UpdateView.AñoDeEvaluacion );
+        $('.NombreDelInforme').text( FTEvaluacion2UpdateView.NombreDelInforme );
+        $('.CostoEvaluacion').text( '$'+FTEvaluacion2UpdateView.CostoEvaluacion );
+    }else if( FTEvaluacion2UpdateView.Status == "Sin resultados" ){
         $('.table-evaluation').hide();
         $('.NoFTEvaluationInformation').show();
         $('.validation-ft-evaluation').hide();
@@ -208,7 +237,12 @@ function Update_EvaluationData(){
     FTEvaluacion.AñoDeEvaluacion = $("#txtYearEvaluation").val();
     FTEvaluacion.NombreDelInforme = $("#txtNombreInforme").val();
     FTEvaluacion.CostoEvaluacion = $("#txtCostoEvaluacion").val();
-    FTEvaluacion.ValidacionInfo = $('.ValidateInformationEvaluationCheckbox').prop('checked');
+    
+    console.log( $('.ValidateInformationEvaluationCheckbox').prop('checked') );
+    if( $('.ValidateInformationEvaluationCheckbox').prop('checked') )
+        FTEvaluacion.ValidacionInfo = 'En_validación';
+    else
+        FTEvaluacion.ValidacionInfo = 'Información_capturada';
 
     localStorage.setItem('FTEvaluacion', JSON.stringify(FTEvaluacion) );
     UpdateView_FTEvaluation();
@@ -241,31 +275,58 @@ $('.btn-edit-evaluation-information').on('click', function(){
 
 function UpdateView_OpinionGeneral(){
 
-    if( OpinionGeneral.Status == "Correct" ){
+    var OpinionGeneral2UpdateView = JSON.parse( localStorage.getItem('GeneralOpinion') );
+
+    if( OpinionGeneral2UpdateView.Status == "Correct" ){
         $('#ComentariosObservacionesGenerales').show();
-        $('#ComentariosObservacionesGenerales').val( OpinionGeneral.ComentariosObservacionesGenerales );
+        $('#ComentariosObservacionesGenerales').val( OpinionGeneral2UpdateView.ComentariosObservacionesGenerales );
         M.textareaAutoResize($('#ComentariosObservacionesGenerales'));
         
         $('.OG_SinInfo').css('display', 'none');
 
-        console.log( OpinionGeneral.Observaciones.Status );
-        if( OpinionGeneral.Observaciones.Status ){
-            $('.ValidatorObservationContainer').show();
-            $('.NoValidatorObservationContainer').hide();
-            $('#ValidatorObservation_Text').val( OpinionGeneral.Observaciones.ObservacionTexto );
-            $('.estatus-observacion-posicionamiento').text( OpinionGeneral.Observaciones.ObservationState );
+        console.log( OpinionGeneral2UpdateView.Observaciones.Status );
+        console.log( OpinionGeneral2UpdateView.Observaciones.ObservationState );
 
+        if( OpinionGeneral2UpdateView.Observaciones.Status ){
+            if( OpinionGeneral2UpdateView.Observaciones.ObservationState == "Con observación" ){
+                $('.btn-send-for-validation-general-opinion').show();
+                $('.ValidatorObservationContainer').show();
+                $('.btn-edit-general-comments').show();
+
+                $('.NoValidatorObservationContainer').hide();
+                $('.validation-general-opinion').hide();
+                $('.wait-validation-general-opinion').hide();
+
+                $('#ValidatorObservation_Text').val( OpinionGeneral2UpdateView.Observaciones.ObservacionTexto );
+                $('.estatus-observacion-posicionamiento').text( OpinionGeneral2UpdateView.Observaciones.ObservationState );
+            }else if( OpinionGeneral2UpdateView.Observaciones.ObservationState == "Enviado para validación" ){
+                $('.NoValidatorObservationContainer').hide();
+                $('.btn-edit-general-comments').hide();
+                $('.validation-general-opinion').hide();
+
+                $('.wait-validation-general-opinion').show();
+
+                $('#ValidatorObservation_Text').val( OpinionGeneral2UpdateView.Observaciones.ObservacionTexto );
+                $('.estatus-observacion-posicionamiento').text( OpinionGeneral2UpdateView.Observaciones.ObservationState );
+            }else if( OpinionGeneral2UpdateView.Observaciones.ObservationState == "Información validada" ){
+                $('.btn-send-for-validation-general-opinion').hide();
+                $('.ValidatorObservationContainer').hide();
+                $('.NoValidatorObservationContainer').hide();
+                $('.btn-edit-general-comments').hide();
+                $('.wait-validation-general-opinion').hide();
+
+                $('.validation-general-opinion').show();
+            }
         }else{
             $('.ValidatorObservationContainer').hide();
             $('.NoValidatorObservationContainer').show();            
-            $('.estatus-observacion-posicionamiento').html( "<h5><strong>"+OpinionGeneral.Observaciones.ObservationState+"</strong></h5>" );
+            $('.estatus-observacion-posicionamiento').html( "<h5><strong>"+OpinionGeneral2UpdateView.Observaciones.ObservationState+"</strong></h5>" );
         }
         
         $('.btn-add-opinion-general').hide();
-        $('.btn-edit-general-comments').show();
         $('.btn-edit-specific-comments').show();
         $('.btn-insert-opinion-general').hide()
-    }else if( OpinionGeneral.Status == "Sin resultados" ){
+    }else if( OpinionGeneral2UpdateView.Status == "Sin resultados" ){
         $('.OG_SinInfo').css('display', 'block');
 
         $('#ComentariosObservacionesGenerales').hide();
@@ -287,10 +348,13 @@ function Read_OpinionGeneral(){
 }
 
 function Update_GeneralComments(){
-    OpinionGeneral.ComentariosObservacionesGenerales = $('#txtComentariosGenerales').val();
-    localStorage.setItem("GeneralOpinion", JSON.stringify(OpinionGeneral) );
+    var OpinionGeneral2Update  = JSON.parse( localStorage.getItem( "GeneralOpinion" ) );
+    OpinionGeneral2Update.ComentariosObservacionesGenerales = $('#txtComentariosGenerales').val();
+    OpinionGeneral2Update.Observaciones.ObservationState = 'Enviado para validación';
+
+    localStorage.setItem("GeneralOpinion", JSON.stringify(OpinionGeneral2Update) );
     
-    M.toast({html: 'Opinión general actualizada correctamente', classes: 'green rounded'});
+    M.toast({html: 'Opinión general actualizada <br> y enviada para validación', classes: 'green rounded'});
     UpdateView_OpinionGeneral();
 }
 
@@ -306,7 +370,41 @@ $('.btn-modify-general-comments').on('click', function(){
 $('.btn-edit-general-comments').on('click', function(){
      $('#txtComentariosGenerales').val( $('#ComentariosObservacionesGenerales').val() );
      M.textareaAutoResize($('#txtComentariosGenerales'));
+
+     $('.status-observacion-general-opinion').text( OpinionGeneral.Observaciones.ObservationState );
+
+    if( OpinionGeneral.Observaciones.Status ){
+        $('#txtModalObservacionValidadorOpinionGeneral').val( OpinionGeneral.Observaciones.ObservacionTexto );
+        M.textareaAutoResize( $('#txtModalObservacionValidadorOpinionGeneral' ) );
+
+        $('.observation-general-opinion-container').show();
+        $('.NoValidatorCommentGeneralOpinion').hide();
+        $('#ModalModifyGeneralComments').css({
+            'height': '80%',
+            'max-height': '85%'
+        });
+    }else{
+        $('.NoValidatorCommentGeneralOpinion').show();
+        $('.observation-general-opinion-container').hide();
+        $('#ModalModifyGeneralComments').css({
+            'height': '65%',
+            'max-height': '65%'
+        });
+    }
+
+    //
 });
+
+/*
+$('.btn-send-for-validation-general-opinion').on('click', function(){
+    var OpinionGeneral_ValidationStatus = JSON.parse( localStorage.getItem('GeneralOpinion') );
+    $(this).attr('disabled', 'disabled');
+
+    OpinionGeneral_ValidationStatus.Observaciones.ObservationState = 'Enviado para validación';
+
+    localStorage.setItem( 'GeneralOpinion', JSON.stringify(OpinionGeneral_ValidationStatus) );
+});
+*/
 
 // *****   COMENTARIOS Y OBSERVACIONES ESPECÍFICOS POR TEMA   ******
 // * * * * Funciones CRUD y eventos
@@ -325,7 +423,7 @@ function UpdateView_ComPorTema(){
         $('.OG_SinInfo').css('display', 'none');
         
         $('.btn-add-opinion-general').hide();
-        $('.btn-edit-general-comments').show();
+        //$('.btn-edit-general-comments').show();
         $('.btn-edit-specific-comments').show();
         $('.btn-insert-opinion-general').hide()
     }else if( ComentariosPorTema.Status == "Sin resultados" ){
@@ -333,7 +431,7 @@ function UpdateView_ComPorTema(){
         $('.ComentariosObservacionesEspecificosPorTema_Titulo').hide();
 
         $('.btn-add-opinion-general').show();
-        $('.btn-edit-general-comments').hide();
+        //$('.btn-edit-general-comments').hide();
         $('.btn-edit-specific-comments').hide();
         $('.btn-insert-opinion-general').show();
     }else{
@@ -369,22 +467,23 @@ $('.btn-modify-portema-titulo').on('click', function(){
 // * * (U) Update
 
 function UpdateVIew_TemasComentariosPorTema(){
+    var TemasComentariosPorTema2UpdateView = JSON.parse( localStorage.getItem('TemasComentariosPorTema') );
 
-    if( TemasComentariosPorTema.Status == "Correct" ){
+    if( TemasComentariosPorTema2UpdateView.Status == "Correct" ){
         
-        var TextInner = "<tr>";
+        var TextInner = "";
 
-        for(var i=0; i<TemasComentariosPorTema.Length; i++ ){
+        for(var i=0; i<TemasComentariosPorTema2UpdateView.Length; i++ ){
 
-            if( TemasComentariosPorTema[i].Observaciones.Status ){
-                ObservationStatus = "<td class='center-align'><i class='material-icons'>"+TemasComentariosPorTema[i].Observaciones.IconState+"</i></td>";
+            if( TemasComentariosPorTema2UpdateView[i].Observaciones.Status ){
+                ObservationStatus = "<td class='center-align'><i class='material-icons'>"+TemasComentariosPorTema2UpdateView[i].Observaciones.IconState+"</i></td>";
             }else{
                 ObservationStatus = "<td></td>";
             }
 
             TextInner = TextInner + "<tr class='rowtable'>"+
-                                         "<td> <i class='hide-id-tema'>"+TemasComentariosPorTema[i].ID_TemaComentariosPorTema+"</i> <strong>"+TemasComentariosPorTema[i].TituloTema+"</strong></td>"+
-                                         "<td>"+TemasComentariosPorTema[i].TextoTema+"</td>"+
+                                         "<td> <i class='hide-id-tema'>"+TemasComentariosPorTema2UpdateView[i].ID_TemaComentariosPorTema+"</i> <strong>"+TemasComentariosPorTema2UpdateView[i].TituloTema+"</strong></td>"+
+                                         "<td>"+TemasComentariosPorTema2UpdateView[i].TextoTema+"</td>"+
                                          ObservationStatus+
                                     "</tr>";
         }
@@ -393,7 +492,7 @@ function UpdateVIew_TemasComentariosPorTema(){
         
         console.log(  );
         
-    }else if( TemasComentariosPorTema.Status == "Sin resultados" ){
+    }else if( TemasComentariosPorTema2UpdateView.Status == "Sin resultados" ){
         
     }else{
         M.toast({html: 'Error al mostrar la opinión general. Err. 0001', classes: 'red rounded'});
@@ -404,12 +503,16 @@ function Read_TemasComentariosPorTema(){
     UpdateVIew_TemasComentariosPorTema();
 }
 
-function Update_TemasComentariosPorTema(id_tema){    
-    TemasComentariosPorTema[id_tema-1].TituloTema = $('#txtModalTituloTema').val();
-    TemasComentariosPorTema[id_tema-1].TextoTema = $('#txtModalContenidoTema').val();
-    TemasComentariosPorTema[id_tema-1].Observaciones.ObservationState = 'Enviado para validacion';
+function Update_TemasComentariosPorTema(id_tema){
+    var TemasComentariosPorTema2Update = JSON.parse( localStorage.getItem('TemasComentariosPorTema') );
+    console.log(id_tema);
 
-    localStorage.setItem('TemasComentariosPorTema', JSON.stringify(TemasComentariosPorTema));
+    TemasComentariosPorTema2Update[id_tema-1].TituloTema = $('#txtModalTituloTema').val();
+    TemasComentariosPorTema2Update[id_tema-1].TextoTema = $('#txtModalContenidoTema').val();
+    TemasComentariosPorTema2Update[id_tema-1].Observaciones.ObservationState = 'Enviado para validacion';
+    TemasComentariosPorTema2Update[id_tema-1].Observaciones.IconState = 'unarchive';
+
+    localStorage.setItem('TemasComentariosPorTema', JSON.stringify(TemasComentariosPorTema2Update));
     
     $('#ModalModifyDataTheme').modal('close');
     M.toast({html: 'Información actualizada correctamente', classes: 'green rounded'});
@@ -418,30 +521,29 @@ function Update_TemasComentariosPorTema(id_tema){
 }
 
 $('.table-observaciones-especificas').on('click', '.Table_TemasComentariosPorTema .rowtable', function(){
+    var TemasComentariosPorTema2UpdateModalModifyView = JSON.parse( localStorage.getItem( 'TemasComentariosPorTema' ) );
     var id_tema = $(this).find('.hide-id-tema')[0].innerText;
 
     $('.id_observacion_modal').text( id_tema );
 
     $('#ModalModifyDataTheme').modal('open');
-    $('#txtModalTituloTema').val( TemasComentariosPorTema[id_tema-1].TituloTema );
+    $('#txtModalTituloTema').val( TemasComentariosPorTema2UpdateModalModifyView[id_tema-1].TituloTema );
     M.textareaAutoResize($('#txtModalTituloTema'));
 
-    $('#txtModalContenidoTema').val( TemasComentariosPorTema[id_tema-1].TextoTema );
+    $('#txtModalContenidoTema').val( TemasComentariosPorTema2UpdateModalModifyView[id_tema-1].TextoTema );
     M.textareaAutoResize( $('#txtModalContenidoTema') );
 
-    if( TemasComentariosPorTema[id_tema-1].Observaciones.Status ){
+    if( TemasComentariosPorTema2UpdateModalModifyView[id_tema-1].Observaciones.Status ){
         $('.title-ObservacionValidador').show();
         $('.NoValidatorComment').hide();
 
         $('#txtModalObservacionValidador').show();
-        $('#txtModalObservacionValidador').val( TemasComentariosPorTema[id_tema-1].Observaciones.ObservacionTexto );
-        $('.status-observacion-enviada').text( TemasComentariosPorTema[id_tema-1].Observaciones.ObservationState );
+        $('#txtModalObservacionValidador').val( TemasComentariosPorTema2UpdateModalModifyView[id_tema-1].Observaciones.ObservacionTexto );
+        $('.status-observacion-enviada').text( TemasComentariosPorTema2UpdateModalModifyView[id_tema-1].Observaciones.ObservationState );
 
-        if( TemasComentariosPorTema[id_tema-1].Observaciones.ObservationState == 'Con observaciones' ){
-            $('.btn-send-for-validation').show();
+        if( TemasComentariosPorTema2UpdateModalModifyView[id_tema-1].Observaciones.ObservationState == 'Con observaciones' ){
             $('.btn-modify-tema-especifico').show();
         }else{
-            $('.btn-send-for-validation').hide();
             $('.btn-modify-tema-especifico').hide();
             $('.estatus-observacion-enviada-container').show();
         }
@@ -450,7 +552,6 @@ $('.table-observaciones-especificas').on('click', '.Table_TemasComentariosPorTem
     }else{
         $('.NoValidatorComment').show();
         $('.title-ObservacionValidador').hide();
-        $('.btn-send-for-validation').hide();
         $('#txtModalObservacionValidador').hide();
         $('.btn-modify-tema-especifico').hide();
         $('.estatus-observacion-enviada-container').hide();
@@ -463,13 +564,14 @@ $('.btn-modify-tema-especifico').on('click', function(){
     Update_TemasComentariosPorTema(idtema);
 });
 
+/*
 $('.btn-send-for-validation').on('click', function(){
     var idtema = $('.id_observacion_modal').text();
 
     $(this).attr('disabled', 'disabled');
     TemasComentariosPorTema[idtema - 1].Observaciones.IconState = 'unarchive';
 });
-
+*/
 // *****   PLAN DE MEJORA   ******
 // * * * * Funciones CRUD y eventos
 // * * (C) Create
@@ -482,7 +584,7 @@ function GetByRecomendation(TypeRecomendation){
     var NewArray = {}, NewCounter = 0;
 
     for(var i = 0; i < PlanDeMejora2Split.Length; i++ ){
-        if( PlanDeMejora2Split[i].Propiedades.TipoRecomendacion == TypeRecomendation ){
+        if( PlanDeMejora2Split[i].Propiedades.TipoRecomendacion.Estado == TypeRecomendation ){
             NewArray[NewCounter] = PlanDeMejora2Split[i];
             
             NewCounter++;
@@ -502,9 +604,10 @@ function GetByRecomendation(TypeRecomendation){
 
 function UpdateView_RecomendacionesAComprometer(){
     var table_recomendaciones = "";
+    var ButtonsOptions = "";
     var asm_complete_flag;
     var PlanDeMejora_AComprometer = GetByRecomendation( "AComprometer" );
-    console.log( '(f) UView - Plan de mejora => ', PlanDeMejora_AComprometer );
+    //console.log( '(f) UView - Plan de mejora => ', PlanDeMejora_AComprometer );
 
     if( PlanDeMejora_AComprometer.Status == "Correct" ){
         $('.table-plan-de-mejora').show();
@@ -524,6 +627,18 @@ function UpdateView_RecomendacionesAComprometer(){
                     RecomendationButton = "<a class='btn-floating btn-small btn-show-observation modal-trigger waves-effect light-blue darken-2 right' href='#ModalShowObservation'><i class='material-icons'>assignment</i></a>";
                 else
                     RecomendationButton = '';
+
+                if( PlanDeMejora_AComprometer[i].Propiedades.Observaciones.ObservationState == "Enviado para validación" ){
+                    ButtonsOptions = RecomendationButton;
+                }else if( PlanDeMejora_AComprometer[i].Propiedades.Observaciones.ObservationState == "Con observación" ) {
+                    ButtonsOptions = ButtonsOptions + "<a class='btn-floating btn-small btn-delete-recomendation  modal-trigger waves-effect red darken-2 right' href='#ModalDeleteRecomendation'><i class='material-icons'>delete</i></a>" +
+                                        "<a class='btn-floating btn-small btn-edit-recomendation    modal-trigger waves-effect yellow darken-2 right' href='#ModalAddModifyPlanMejora'><i class='material-icons'>edit</i></a>"+
+                                        RecomendationButton;
+                }
+
+                console.log( PlanDeMejora_AComprometer[i].FechaCompromiso );
+                var FechaSplited = PlanDeMejora_AComprometer[i].FechaCompromiso.split('-');
+                var FechaFormato = FechaSplited[0]+'/'+FechaSplited[1]+'/'+FechaSplited[2];
                 
                 table_recomendaciones = table_recomendaciones +
                 "<tr>"+ 
@@ -534,13 +649,11 @@ function UpdateView_RecomendacionesAComprometer(){
                     "<td class='center-align'>"+ PlanDeMejora_AComprometer[i].Prioridad +"</td>"+
                     "<td>"+ PlanDeMejora_AComprometer[i].AccionDeMejora +"</td>"+
                     "<td>"+ PlanDeMejora_AComprometer[i].AreaResponsable +"</td>"+
-                    "<td class='center-align'>"+ PlanDeMejora_AComprometer[i].FechaCompromiso +"</td>"+
+                    "<td class='center-align'>"+ FechaFormato +"</td>"+
                     "<td>"+ PlanDeMejora_AComprometer[i].ResultadosEsperados +"</td>"+
                     "<td>"+ PlanDeMejora_AComprometer[i].Evidencia +
                         "<div class='options-recomendation-container'>"+
-                            "<a class='btn-floating btn-small btn-delete-recomendation  modal-trigger waves-effect red darken-2 right' href='#ModalDeleteRecomendation'><i class='material-icons'>delete</i></a>"+
-                            "<a class='btn-floating btn-small btn-edit-recomendation    modal-trigger waves-effect yellow darken-2 right' href='#ModalAddModifyPlanMejora'><i class='material-icons'>edit</i></a>"+
-                            RecomendationButton +
+                            ButtonsOptions
                         "</div>"+
                     "</td>"+
                 "</tr>";
@@ -573,7 +686,7 @@ function UpdateView_RecomendacionesAComprometer(){
 function UpdateView_RecomendacionesAtendidas(){
     var table_recomendaciones = "";
     var PlanDeMejora_Atendidas = GetByRecomendation( "Atendida" );
-    console.log( '(f) UView - Plan de mejora => ', PlanDeMejora_Atendidas );
+    //console.log( '(f) UView - Plan de mejora => ', PlanDeMejora_Atendidas );
 
     if( PlanDeMejora_Atendidas.Status == "Correct" ){
         $('.TableAtendidas').show();
@@ -581,10 +694,11 @@ function UpdateView_RecomendacionesAtendidas(){
         for(var i=0; i<PlanDeMejora_Atendidas.Length; i++){
             table_recomendaciones = table_recomendaciones +
             "<tr>"+ 
-                "<td>"+ PlanDeMejora_Atendidas[i].NumRecomendacion +"</td>"+
-                "<td> <p class='id_RecomendacionAtendida'>"+i+"</p><p>"+ PlanDeMejora_Atendidas[i].ASM +"</p></td>"+
+                "<td class='center-align'>"+ PlanDeMejora_Atendidas[i].NumRecomendacion +"</td>"+
+                "<td> <p class='id_RecomendacionAtendida'>"+PlanDeMejora_Atendidas[i].NumRecomendacion+"</p><p>"+ PlanDeMejora_Atendidas[i].ASM +"</p></td>"+
                 "<td>"+ PlanDeMejora_Atendidas[i].Evidencia +"</td>"+
-                "<td>"+ PlanDeMejora_Atendidas[i].Propiedades.Observaciones.ObservacionTexto +"</td>"+
+                //"<td>"+ PlanDeMejora_Atendidas[i].Propiedades.Observaciones.ObservacionTexto +"</td>"+
+                "<td class='center-align'> <i class='material-icons'>"+ PlanDeMejora_Atendidas[i].Propiedades.Observaciones.IconState +"</i></td>"+
             "</tr>";
         }
 
@@ -608,19 +722,20 @@ function UpdateView_RecomendacionesRechazadas(){
     var table_recomendaciones = "";
     var asm_complete_flag;
     var PlanDeMejora_Rechazada = GetByRecomendation( "Rechazada" );
-    console.log( '(f) UView - Plan de mejora => ', PlanDeMejora_Rechazada );
+    //console.log( '(f) UView - Plan de mejora => ', PlanDeMejora_Rechazada );
 
     if( PlanDeMejora_Rechazada.Status == "Correct" ){
         $('.TableRechazadas').show();
 
         for(var i=0; i<PlanDeMejora_Rechazada.Length; i++){
             asm_complete_flag = "complete";
-            
+
             table_recomendaciones = table_recomendaciones +
                                                     "<tr>"+ 
-                                                        "<td>"+ PlanDeMejora_Rechazada[i].NumRecomendacion +"</td>"+
-                                                        "<td><p class='id_RecomendacionAtendida'>"+i+"</p>"+ PlanDeMejora_Rechazada[i].ASM +"</td>"+
-                                                        "<td>"+ PlanDeMejora_Rechazada[i].Propiedades.Observaciones.ObservacionTexto +"</td>"+
+                                                        "<td class='center-align'>"+ PlanDeMejora_Rechazada[i].NumRecomendacion +"</td>"+
+                                                        "<td><p class='id_RecomendacionRechazada'>"+PlanDeMejora_Rechazada[i].NumRecomendacion+"</p>"+ PlanDeMejora_Rechazada[i].ASM +"</td>"+
+                                                        "<td>"+ PlanDeMejora_Rechazada[i].Propiedades.TipoRecomendacion.Justificacion +"</td>"+
+                                                        "<td class='center-align'> <i class='material-icons'>"+ PlanDeMejora_Rechazada[i].Propiedades.Observaciones.IconState +"</i></td>"
                                                     "</tr>";
         }
 
@@ -718,19 +833,19 @@ $('.btn-delete-recomendation').on('click', function(){
 });
 
 $('.btn-add-plan-mejora').on('click', function(){
-        $('#txtNumRecomendation').val("");
-        $('#txtASM').val("");
-        $('#txtActoresInvolucrados').val("");
-        $('#select-nivel-prioridad').val("");
-        $('#select-estatus').val("");
-        $('#txtAccionMejora').val("");
-        $('#txtResultadosEsperados').val("");
-        $('#txtFecha').val("");
-        $('#txtAreaResponsable').val("");
-        $('#txtEvidenciasSolicitadas').val("");
-        
-        $(".btn-insert-recomendacion").show();
-        $(".btn-update-recomendacion").hide();
+    $('#txtNumRecomendation').val("");
+    $('#txtASM').val("");
+    $('#txtActoresInvolucrados').val("");
+    $('#select-nivel-prioridad').val("");
+    $('#select-estatus').val("");
+    $('#txtAccionMejora').val("");
+    $('#txtResultadosEsperados').val("");
+    $('#txtFecha').val("");
+    $('#txtAreaResponsable').val("");
+    $('#txtEvidenciasSolicitadas').val("");
+    
+    $(".btn-insert-recomendacion").show();
+    $(".btn-update-recomendacion").hide();
 });
 
 $('.btn-insert-recomendacion').on('click', function(){
@@ -779,6 +894,7 @@ $('.btn-insert-recomendacion').on('click', function(){
 
 //  Actualización de una recomendación
 $('.btn-update-recomendacion').on('click', function(){
+    var PlanDeMejora2Update = JSON.parse( localStorage.getItem("PlanDeMejora") );
     var PrioridadVal = $('#select-nivel-prioridad').val(), Prioridad = "";
     var EstatusRecomendacion = $('#select-estatus').val(), Estatus = "";
     var NumRecomendation = $('#txtNumRecomendation').val();
@@ -797,17 +913,20 @@ $('.btn-update-recomendacion').on('click', function(){
     else if( EstatusRecomendacion == 3 )
         Estatus = "Sin atender";
 
-    PlanDeMejora[NumRecomendation - 1].ASM                              =   $('#txtASM').val();
-    PlanDeMejora[NumRecomendation - 1].TipoDeActores                    =   $('#txtActoresInvolucrados').val();
-    PlanDeMejora[NumRecomendation - 1].Prioridad                        =   Prioridad;
-    PlanDeMejora[NumRecomendation - 1].FechaCompromiso                  =   $('#txtFecha').val();
-    PlanDeMejora[NumRecomendation - 1].AccionDeMejora                   =   $('#txtAccionMejora').val();
-    PlanDeMejora[NumRecomendation - 1].AreaResponsable                  =   $('#txtAreaResponsable').val();
-    PlanDeMejora[NumRecomendation - 1].ResultadosEsperados              =   $('#txtResultadosEsperados').val();
-    PlanDeMejora[NumRecomendation - 1].Evidencia                        =   $('#txtEvidenciasSolicitadas').val();
-    PlanDeMejora[NumRecomendation - 1].Propiedades.EstatusRecomendacion =   Estatus;
+    var FechaPartes = $('.datepicker-fecha-cumplimiento').val().split('-');
+    var FechaCompromiso = FechaPartes[2] +'-'+ FechaPartes[1] +'-'+ FechaPartes[0];
 
-    localStorage.setItem('PlanDeMejora', JSON.stringify(PlanDeMejora) );
+    PlanDeMejora2Update[NumRecomendation - 1].ASM                              =   $('#txtASM').val();
+    PlanDeMejora2Update[NumRecomendation - 1].TipoDeActores                    =   $('#txtActoresInvolucrados').val();
+    PlanDeMejora2Update[NumRecomendation - 1].Prioridad                        =   Prioridad;
+    PlanDeMejora2Update[NumRecomendation - 1].FechaCompromiso                  =   FechaCompromiso;
+    PlanDeMejora2Update[NumRecomendation - 1].AccionDeMejora                   =   $('#txtAccionMejora').val();
+    PlanDeMejora2Update[NumRecomendation - 1].AreaResponsable                  =   $('#txtAreaResponsable').val();
+    PlanDeMejora2Update[NumRecomendation - 1].ResultadosEsperados              =   $('#txtResultadosEsperados').val();
+    PlanDeMejora2Update[NumRecomendation - 1].Evidencia                        =   $('#txtEvidenciasSolicitadas').val();
+    PlanDeMejora2Update[NumRecomendation - 1].Propiedades.EstatusRecomendacion =   Estatus;
+
+    localStorage.setItem('PlanDeMejora', JSON.stringify(PlanDeMejora2Update) );
     
     M.toast({html: 'Información actualizada correctamente', classes: 'green rounded'});
     Update_Recomendacion();
@@ -857,8 +976,9 @@ $('.TableBody-RecomendacionesAComprometer').on('click', '.btn-edit-recomendation
     $('#txtResultadosEsperados').val( PlanDeMejora[NumRecomendation-1].ResultadosEsperados );
     M.textareaAutoResize( $('#txtResultadosEsperados') );
 
-    $('#txtFecha').val( PlanDeMejora[NumRecomendation-1].FechaCompromiso );
-    M.textareaAutoResize( $('#txtFecha') );
+    var FechaPartes = PlanDeMejora[NumRecomendation-1].FechaCompromiso.split('-');
+    var FechaCompromiso = FechaPartes[2] +'-'+ FechaPartes[1] +'-'+ FechaPartes[0];
+    $('.datepicker-fecha-cumplimiento').val( FechaCompromiso )
 
     $('#txtAreaResponsable').val( PlanDeMejora[NumRecomendation-1].AreaResponsable );
     M.textareaAutoResize( $('#txtAreaResponsable') );
@@ -908,6 +1028,24 @@ $('.TableBody-RecomendacionesAComprometer').on('click', '.btn-delete-recomendati
     $('.table-body-content-mejoras-delete').html( FormatDataTable );
 });
 
+$('.TableBody-RecomendacionesAComprometer').on('click', '.btn-show-observation', function(){
+    var PlanDeMejora2Show = JSON.parse( localStorage.getItem("PlanDeMejora") );
+    var NumContainer = $(this).parent().parent().siblings()[1];
+    var NumRecomendation = NumContainer.innerText;
+    $('.num_recomendation_a_comprometer').text( NumRecomendation );
+
+    $('.ObservationInRecomendation').text( PlanDeMejora2Show[NumRecomendation-1].Propiedades.Observaciones.ObservacionTexto );
+    $('.RecomendationObservation_StatusValue').text( PlanDeMejora2Show[NumRecomendation-1].Propiedades.Observaciones.ObservationState );
+
+    if( PlanDeMejora2Show[NumRecomendation-1].Propiedades.Observaciones.ObservationState == "Enviado para validación" ){
+        $('.btn-update-observation-a-comprometer').hide();
+        $('.btn-update-observation-a-comprometer').attr('disabled', 'disabled');
+    }else{
+        $('.btn-update-observation-a-comprometer').removeAttr('disabled');
+        $('.btn-update-observation-a-comprometer').show();
+    }
+});
+
 $('.TableBody-RecomendacionesAComprometer').on('mouseover', 'tr', 'td', function(){
     // $('.options-recomendation-container')
     $('.options-recomendation-container').css('display', 'flow-root');
@@ -919,72 +1057,119 @@ $('.TableBody-RecomendacionesAComprometer').on('mouseout', 'tr', 'td', function(
     $(this).children().find('.options-recomendation-container').hide();
 });
 
-//  MOSTRAR LAS OBSERVACIONES DEL VALIDADOR
-$('.TableBody-RecomendacionesAComprometer').on('click', '.btn-show-observation', function(){
-    var NumContainer = $(this).parent().parent().siblings()[1];
-    var NumRecomendation = NumContainer.innerText;
-    $('.num_recomendation').text( NumRecomendation );
-
-    $('.ObservationInRecomendation').text( PlanDeMejora[NumRecomendation-1].Propiedades.Observaciones.ObservacionTexto );
-    $('.RecomendationObservation_StatusValue').text( PlanDeMejora[NumRecomendation-1].Propiedades.Observaciones.ObservationState );
+$('.btn-update-observation-a-comprometer').on('click', function(){
+    var PlanDeMejora2UpdateObservationState = JSON.parse( localStorage.getItem("PlanDeMejora") );
+    console.log( PlanDeMejora2UpdateObservationState );
     
-    console.log( PlanDeMejora[NumRecomendation-1].Propiedades.Observaciones.ObservationState );
+    var NumRecomendation = $('.num_recomendation_a_comprometer').text();
+    console.log( NumRecomendation );
 
-    if( PlanDeMejora[NumRecomendation-1].Propiedades.Observaciones.ObservationState == "Enviado para validación" ){
-        $('.btn-update-observation').hide();
-        $('.btn-update-observation').attr('disabled', 'disabled');
-    }else{
-        $('.btn-update-observation').removeAttr('disabled');
-        $('.btn-update-observation').show();
-    }
+    PlanDeMejora2UpdateObservationState[NumRecomendation-1].Propiedades.Observaciones.ObservationState = "Enviado para validación";
 
-    console.log('Clicked => ', NumRecomendation );
-});
-
-$('.btn-update-observation').on('click', function(){
-    var NumRecomendation = $('.num_recomendation').text();
-
-    PlanDeMejora[NumRecomendation-1].Propiedades.Observaciones.ObservationState = "Enviado para validación";
-
+    localStorage.setItem('PlanDeMejora', JSON.stringify(PlanDeMejora2UpdateObservationState) );
     $('#ModalShowObservation').modal('close');
+
+    UpdateView_RecomendacionesAComprometer();
 });
 
 $('.TableBody-RecomendacionesAtendidas').on('click', 'tr', 'td', function(){
+    console.log( localStorage.length );
+    var PlanDeMejora2View = JSON.parse( localStorage.getItem('PlanDeMejora') );
     var IdAtendedRecomendation = $(this).children().children()[0].innerText;
 
-    $('.txtASM-AtendedRecomendation').val( PlanDeMejora[IdAtendedRecomendation].ASM );
+    $('.num_recomendation_atendidas').text( IdAtendedRecomendation );
+    $('.RecomendationObservation_StatusValue').text( PlanDeMejora2View[IdAtendedRecomendation-1].Propiedades.Observaciones.ObservationState );
+    $('.txtEvidencia-AtendedRecomendation').val( PlanDeMejora2View[IdAtendedRecomendation-1].Evidencia );
+    $('.txtASM-AtendedRecomendation').val( PlanDeMejora2View[IdAtendedRecomendation-1].ASM );
     M.textareaAutoResize( $('.txtASM-AtendedRecomendation') );
 
-    if( PlanDeMejora[IdAtendedRecomendation].Propiedades.Observaciones.Status ){
-        $('.ValidatorObservation-AtendedRecomendation-Container').show();
-        $('.txtValidatorObservation-AtendedRecomendation').val( PlanDeMejora[IdAtendedRecomendation].Propiedades.Observaciones.ObservacionTexto );
+    if( PlanDeMejora2View[IdAtendedRecomendation-1].Propiedades.Observaciones.Status ){
+
+        if( PlanDeMejora2View[IdAtendedRecomendation-1].Propiedades.Observaciones.ObservationState == 'Con observación' ){
+
+            $('.txtValidatorObservation-AtendedRecomendation').val( PlanDeMejora2View[IdAtendedRecomendation-1].Propiedades.Observaciones.ObservacionTexto );
+            M.textareaAutoResize( $('.txtValidatorObservation-AtendedRecomendation') );
+
+            $('.ValidatorObservation-AtendedRecomendation-Container').show();
+            $('.btn-update-recomendation-atended').show();
+
+        }else if( PlanDeMejora2View[IdAtendedRecomendation-1].Propiedades.Observaciones.ObservationState == 'Enviado para validación' ){
+            $('.ValidatorObservation-AtendedRecomendation-Container').show();
+            $('.txtValidatorObservation-AtendedRecomendation').val( PlanDeMejora2View[IdAtendedRecomendation-1].Propiedades.Observaciones.ObservacionTexto );
+            M.textareaAutoResize( $('.txtValidatorObservation-AtendedRecomendation') );
+
+            $('.btn-update-recomendation-atended').hide();
+        }
+
     }else{
         $('.ValidatorObservation-AtendedRecomendation-Container').hide();
+        $('.btn-update-recomendation-atended').hide();
     }
-
-    $('.RecomendationObservation_StatusValue').text( PlanDeMejora[IdAtendedRecomendation].Propiedades.Observaciones.ObservationState );
-    $('.txtEvidencia-AtendedRecomendation').val( PlanDeMejora[IdAtendedRecomendation].Evidencia );
     
     $('#ModalShowAtendedRecomendation').modal('open');
 });
 
-$('.TableBody-RecomendacionesRechazadas').on('click', 'tr', 'td', function(){
-    var IdAtendedRecomendation = $(this).children().children()[0].innerText;
+$('.btn-update-recomendation-atended').on('click', function(){
+    var PlanDeMejora2UpdateObservationState = JSON.parse( localStorage.getItem("PlanDeMejora") );    
+    var NumRecomendation = $('.num_recomendation_atendidas').text();
+    $('.num_recomendation_atendidas').css('display', 'none');
 
-    $('.txtASM-RefusedRecomendation').val( PlanDeMejora[IdAtendedRecomendation].ASM );
+    PlanDeMejora2UpdateObservationState[NumRecomendation-1].Propiedades.Observaciones.ObservationState = "Enviado para validación";
+    PlanDeMejora2UpdateObservationState[NumRecomendation-1].Propiedades.Observaciones.IconState = "assignment_return";
+
+    localStorage.setItem('PlanDeMejora', JSON.stringify(PlanDeMejora2UpdateObservationState) );
+    $('#ModalShowAtendedRecomendation').modal('close');
+    
+    UpdateView_RecomendacionesAtendidas();
+});
+
+$('.TableBody-RecomendacionesRechazadas').on('click', 'tr', 'td', function(){
+    var PlanDeMejora2ViewRecomendation = JSON.parse( localStorage.getItem('PlanDeMejora') );
+    var IdRefusedRecomendation = $(this).children().children()[0].innerText - 1;
+    $('.num_recomendation_refused').text( IdRefusedRecomendation );
+    $('.txtASM-RefusedRecomendation').val( PlanDeMejora2ViewRecomendation[IdRefusedRecomendation].ASM );
     M.textareaAutoResize( $('.txtASM-RefusedRecomendation') );
 
-    if( PlanDeMejora[IdAtendedRecomendation].Propiedades.Observaciones.Status ){
-        $('.ValidatorObservation-RefusedRecomendation-Container').show();
-        $('.txtValidatorObservation-RefusedRecomendation').val( PlanDeMejora[IdAtendedRecomendation].Propiedades.Observaciones.ObservacionTexto );
+    if( PlanDeMejora2ViewRecomendation[IdRefusedRecomendation].Propiedades.Observaciones.Status ){
+
+        console.log( PlanDeMejora2ViewRecomendation[IdRefusedRecomendation].Propiedades.Observaciones.ObservationState );
+
+        if( PlanDeMejora2ViewRecomendation[IdRefusedRecomendation].Propiedades.Observaciones.ObservationState == "Con observación" ){
+            $('.ValidatorObservation-RefusedRecomendation-Container').show();
+            $('.txtValidatorObservation-RefusedRecomendation').val( PlanDeMejora2ViewRecomendation[IdRefusedRecomendation].Propiedades.Observaciones.ObservacionTexto );
+
+            $('.btn-update-observation-refused').show();
+        }else if( PlanDeMejora2ViewRecomendation[IdRefusedRecomendation].Propiedades.Observaciones.ObservationState == "Enviado para validación" ){
+            $('.ValidatorObservation-RefusedRecomendation-Container').show();
+            $('.txtValidatorObservation-RefusedRecomendation').val( PlanDeMejora2ViewRecomendation[IdRefusedRecomendation].Propiedades.Observaciones.ObservacionTexto );
+
+            $('.btn-update-observation-refused').hide();
+        }
+
     }else{
         $('.ValidatorObservation-RefusedRecomendation-Container').hide();
     }
 
-    $('.RecomendationObservation_StatusValue').text( PlanDeMejora[IdAtendedRecomendation].Propiedades.Observaciones.ObservationState );
-    $('.txtEvidencia-RefusedRecomendation').val( PlanDeMejora[IdAtendedRecomendation].Evidencia );
+    $('.RecomendationObservation_StatusValue').text( PlanDeMejora2ViewRecomendation[IdRefusedRecomendation].Propiedades.Observaciones.ObservationState );
+    $('.txtJustification-RefusedRecomendation').val( PlanDeMejora2ViewRecomendation[IdRefusedRecomendation].Propiedades.TipoRecomendacion.Justificacion );
     
     $('#ModalShowRefusedRecomendation').modal('open');
+});
+
+$('.btn-update-observation-refused').on('click', function(){
+    var PlanDeMejora2UpdateObservationState = JSON.parse( localStorage.getItem("PlanDeMejora") );    
+    var NumRecomendation = $('.num_recomendation_refused').text();
+
+    console.log( 'Clicked => ', NumRecomendation );
+
+    PlanDeMejora2UpdateObservationState[NumRecomendation].Propiedades.Observaciones.ObservationState = "Enviado para validación";
+    PlanDeMejora2UpdateObservationState[NumRecomendation].Propiedades.Observaciones.IconState = "assignment_return";
+    console.log( PlanDeMejora2UpdateObservationState );
+
+    localStorage.setItem('PlanDeMejora', JSON.stringify(PlanDeMejora2UpdateObservationState) );
+    $('#ModalShowRefusedRecomendation').modal('close');
+    
+    UpdateView_RecomendacionesRechazadas();
 });
 
 // *****   DOCUMENTOS DEL PROYECTO   ******
@@ -1030,9 +1215,17 @@ function HTML_DocumentFormat(frmt, filename, filestatus, idoc){
     }
     
     var DocumentFormat = '<li class="collection-item collection-item-document avatar"><img src="Resource/images/'+typefile+'.'+fileFormat+'" alt="" class="format-svg-avatar">' +
-                            '<div class="title-document-container"><span class="title title-document truncate"><span class="idoc" style="display: none;">'+idoc+'</span>'+filename+'.'+frmt+'</span><span class="document-status document-'+styledocs+'"><i class="material-icons left icon-status-document">'+iconstatus+'</i>'+filestatus+'</span></div>' +
+                            '<div class="title-document-container">'+
+                                '<span class="title title-document truncate">'+
+                                    '<span class="idoc">'+idoc+'</span>'+filename+'.'+frmt+
+                                '</span>'+
+                                '<span class="document-status document-'+styledocs+'">'+
+                                    '<i class="material-icons left icon-status-document">'+iconstatus+'</i>'+filestatus+
+                                '</span>'+
+                            '</div>' +
+
                             '<div class="action-buttons-docs">'+
-                                '<a class="btn-floating btn-small btn-view-document modal-trigger waves-effect blue darken-4" href="#modal-show-document"> <i class="material-icons left">remove_red_eye</i></a>'+
+                                '<a class="btn-small btn-view-document modal-trigger waves-effect blue darken-4" href="#modal-show-document"> <i class="material-icons left">open_in_browser</i>Ver documento</a>'+
                             '</div>'+
                          '</li>';
 
@@ -1041,26 +1234,47 @@ function HTML_DocumentFormat(frmt, filename, filestatus, idoc){
 
 function UpdateView_DocumentosProyecto(){
     var DataDoc = JSON.parse( localStorage.getItem('ProjectDocuments') );
-    console.log( DataDoc[0].Status   );
 
     //  DOCUMENTOS Y ASM POR DOCUMENTO
-    if( DataDoc[0].Status === "Correct" ){
-        $('.card-title-documents').text('Para formalización');
+    if( DataDoc.Status === "Correct" ){
+        $('.card-title-documents').text('Documentos a formalizar');
+        $('.card-title-documents').css('margin-left', '20px');
 
         var doc_html = "";
 
-        for( var doc_i = 1; doc_i < DataDoc.length; doc_i++ ){
+        for( var doc_i = 0; doc_i < DataDoc.Length; doc_i++ ){
             Documento_i = DataDoc[doc_i];
-            doc_html = doc_html + HTML_DocumentFormat( Documento_i.FormatoDocumento, Documento_i.NombreDocumento, Documento_i.EstadoRevision, Documento_i.ID_DocumentoProyecto );
+            doc_html = doc_html + HTML_DocumentFormat( Documento_i.FormatoDocumento, Documento_i.NombreDocumento, Documento_i.EstadoRevision, doc_i );
+
+            if( Documento_i.DocumentoFirmado.Status == "Sin documento" ){
+                console.log( 'Formatting Sin Documento' );        
+
+                $('.document-sign-container').hide();
+                $('.document-evidence').show();
+            }else if( Documento_i.DocumentoFirmado.Status == "Documento subido" ){
+                console.log( 'Formatting Documento Subido' );
+        
+                $('.document-sign-container').show();
+                $('.document-evidence').hide();
+
+                $('.NombreDocumento').text(Documento_i.DocumentoFirmado.Nombre+'.'+Documento_i.DocumentoFirmado.Formato);
+                $('.FechaSubida').text(Documento_i.DocumentoFirmado.FechaSubida);
+                $('.HoraSubida').text(Documento_i.DocumentoFirmado.HoraSubida);
+            }
         }
     
+        $('.collection-documents').show();
+        $('.btn-del-documents').hide();
+
         $('.collection-documents').empty();
         $('.collection-documents').append( doc_html );
+
         $('.collection-documents').children()[0].click();
-    }else if( DataDoc[0].Status === "Sin resultados" ){
-        $('.collection-documents').empty();
-        $('.collection-document-recomendations').empty();
+    }else if( DataDoc.Status === "Sin resultados" ){
+        $('.collection-documents').hide();
+        $('.collection-document-recomendations').hide();
         $('.card-title-documents').text('Sin documentos');
+        $('.btn-del-documents').hide();
     }else{
         M.toast({html: 'Error al mostrar los documentos del proyecto. Err. 0001', classes: 'red rounded'});
     }
@@ -1119,64 +1333,121 @@ function Read_ProjectDocuments(){
     console.log( JSON.parse( localStorage.getItem( 'ProjectDocuments' ) ) );
     var DocumentosProyecto = JSON.parse( localStorage.getItem( 'ProjectDocuments' ) );
 
-    if( DocumentosProyecto[0].Status == 'Sin resultados' ){
+    if( DocumentosProyecto.Status == 'Correct' ){
+        $('.btn-generate-documents').hide();
+        $('.btn-del-documents').hide();
+    }else if( DocumentosProyecto.Status == 'Sin resultados' ){
         $('.btn-generate-documents').removeClass('disabled');
         $('.btn-generate-documents').show();
-    }else if( DocumentosProyecto[0].Status == 'Correct' ){
-        $('.btn-generate-documents').hide();
+        $('.btn-del-documents').hide();
     }
-
 
     UpdateView_DocumentosProyecto(DocumentosProyecto);
 }
 
 $('.btn-del-documents').on('click', function(){
-    var EmptyDoc = [
-        {
-            Status: 'Sin resultados'
-        }
-    ]
-
-    $('.btn-generate-documents').removeClass('disabled');
-    localStorage.setItem('ProjectDocuments', JSON.stringify(EmptyDoc) );
-    UpdateView_DocumentosProyecto();
+    $('.card-title-documents').text('Sin documentos');
+    $('.card-title-documents').css('margin-left', '20px');
 
     $('.btn-del-documents').hide();
+    $('.collection-documents').hide();
     $('.collection-document-evidence').hide();
+
+    $('.btn-generate-documents').removeClass('disabled');
     $('.btn-generate-documents').show();
 });
 
 $('.btn-generate-documents').on('click', function(){
-    
-    var DataDocs = [
-        {
-            Status: 'Correct',
-            Length: 2
-        },{
-            FormatoDocumento: 'pdf',
-            NombreDocumento: 'Informacion_y_Opinion_General.pdf',
-            EstadoRevision: 'En revisión',
-            ID_DocumentoProyecto: '1'
-        },{
-            FormatoDocumento: 'pdf',
-            NombreDocumento: 'Informacion_y_plan_de_mejora.pdf',
-            EstadoRevision: 'En revisión',
-            ID_DocumentoProyecto: '1'
-        },
-    ];
+    var DataDocs = JSON.parse( localStorage.getItem('ProjectDocuments') );
 
-    localStorage.setItem( 'ProjectDocuments', JSON.stringify( DataDocs ) );
-    UpdateView_DocumentosProyecto( DataDocs );
+    $('.card-title-documents').text('Documentos a formalizar');
+    $('.card-title-documents').css('margin-left', '20px');
 
-    $('.btn-del-documents').show();
+    $('.btn-del-documents').hide();
+    $('.collection-documents').empty();
+    $('.collection-documents').show();
     $('.collection-document-evidence').show();
+
     $('.btn-generate-documents').addClass('disabled');
     $('.btn-generate-documents').hide();
-    
-    console.log( DataDocs );
+
+    UpdateView_DocumentosProyecto( DataDocs );
 });
 
 //  Eventos para mostrar y ocultar las opciones para los documentos
+
+$('.collection-documents').on('click', '.collection-item', function(){
+    $(this).addClass('collection-item-active');
+    $(this).siblings().removeClass('collection-item-active');
+    $(this).find('.document-status').css('background-color', 'white');
+    $(this).siblings().find('.document-status').css('background-color', 'rgba(240, 240, 240, 0.8)');
+    $('.txt-show-name-file').val('');
+
+    var ProjectDocuments2ViewPDF = JSON.parse( localStorage.getItem("ProjectDocuments") );
+    var id_doc = $(this).find('.idoc').text();
+    var name_file = 'Resource\\files\\' + ProjectDocuments2ViewPDF[id_doc].NombreDocumento+'.'+ProjectDocuments2ViewPDF[id_doc].FormatoDocumento;
+    var embed_pdf = "<embed class='docs-generated' src='"+name_file+"' type='application/pdf'/>";
+
+    console.log( ProjectDocuments2ViewPDF[id_doc] );
+
+    if( ProjectDocuments2ViewPDF[id_doc].DocumentoFirmado.Status == "Sin documento" ){
+        console.log( 'Sin Documento' );
+
+        $('.document-sign-container').hide();
+        $('.document-evidence').show();
+    }else if( ProjectDocuments2ViewPDF[id_doc].DocumentoFirmado.Status == "Documento subido" ){
+        console.log( 'Documento Subido ' );
+
+        $('.document-sign-container').show();
+        $('.document-evidence').hide();
+
+        $('.NombreDocumento').text( ProjectDocuments2ViewPDF[id_doc].DocumentoFirmado.Nombre+'.'+DocumentoFirmado.Formato);
+        $('.FechaSubida').text( ProjectDocuments2ViewPDF[id_doc].DocumentoFirmado.FechaSubida);
+        $('.HoraSubida').text( ProjectDocuments2ViewPDF[id_doc].DocumentoFirmado.HoraSubida);
+    }
+    
+    $('.id_doc2sign').text(id_doc);
+    $('.show-pdf-document').html(embed_pdf);
+});
+
+$('.btn-upload-doc-formalice').on('click', function(){
+    var ProjectDocuments2update = JSON.parse( localStorage.getItem('ProjectDocuments') );
+    var idoc                    = $(this).siblings()[1].innerText;
+    var FileLoaded              = $('#fileDoc')[0].files[0];
+    var NameSplited             = FileLoaded.name.split('.');
+    var FileName                = NameSplited[0];
+    var FileFormat              = NameSplited[1];
+
+    console.log( idoc );
+
+//  FECHA DE HOY PARA EL SELECTOR DE FECHA
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today_fmt1 = dd + '/' + mm + '/' + yyyy;
+
+    var hours   = String(today.getHours()  ).padStart(2, '0');
+    var minutes = String(today.getMinutes()).padStart(2, '0');
+    today_hora  = hours+':'+minutes;
+
+    ProjectDocuments2update[idoc].DocumentoFirmado.Status = "Documento subido";
+    ProjectDocuments2update[idoc].DocumentoFirmado.Nombre = FileName;
+    ProjectDocuments2update[idoc].DocumentoFirmado.Formato = FileFormat;
+    ProjectDocuments2update[idoc].DocumentoFirmado.FechaSubida = today_fmt1;
+    ProjectDocuments2update[idoc].DocumentoFirmado.HoraSubida = today_hora;
+
+    $('.NombreDocumento').text(FileName+'.'+FileFormat);
+    $('.FechaSubida').text(today_fmt1);
+    $('.HoraSubida').text(today_hora);
+    
+    $('.document-evidence').hide();
+    $('.document-sign-container').fadeIn('slow');
+
+    localStorage.setItem( 'ProjectDocuments', JSON.stringify( ProjectDocuments2update ) );
+});
+
 $('.collection-documents').on('mouseenter', '.collection-item', function(){
     $(this).children('.action-buttons-docs').css('display', 'block');
 });
@@ -1184,190 +1455,3 @@ $('.collection-documents').on('mouseenter', '.collection-item', function(){
 $('.collection-documents').on('mouseleave', '.collection-item', function(){
     $(this).children('.action-buttons-docs').css('display', 'none');
 });
-
-// *****   RECOMENDACIONES POR DOCUMENTOS   ******
-// * * * * Funciones CRUD y eventos
-// * * (C) Create
-// * * (R) Read
-// * * (U) Update
-// * * (D) Delete
-
-function HTML_RecomendationFormat(RecDoc){
-    var FormatRec = "";
-
-    if( RecDoc.Length > 0 ){
-        for(var reci = 0; reci<RecDoc.Length; reci++){
-            var CompleteASM = RecDoc[reci].BanderaRecomendacionCompletada, StyleCollItemRecom = "";
-
-            if( CompleteASM == 1 )
-                StyleCollItemRecom = "collection-item-recomendations-complete";
-            else
-                StyleCollItemRecom = "collection-item-recomendations-incomplete";
-
-            FormatRec = FormatRec + '<li class="collection-item collection-item-recomendations '+StyleCollItemRecom+'">'+
-                                        '<div class="btn-recomendation truncate">'+
-                                            '<i class="id_doc_proyecto">'+RecDoc[reci].ID_DocumentoProyecto+'</i>'+
-                                            '<i class="bandera_recomendacion_completada">'+RecDoc[reci].BanderaRecomendacionCompletada+'</i>'+
-                                            '<i class="id_doc_recomendation">'+RecDoc[reci].ID_RecomendacionDocumento+'</i>'+
-                                            '<i class="identifierRecomendation">'+RecDoc[reci].IdentificadorRecomendacion+': </i>'+
-                                            '<i class="recomendation_preview">'+RecDoc[reci].AspectoSusceptibleDeMejora+'</i>'+
-                                        '</div>'+
-                                        '<div class="action-buttons-docs-recomendations">'+
-                                            '<a class="btn-floating btn-small btn-modify-document-recomendation waves-effect orange modal-trigger" href="#modal-edit-asm-document"><i class="material-icons">edit</i></a>'+
-                                            '<a class="btn-floating btn-small btn-delete-document-recomendation waves-effect red    modal-trigger" href="#modal-confirm-delete-document-recomendation"><i class="material-icons">delete</i></a>'+
-                                        '</div>'+
-                                    '</li>';
-        }
-    }else{
-        FormatRec = '<h6>Sin recomendaciones registradas</h6>';
-    }    
-
-    return FormatRec;
-}
-
-function Create_DocumentRecomendation(DataRecomendation){
-    var TDat = 'NewDocRecomendation';
-
-    $.post('Controller/HomeEPP_CreateController.php', {TypeData: TDat, Data: DataRecomendation}, function(Response){
-        var SvrResponse = JSON.parse( Response );
-
-        if( SvrResponse.Status == "Correct" ){
-            $('#modal-new-asm-document').modal('close');
-            M.toast({html: 'Recomendación creada correctamente', classes: 'green darken-2 rounded'});
-
-            Read_DocumentsRecomendations( DataRecomendation.ID_DocumentoProyecto );
-        }else{
-            M.toast({html: 'Error al crear la recomendación', classes: 'red darken-2 rounded'});
-        }
-    });
-}
-
-function Read_DocumentsRecomendations(ID_Documento){
-/*
-    DataRecomendDocuments = {};
-    FormatRec = HTML_RecomendationFormat(DataRecomendDocuments);
-
-    $('.collection-document-recomendations').empty();
-    $('.collection-document-recomendations').html( FormatRec );
-*/
-}
-
-
-//  Eventos para la edición de recomendaciones a los documentos
-
-// * * * SHOW RECOMENDATION WHEN CLICK IN DOCUMENT
-
-$('.collection-documents').on('click', '.collection-item', function(){
-    var idoc = $(this).children('.title-document-container').children().find('.idoc').text();
-    Read_DocumentsRecomendations(idoc);
-    
-    $(this).addClass('document-selected');
-    $(this).siblings().removeClass('document-selected');
-
-    $(this).siblings().find('.title-document').css('font-weight', '400');
-    $(this).siblings().find('.icon-status-document').css('color', 'rgba(0, 0, 0, 0.2)');
-    $(this).siblings().find('.document-status').css('font-weight', '400');
-    
-    $(this).find('.title-document').css('font-weight', '600');
-    $(this).find('.icon-status-document').css('color', 'rgba(0, 0, 0, 0.4)');
-    $(this).find('.document-status').css('font-weight', '500');
-});
-
-// * * * CREATE NEW DOCUMENT RECOMENDATION
-$('.collection-documents').on('click', 'a.btn-add-document-recomendation', function(){
-    var id_doc = $(this).parent().siblings('.title-document-container').find('.idoc').text();
-    $('#iddoc_modal-newasm').text( id_doc );
-    $('#txt-NumDocRecomendation').val('');
-    $('#txt-doc-ASM').val('');
-});
-
-$('.btn-create-document-recomendation').on('click', function(){
-    var RecomendationDoc = {
-        ID_DocumentoProyecto: $('#iddoc_modal-newasm').text(),
-        IdentificadorRecomendacion: $('#txt-NumDocRecomendation').val(),
-        AspectoSusceptibleDeMejora: $('#txt-doc-ASM').val(),
-        BanderaRecomendacionCompletada: false
-    }
-
-    Create_DocumentRecomendation( RecomendationDoc );
-});
-
-// * * * DELETE DOCUMENT RECOMENDATION
-
-$('.collection-document-recomendations').on('click', '.btn-delete-document-recomendation', function(){
-    $('.idDocumentProject').text( $(this).parent().siblings().find('.id_doc_proyecto').text() );
-    $('.idRecomendationDocumentProject').text( parseInt($(this).parent().siblings().find('.id_doc_recomendation').text() ) );
-});
-
-$('.btn-confirm-delete-doc-recomendation').on('click', function(){
-    var RecomendationDoc = {
-        ID_DocumentoProyecto: $('.idDocumentProject').text(),
-        idDocRec: $('.idRecomendationDocumentProject').text(),
-    }
-
-    Delete_DocumentRecomendation( RecomendationDoc );
-});
-
-// * * * UDPATE DOCUMENT RECOMENDATION
-
-$('.collection-document-recomendations').on('click', '.btn-modify-document-recomendation', function(){
-    var num_docreco = $(this).parent().siblings().find('.identifierRecomendation').text().split(':');
-    var banderacompletada = $(this).parent().siblings().find('.bandera_recomendacion_completada').text();
-
-    if( banderacompletada == 1 )
-        $('#CBoxRecomendacionAtendida').prop('checked', true);
-    else
-        $('#CBoxRecomendacionAtendida').prop('checked', false);
-    
-    $('#txt-NumDocRecomendation_modify').val( num_docreco[0] );
-    $('#txt-doc-ASM_modify').val(  $(this).parent().siblings().find('.recomendation_preview').text() );
-    M.textareaAutoResize($('#txt-doc-ASM_modify'));
-
-    $('.idDocumentProject_Modify').text( $(this).parent().siblings().find('.id_doc_proyecto').text() );
-    $('.idRecomendationDocumentProject_Modify').text( $(this).parent().siblings().find('.id_doc_recomendation').text() );
-    
-});
-
-$('#CBoxRecomendacionAtendida').on('click', function(){
-    console.log( $(this).prop('checked') );
-});
-
-$('.btn-modify-document-recomendation').on('click', function(){
-    var NewDataRecomendation = {
-        ID_DocumentoProyecto: $('.idDocumentProject_Modify').text(),
-        ID_RecomendacionDocumento: $('.idRecomendationDocumentProject_Modify').text(),
-        AspectoSusceptibleDeMejora: $('#txt-doc-ASM_modify').val(),
-        BanderaRecomendacionCompletada: $('#CBoxRecomendacionAtendida').prop('checked')
-    }
-
-    Update_DocumentRecomendation( NewDataRecomendation );
-});
-
-/*
-//  Botones para los documentos
-$('.card-content-mejoras').on('mouseenter', '.card-recomendation', function(){
-    $(this).find('.button-options-recomendation-container').css('display', 'block');
-});
-
-$('.card-content-mejoras').on('mouseleave', '.card-recomendation', function(){
-    $(this).find('.button-options-recomendation-container').css('display', 'none');
-});
-*/
-
-//  Botones para las recomendaciones de los documentos
-$('.collection').on('mouseenter', '.collection-item-recomendations', function(){
-    $(this).children('.action-buttons-docs-recomendations').css('display', 'block');
-});
-
-$('.collection').on('mouseleave', '.collection-item-recomendations', function(){
-    $(this).children('.action-buttons-docs-recomendations').css('display', 'none');
-});
-
-$('.btn-recomendation-complete').on('click', function(){
-    M.toast({html: 'Recomendación atendida', classes: 'rounded'});
-    $(this).addClass('disabled');
-});
-
-
-
-

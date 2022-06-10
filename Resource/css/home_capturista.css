@@ -65,9 +65,11 @@ nav .brand-logo {
 	margin-bottom: 20px !important;
 }
 
+/*
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     line-height: 48px;
 }
+*/
 
 /* 	ESTILOS PARA LA SECCIÓN DE <<INFORMACIÓN GENERAL>>    */
 .card-title-ficha-tecnica{
@@ -87,10 +89,37 @@ td, th {
 	text-align: right;
 }
 
-.validation-ft-programa, .validation-ft-evaluation{
-	color : #2e7d32;
+.validation-ft-programa, .validation-ft-evaluation, .validation-general-opinion{
+	background-color: #2e7d32;
+	border-radius: 50% !important;
+	padding: 2px;
+	color: white;
 	font-size: 32px;
 	vertical-align: middle !important;
+}
+
+.wait-validation-ft-programa, .wait-validation-ft-evaluation, .wait-validation-general-opinion{
+	background-color: #0d47a1;
+	border-radius: 50% !important;
+	color: white;
+	padding: 6px;
+}
+
+.card .card-content .card-title .wait-validation-ft-programa {
+    line-height: 25px;
+}
+
+.card .card-content .card-title .wait-validation-ft-evaluation {
+    line-height: 25px;
+}
+
+.card .card-content .card-title .wait-validation-general-opinion {
+    line-height: 25px;
+}
+
+.ValidationBoxText{
+	color: black !important;
+	font-weight: normal !important;
 }
 
 /* ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- */
@@ -136,6 +165,11 @@ td, th {
 #OpinionGeneral_ObservacionesValidador{
 	color: black !important;
 	border-bottom: 0 !important;
+}
+
+#ComentariosObservacionesGenerales:hover, #ComentariosObservacionesEspecificosPorTema_Titulo:hover,
+#OpinionGeneral_ObservacionesValidador:hover{
+	cursor: text !important;
 }
 
 .title-ValidatorObservationOG{
@@ -203,6 +237,11 @@ td, th {
 }
 
 /* Modals styles */
+#ModalModifyGeneralComments{
+	top: 8% !important;
+	width: 65%;
+}
+
 #ModalAddModifyTechnicalProjectInfo{
 	top: 5% !important;
 	max-height: 95% !important;
@@ -256,13 +295,24 @@ td, th {
 	margin-right: 20px !important;
 }
 
+.datepicker-fecha-cumplimiento {
+    height: 44px;
+    border: 1px solid #f2f2f2;
+    text-align: center;
+}
+
 /* RECOMENDATIONS STYLE */
 
-.num_recomendation{
+.align-button-com-obs-por-tema{
+	vertical-align: middle !important;
+
+}
+
+.num_recomendation_atendidas, .num_recomendation_a_comprometer, .num_recomendation_refused{
 	display: none !important;
 }
 
-.id_RecomendacionAtendida{
+.id_RecomendacionAtendida, .id_RecomendacionRechazada{
 	display: none;
 }
 
@@ -337,16 +387,28 @@ td, th {
 	text-align: center;
 }
 
+.table-documento-evidencia{
+	width: 37% !important;
+}
+
+.table-IconAtended{
+	width: 8% !important;
+}
+
+.table-no-recomendation-refused{
+	width: 5% !important;
+}
+
 .table-ASM-atendidas{
-	width: 600px !important;
+	width: 57% !important;
 }
 
 .table-documento-evidencia{
-	width: 200px !important;
- }
+	width: 30% !important;
+}
 
-.table-observaciones{
-	width: 500px !important;
+.table-icon-recomendation-refused{
+	width: 8% !important;
 }
 
 /* Tabla de observaciones en la sección de Posicionamiento */
@@ -361,7 +423,7 @@ td, th {
 }
 
 .table-ObservacionAtender{
-	width: 15% !important;
+	width: 10% !important;
 	text-align: center;
 }
 
@@ -375,7 +437,7 @@ td, th {
 
 .Table_TemasComentariosPorTema tr td{
     padding-left: 5px;
-    overflow-y: clip;
+    overflow: hidden !important;
     white-space: nowrap;
     text-overflow: ellipsis;
     max-width: 15px;
@@ -389,7 +451,7 @@ td, th {
 
 .TableBody-RecomendacionesAComprometer tr td{
     padding-left: 5px;
-    overflow-y: clip;
+    overflow: hidden !important;
     white-space: nowrap;
     text-overflow: ellipsis;
     max-width: 5px;
@@ -402,11 +464,11 @@ td, th {
 
 .TableBody-RecomendacionesAtendidas tr td{
     padding-left: 5px;
-    overflow-y: clip;
+    overflow: hidden !important;
     white-space: nowrap;
     text-overflow: ellipsis;
     max-width: 5px;
-	padding: 10px 5px !important;
+	padding: 10px 15px 10px 10px !important;
 }
 
 .TableBody-RecomendacionesAtendidas tr td:hover{
@@ -415,7 +477,7 @@ td, th {
 
 .TableBody-RecomendacionesRechazadas tr td{
     padding-left: 5px;
-    overflow-y: clip;
+    overflow: hidden !important;
     white-space: nowrap;
     text-overflow: ellipsis;
     max-width: 5px;
@@ -506,9 +568,9 @@ td, th {
 	font-weight: 600;
 }
 
-.modal-titleTheme, .modal-contentTheme, .title-ObservacionValidador{
+.modal-titleTheme, .modal-contentTheme, .title-ObservacionValidador, .title-GeneralOpinion{
 	font-size: 32px;
-	font-weight: 600;
+	font-weight: 500;
 }
 
 .id_observacion_modal{
@@ -774,12 +836,6 @@ td, th {
 	height: 90% !important;
 }
 
-.show-pdf-document{
-	position: inherit;
-	width: 95%;
-	height: 96%;
-}
-
 .pdf-generated{
 	width: 100%;
 	height: 100%;
@@ -836,25 +892,21 @@ td, th {
     top: 15px;
 }
 
-.action-buttons-docs{
-	position: absolute;
-	overflow: hidden;
-	display: inline-block;
-	vertical-align: middle;
-	right: -1px;
-	top: 50%;
-	transform: translateY(-50%);
-	height: 102% !important;
-	line-height: 78px;
-	display: none;
+.action-buttons-docs {
+    position: absolute;
+    overflow: hidden;
+    display: none;
+    vertical-align: middle;
+    right: -1px;
+    bottom: 0;
+    height: 50% !important;
 
-	background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(248, 248, 248, 1) 30%, rgba(248, 248, 248, 1) 100% );
-	padding: 0 15px 0 55px;
-	border-top: 1px solid rgba(210, 210, 210, 0.8);
-	border-bottom: 1px solid rgba(210, 210, 210, 0.8);
-	border-right: 1px solid rgba(210, 210, 210, 0.8);
-	border-top-right-radius: 15px;
-	border-bottom-right-radius: 15px;
+    line-height: 40px;
+    background: linear-gradient( 90deg ,rgba(0, 0, 0, 0) 0%, rgba(248, 248, 248, 1) 30%, rgba(248, 248, 248, 1) 100% );
+    padding: 0 10px 0 55px;
+    border-bottom: 1px solid rgba(210, 210, 210, 0.8);
+    border-right: 1px solid rgba(210, 210, 210, 0.8);
+    border-bottom-right-radius: 15px;
 }
 
 .btn-modify-document, .btn-delete-document, .btn-add-doc-recomendation{
@@ -936,10 +988,6 @@ td, th {
 	cursor: pointer;
 }
 
-.collection-item-reco-rg{
-	
-}
-
 .reco-cg-options{
 	display: none !important;
 	position: absolute;
@@ -981,54 +1029,10 @@ border-bottom-right-radius: 15px;
 	padding: 20px 20px 5px 20px !important;
 }
 
-.collection-item-recomendations-complete{
-	border: 1px solid #1b5e20 !important;
-}
-
-.collection-item-recomendations-incomplete{
-	border: 1px solid rgba(210, 210, 210, 0.8) !important;
-}
-
-.collection-item-document, .collection-item-recomendations{
-	margin-bottom: 5px !important;
-}
-
-.collection-item-document:hover, .collection-item-recomendations:hover{
-	background-color: rgba(248, 248, 248, 1);
-	cursor: pointer;
-}
-
-.collection-document-recomendations .collection-item{
-	padding: 10px 20px 10px 20px !important;
-	width: 100% !important;
-}
-
-.collection-document-recomendations{
-	margin-top: 66px !important;
-}
-
-.action-buttons-docs-recomendations{
-	position: absolute;
-	overflow: hidden;
-	display: none;
-	margin-top: -32px;
-	right: 2px !important;
-	height: 40px !important;
-
-	background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(248, 248, 248, 1) 30%, rgba(248, 248, 248, 1) 100% );
-	padding: 5px 25px 0 55px;
-	border-top-right-radius: 15px;
-	border-bottom-right-radius: 15px;
-}
-
 .id_doc_proyecto, .id_doc_recomendation, .idDocumentProject, .idRecomendationDocumentProject,
 .idDocumentProject_Modify, .idRecomendationDocumentProject_Modify,
-.bandera_recomendacion_completada{
+.bandera_recomendacion_completada, .idoc, .id_doc2sign{
 	display: none !important;
-}
-
-.btn-delete-document-recomendation{
-	margin-left: 8px;
 }
 
 .title-document-container{
@@ -1037,10 +1041,6 @@ border-bottom-right-radius: 15px;
 
 .title-document-container span{
 	display: block;
-}
-
-.document-recomendations-container{
-	margin-top: 26px;
 }
 
 .btn-recomendation, .action-buttons-recomendations{
@@ -1063,6 +1063,74 @@ border-bottom-right-radius: 15px;
 	border-bottom-right-radius: 15px;
 
 	display: none;
+}
+
+.collection-item-document{
+	margin-bottom: 5px !important;
+}
+
+.collection-item-document:hover{
+	background-color: rgba(248, 248, 248, 1);
+	cursor: pointer;
+}
+
+.collection-item-active{
+	background-color: rgba(244, 244, 244, 1) !important;
+}
+
+.document-evidence, .document-sign-container, .document-sign-container-loader{
+	background-color: white;
+	margin-top: 1.3%;
+	padding: 15px 25px 15px 25px;
+	border-radius: 15px;
+	border: 1px solid rgba(210, 210, 210, 0.8) !important;
+}
+
+.document-sign-container{
+}
+
+.card-documents{
+	margin-top: 28px !important;
+}
+
+.modal .modal-content-show-document{
+	padding: 6px 6px 0px 6px !important;
+}
+
+.card-title{
+	margin-bottom: 25px !important;
+}
+
+.show-pdf-document{
+	position: inherit;
+	width: 99%;
+	height: 99%;
+}
+
+.btn-view-document{
+	border-radius: 24px;
+}
+
+.docs-generated{
+	border-top-left-radius: 24px !important;
+	border-top-right-radius: 24px !important;
+	width: 100% !important;
+	height: 100% !important;
+}
+
+.btn-update-signed-document{
+	top: -5px !important;
+	right: -12px !important;	
+}
+
+.btn-show-signed-document{
+	top: -5px !important;
+	right: -15px !important;
+}
+
+.btn-send-validation{
+	top: -9px !important;
+	right: -8px !important;
 }
 
 /* ESTILOS RÁPIDOS */

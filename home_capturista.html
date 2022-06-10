@@ -7,7 +7,7 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="Resource/Materialize/materialize.min.css"> 
-	<link rel="stylesheet" type="text/css" href="Resource/css/home_epp.css">
+	<link rel="stylesheet" type="text/css" href="Resource/css/home_capturista.css">
 </head>
 <body>
 
@@ -32,17 +32,16 @@
                 <div class="col l1"></div>
                 <div class="col l10">
                     <ul class="tabs tabs-transparent">
-                        <li class="tab"><a href="#general_information">Información general <i class="material-icons left">check</i></a></li>
-                        <li class="tab"><a href="#opinion_general">Posicionamiento <i class="material-icons left">check</i> </a></li>
-                        <li class="tab"><a class="active" href="#plan_de_mejora">Plan de mejora y monitoreo <i class="material-icons left">autorenew</i> </a></li>
-                        <li class="tab"><a href="#documents">Formalización <i class="material-icons left">autorenew</i> </a></li>
+                        <li class="tab"><a href="#general_information">Información general <!--<i class="material-icons left">check</i>--></a></li>
+                        <li class="tab"><a href="#opinion_general">Posicionamiento<!-- <i class="material-icons left">check</i> --></a></li>
+                        <li class="tab"><a href="#plan_de_mejora">Plan de mejora y monitoreo<!-- <i class="material-icons left">autorenew</i> --></a></li>
+                        <li class="tab"><a class="active" href="#documents">Formalización<!-- <i class="material-icons left">autorenew</i> --></a></li>
                     </ul>
                 </div>
                 <div class="col l1"></div>
             </div>
         </div>
     </nav>
-
       
 <!--    SECCIÓN PARA LA INFORMACIÓN GENERAL DEL PROGRAMA SOCIAL -->
         <div id="general_information">
@@ -56,7 +55,11 @@
                             
                             <span class="card-title">
                                 <h4 class="card-title-ficha-tecnica">
-                                  <strong>Ficha técnica del programa <i class="material-icons right validation-ft-programa tooltipped" data-position="bottom" data-tooltip="Información validada">check_circle</i> </strong>
+                                  <strong>
+                                    Ficha técnica del programa
+                                    <i class="material-icons right wait-validation-ft-programa tooltipped" data-position="bottom" data-tooltip="En espera de validación">update</i>
+                                    <i class="material-icons right validation-ft-programa tooltipped" data-position="bottom" data-tooltip="Información validada">check</i>
+                                  </strong>
                                   <a class="btn-floating btn-small btn-add-project-information  waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar información" href="#ModalAddModifyTechnicalProjectInfo"><i class="material-icons">add</i></a>
                                   <a class="btn-floating btn-small btn-edit-project-information waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar información" href="#ModalAddModifyTechnicalProjectInfo"><i class="material-icons">edit</i></a>
                                 </h4>
@@ -106,7 +109,12 @@
                         <div class="card-content card-content-evaluation">
                             <span class="card-title card-title-ficha-tecnica">
                                 <h4 class="card-title-ficha-tecnica">
-                                    <strong> Ficha técnica de la evaluación <i class="material-icons right validation-ft-evaluation tooltipped" data-position="bottom" data-tooltip="Información validada">check_circle</i> </strong>
+                                    <strong>
+                                      Ficha técnica de la evaluación
+                                      <i class="material-icons right wait-validation-ft-evaluation tooltipped" data-position="bottom" data-tooltip="En espera de validación">update</i>
+                                      <i class="material-icons right validation-ft-evaluation tooltipped" data-position="bottom" data-tooltip="Información validada">check</i>
+                                    </strong>
+
                                     <a class="btn-floating btn-small btn-add-evaluation-information waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar información" href="#ModalAddModifyTechnicalEvaluationInfo"><i class="material-icons">add</i></a>
                                     <a class="btn-floating btn-small btn-edit-evaluation-information waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar información" href="#ModalAddModifyTechnicalEvaluationInfo"><i class="material-icons">edit</i></a>
                                 </h4>
@@ -228,7 +236,7 @@
                   <p>
                     <label>
                       <input class="ValidateInformationProjectCheckbox" type="checkbox" />
-                      <span>Validar información</span>
+                      <span class="ValidationBoxText">Enviar para validación</span>
                     </label>
                   </p>
                 </div>
@@ -301,7 +309,7 @@
                   <p>
                     <label>
                       <input class="ValidateInformationEvaluationCheckbox" type="checkbox" />
-                      <span>Validar información</span>
+                      <span class="ValidationBoxText">Enviar para validación</span>
                     </label>
                   </p>
                 </div>
@@ -315,148 +323,84 @@
 <!--    SECCIÓN PARA LA OPINIÓN GENERAL POR PARTE DEL ENCARGADO DEL PROGRAMA -->
         <div id="opinion_general">
 
-          <div class="row">
-            <div class="container">
-              <div class="card">
-  
-                <div class="card-content card-content-comments">
-                  <span class="card-title card-title-comments">
-                    <strong>
-                      <h4 class="title-general-comments">
-                        Opinión general
-                        <a class="btn-floating btn-small btn-edit-general-comments waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar la opinión general" href="#ModalModifyGeneralComments"><i class="material-icons">edit</i></a>
-                      </h4>
-                    </strong>
-                  </span>
-                  <!-- <a class="btn-floating btn-small right orange"><i class="material-icons">edit</i></a>-->
-                  <textarea disabled id="ComentariosObservacionesGenerales" class="materialize-textarea"></textarea>
+          <div class="container">
+            <div class="card">
 
-                  <div class="ValidatorObservationContainer">
-                      <h5 class="title-ValidatorObservationOG">Observación del validador:</h5>
-                      <textarea disabled id="ValidatorObservation_Text" class="materialize-textarea"></textarea>
-                      <i class="estatus-observacion-posicionamiento-container"> Estatus: <i class="estatus-observacion-posicionamiento"></i> </i><br>
-                  </div>
+              <div class="card-content card-content-comments">
+                <span class="card-title card-title-comments">
+                  <strong>
+                    <h4 class="title-general-comments">
+                      Opinión general
+                      <i class="material-icons right wait-validation-general-opinion tooltipped" data-position="bottom" data-tooltip="En espera de validación">update</i>
+                      <a class="btn-floating btn-small btn-edit-general-comments waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar la opinión general" href="#ModalModifyGeneralComments"><i class="material-icons">edit</i></a>
+                      <i class="material-icons right validation-general-opinion tooltipped" data-position="bottom" data-tooltip="Opinión general validada">check
+                      </i>
+                    </h4>
+                  </strong>
+                </span>
+                <!-- <a class="btn-floating btn-small right orange"><i class="material-icons">edit</i></a>-->
+                <textarea disabled id="ComentariosObservacionesGenerales" class="materialize-textarea"></textarea>
 
-                  <div class="NoValidatorObservationContainer">
-                      <h5 class="NoValidatorObservation"></h5> 
-                      <i class="estatus-observacion-posicionamiento"></i>
-                  </div>
-                  
-                  <h6 class="OG_SinInfo">Sin información registrada</h6>
+                <div class="ValidatorObservationContainer">
+                    <h5 class="title-ValidatorObservationOG">Observación del validador:</h5>
+                    <textarea disabled id="ValidatorObservation_Text" class="materialize-textarea"></textarea>
+                    <i class="estatus-observacion-posicionamiento-container"> Estatus: <i class="estatus-observacion-posicionamiento"></i> </i><br>
                 </div>
 
+                <div class="NoValidatorObservationContainer">
+                    <h5 class="NoValidatorObservation"></h5> 
+                    <i class="estatus-observacion-posicionamiento"></i>
+                </div>
+                
+                <h6 class="OG_SinInfo">Sin información registrada</h6>
               </div>
+
             </div>
           </div>
 
-          <div class="row">
-            <div class="container">
-                <div class="card">
-                  <div class="card-content card-content-comments">
-                      <span class="card-title card-title-comments">
-                        <strong>
-                          <h4 class="title-specific-comments">
-                              <strong>Comentarios y observaciones específicos por tema</strong>
-                              <a class="btn-floating btn-small btn-edit-specific-comments-title waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar el titulo de la sección" href="#ModalModifyGeneralSpecificComments_Titulo"><i class="material-icons">edit</i></a>
-                          </h4>
-                        </strong>
-                      </span>
-                      <br>
-    
+          <div class="container">
+            <div class="card">
+              <div class="card-content card-content-comments">
+                  <span class="card-title card-title-comments">
+                    <strong>
+                      <h4 class="title-specific-comments">
+                          <strong>Comentarios y observaciones específicos por tema</strong>
+                      </h4>
+                    </strong>
+                  </span>
+                  <br>
+
+                  <div class="row">
+                    <div class="col l11 m11 s10">
                       <textarea disabled id="ComentariosObservacionesEspecificosPorTema_Titulo" class="materialize-textarea"></textarea>
-    
-                      <table class="highlight table-observaciones-especificas">
-                        <thead>
-                          <tr>
-                              <th class="table-ApartadoEvaluacion">Apartado de la evaluación</th>
-                              <th class="table-ObservacionEspecifica">Observación específica</th>
-                              <th class="table-ObservacionAtender"></th>
-                              <th></th>
-                          </tr>
-                        </thead>
-    
-                        <tbody class="Table_TemasComentariosPorTema">
-                          <!--
-                            <td>Diseño</td>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos veniam quaerat voluptate consequuntur magnam recusandae repellat eum voluptatem, nostrum, id fugiat quae? Minus dolor in unde ad voluptates sint nulla. </td>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae nam obcaecati labore ipsam suscipit aperiam iusto ex, sunt dolore a?</td>
-                            <td><a class="btn-floating btn-small btn-edit-specific-comments waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar" href="#ModalModifyGeneralComments"><i class="material-icons">edit</i></a></td>-->
-                        </tbody>
-                      </table>
-    
-                      <h6 class="OG_SinInfo">Sin información registrada</h6>
+                    </div>
+                    <div class="col l1 m1 s1 align-button-com-obs-por-tema">
+                      <a class="btn-floating btn-small btn-edit-specific-comments-title waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar el titulo de la sección" href="#ModalModifyGeneralSpecificComments_Titulo"><i class="material-icons">edit</i></a>
+                    </div>
                   </div>
-                </div>
+                  
+
+                  <table class="highlight table-observaciones-especificas">
+                    <thead>
+                      <tr>
+                          <th class="table-ApartadoEvaluacion">Apartado de la evaluación</th>
+                          <th class="table-ObservacionEspecifica">Observación específica</th>
+                          <th class="table-ObservacionAtender">Observaciones</th>
+                      </tr>
+                    </thead>
+
+                    <tbody class="Table_TemasComentariosPorTema">
+                    </tbody>
+                  </table>
+
+                  <h6 class="OG_SinInfo">Sin información registrada</h6>
+              </div>
             </div>
           </div>
 
         </div>
-        
-            <!-- MODAL PARA VER LAS CORRESIONES PARA LOS COMENTARIOS Y OBSERVACIONES GENERALES -->
-            <div id="ModalRecomendacionComentariosGenerales" class="modal modal-view-recomendacion-comentarios-generales modal-fixed-footer">
-              <div class="modal-content">
-                
-                  <h4>Comentarios:</h4>
-                  
 
-              </div>
-
-              <div class="modal-footer">
-                <a href="#!" class="btn-small waves-effect blue darken-2 btn-rec-comm-generales">Aceptar</a>
-                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
-              </div>
-            </div>
-
-            <!-- MODAL PARA AGREGAR INFORMACIÓN SOBRE LOS COMENTARIOS Y OBSERVACIONES GENERALES -->
-            <div id="ModalRecomendacionComentariosGenerales" class="modal modal-view-recomendacion-comentarios-generales modal-fixed-footer">
-              <div class="modal-content">
-                
-                  <h4>Recomendación:</h4>
-                  
-
-              </div>
-
-              <div class="modal-footer">
-                <a href="#!" class="btn-small waves-effect blue darken-2 btn-rec-comm-generales">Agregar información</a>
-                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
-              </div>
-            </div>
-
-            <!-- MODAL PARA AGREGAR INFORMACIÓN SOBRE LA EVALUACIÓN -->
-            <div id="ModalAddOpinionGeneral" class="modal modal-add-opinion-general modal-fixed-footer">
-              <div class="modal-content">
-                
-                  <!--<h5 class="title-modal-add-project-info">Información de la opinión general </h5>-->
-                  
-                  <div class="row m-b0">                
-                      <div class="col l12 m12 s12">
-                          <h4><strong>Comentarios y observaciones generales:</strong></h4>
-
-                          <div class="input-field">
-                              <textarea id="txtObservacionesGenerales" class="materialize-textarea" placeholder="Comentarios y observaciones generales"></textarea>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="row m-b0">                
-                      <div class="col l12 m12 s12">
-                          <h6><strong>Comentarios y observaciones específicos por tema:</strong></h6>
-
-                          <div class="input-field">
-                              <textarea placeholder="Comentarios y observaciones específicos por tema" id="txtPorTema" class="materialize-textarea"></textarea>
-                          </div>
-                      </div>
-                  </div>
-
-              </div>
-
-              <div class="modal-footer">
-                <a href="#!" class="btn-small waves-effect blue darken-2 btn-insert-opinion-general">Agregar información</a>
-                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
-              </div>
-            </div>
-
-            <!-- MODAL PARA MODIFICAR LA INFORMACIÓN SOBRE LOS COMENTARIOS GENERALES -->
+            <!-- MODAL PARA MODIFICAR LA INFORMACIÓN SOBRE "OPINIÓN GENERAL"-->
             <div id="ModalModifyGeneralComments" class="modal modal-add-opinion-general modal-fixed-footer">
               <div class="modal-content">
                 
@@ -464,7 +408,7 @@
                   
                   <div class="row m-b0">                
                       <div class="col l12 m12 s12">
-                          <h4><strong>Opinión general:</strong></h4>
+                          <h4 class="title-GeneralOpinion">Opinión general:</h4>
 
                           <div class="input-field">
                               <textarea id="txtComentariosGenerales" class="materialize-textarea" placeholder="Comentarios y observaciones generales"></textarea>
@@ -472,10 +416,29 @@
                       </div>
                   </div>
 
+                  <div class="row m-b0">
+                    <div class="col l12 m12 s12">
+
+                      <h6 class="NoValidatorCommentGeneralOpinion"><br>Sin observaciones del validador</h6>
+                        <div class="observation-general-opinion-container">
+                            <h5 class="title-ObservacionValidador">Observación del validador </h5>
+    
+                            <div class="input-field InputFieldValidatorComment">
+                                <textarea disabled id="txtModalObservacionValidadorOpinionGeneral" class="materialize-textarea"></textarea>
+                            </div>
+                            
+                            <i class="estatus-observacion-enviada-container"> Estatus: <i class="status-observacion-general-opinion"></i> </i><br>
+                            <!--<a class="waves-effect waves-light btn btn-send-for-validation-general-opinion blue darken-3 ">Enviar para validación <i class="material-icons right">send</i></a>-->
+                            <br>
+                        </div>
+
+                    </div>
+                </div>
+
               </div>
 
               <div class="modal-footer">
-                <a href="#!" class="btn-small waves-effect yellow darken-2 btn-modify-general-comments">Modificar información</a>
+                <a href="#!" class="btn-small waves-effect yellow darken-3 btn-modify-general-comments">Actualizar y enviar para validación</a>
                 <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
               </div>
             </div>
@@ -528,9 +491,9 @@
                                   <div class="input-field InputFieldValidatorComment">
                                       <textarea disabled id="txtModalObservacionValidador" class="materialize-textarea"></textarea>
                                   </div>
-                                  <i class="estatus-observacion-enviada-container"> Estatus: <i class="status-observacion-enviada"></i> </i><br>
 
-                                  <a class="waves-effect waves-light btn btn-send-for-validation blue darken-3 ">Enviar para validación <i class="material-icons right">send</i></a>
+                                  <i class="estatus-observacion-enviada-container"> Estatus: <i class="status-observacion-enviada"></i> </i><br>
+                                  <!--<a class="waves-effect waves-light btn btn-send-for-validation blue darken-3 ">Enviar para validación <i class="material-icons right">send</i></a>-->
                                   <br>
                               </div>
                           </div>
@@ -542,7 +505,7 @@
               </div>
 
               <div class="modal-footer">
-                <a href="#!" class="btn-small waves-effect yellow darken-2 btn-modify-tema-especifico">Modificar información</a>
+                <a href="#!" class="btn-small waves-effect yellow darken-2 btn-modify-tema-especifico">Actualizar y enviar para validación</a>
                 <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
               </div>
             </div>
@@ -559,11 +522,11 @@
                           <span class="card-title">
                                 <h5 class="no-data-recomendaciones-a-comprometer">
                                     Sin recomendaciones a comprometer
-                                    <a class="btn-floating btn-small btn-add-plan-mejora waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar recomendación" href="#ModalAddModifyPlanMejora"><i class="material-icons">add</i></a>
+                                    <!--<a class="btn-floating btn-small btn-add-plan-mejora waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar recomendación" href="#ModalAddModifyPlanMejora"><i class="material-icons">add</i></a>-->
                                 </h5>
                                 <h5 class="with-data-recomendaciones-a-comprometer">
                                     Recomendaciones a comprometer
-                                    <a class="btn-floating btn-small btn-add-plan-mejora waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar recomendación" href="#ModalAddModifyPlanMejora"><i class="material-icons">add</i></a>
+                                    <!--<a class="btn-floating btn-small btn-add-plan-mejora waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar recomendación" href="#ModalAddModifyPlanMejora"><i class="material-icons">add</i></a>-->
                                 </h5>
                             </span>
 
@@ -612,10 +575,11 @@
                             <table class="highlight TableAtendidas">
                               <thead>
                                 <tr>
-                                    <th class="">No.</th>
-                                    <th class="table-ASM-atendidas">Aspectos Susceptibles de Mejora/Recomendaciones</th>
-                                    <th class="table-documento-evidencia">Evidencia</th>
-                                    <th class="table-observaciones">Observaciones</th>
+                                    <th class="table-No-RecomendationAtended center-align ">No.</th>
+                                    <th class="table-ASM-atendidas center-align           ">Aspectos Susceptibles de Mejora/Recomendaciones</th>
+                                    <th class="table-documento-evidencia center-align     ">Evidencia</th>
+                                    <!--<th class="table-observaciones">Observaciones del validador</th>-->
+                                    <th class="table-IconAtended"></th>
                                     <!--<th> COLUMNA PARA MOSTRAR EL ICONO INDICADOR DE UNA OBSERVACIÓN </th>-->
                                 </tr>
                               </thead>
@@ -650,9 +614,10 @@
                             <table class="highlight TableRechazadas">
                               <thead>
                                 <tr>
-                                    <th class="">No.</th>
-                                    <th class="table-ASM-atendidas">Aspectos Susceptibles de Mejora/Recomendaciones</th>
-                                    <th class="table-documento-evidencia">Observaciones</th>
+                                    <th class="center-align table-no-recomendation-refused">No.</th>
+                                    <th class="center-align table-ASM-atendidas">Aspectos Susceptibles de Mejora/Recomendaciones</th>
+                                    <th class="center-align table-documento-evidencia">Justificación</th>
+                                    <th class="center-align table-icon-recomendation-refused"></th>
                                 </tr>
                               </thead>
 
@@ -679,7 +644,7 @@
                           <h6><strong>No.</strong></h6>
 
                           <div class="input-field">
-                              <input placeholder="No" id="txtNumRecomendation" type="text" class="validate center-align">
+                              <input disabled placeholder="No" id="txtNumRecomendation" type="text" class="validate center-align">
                           </div>
                       </div>
 
@@ -724,9 +689,8 @@
                             <div class="col l4 m4 s4">
                                   <h6><strong>Fecha:</strong></h6>
 
-                                  <div class="input-field txt-fecha-style">
-                                      <input placeholder="Fecha de cumplimiento" id="txtFecha" type="text" class="validate center-align">
-                                  </div>
+                                  <input type="date" class="browser-default datepicker-fecha-cumplimiento" required pattern="\d{2}-\d{2}-\d{4}"/>
+                                  <!--<input placeholder="Fecha de cumplimiento" id="txtFecha" type="text" class="validate center-align">-->
                             </div>
                             
                           </div>
@@ -827,8 +791,7 @@
                   <h4>Observación del validador</h4>
                   <p class="ObservationInRecomendation">
                   </p>
-                  <p class="num_recomendation"></p>
-                               
+                  <p class="num_recomendation_a_comprometer"></p>
 
               </div>
 
@@ -837,7 +800,7 @@
                   <i class="RecomendationObservation_Status"> Estatus: <i class="RecomendationObservation_StatusValue"></i> </i><br>
                 </div>
 
-                <a href="#!" class="btn-small waves-effect light-blue darken-3 btn-update-observation mr-10px">Enviar para validación <i class="material-icons right">send</i></a>
+                <a href="#!" class="btn-small waves-effect light-blue darken-3 btn-update-observation-a-comprometer mr-10px">Enviar para validación <i class="material-icons right">send</i></a>
                 <a href="#!" class="modal-close btn-small waves-effect grey lighten-1 mr-20px">Cerrar</a>
               </div>
             </div>
@@ -849,10 +812,11 @@
 
                   <div class="col s12 m12 l12">
                       <h5><strong>Aspectos Susceptibles de Mejora/Recomendaciones</strong></h5>
-                      <textarea class="txtASM-AtendedRecomendation materialize-textarea"></textarea>
+                      <textarea disabled class="txtASM-AtendedRecomendation materialize-textarea"></textarea>
 
                       <h5><strong>Evidencia</strong></h5>
-                      <textarea class="txtEvidencia-AtendedRecomendation materialize-textarea"></textarea>
+                      <textarea disabled class="txtEvidencia-AtendedRecomendation materialize-textarea"></textarea>
+                      <p class="num_recomendation_atendidas"></p>
                   </div>
 
                   <div class="col s12 m12 l12">
@@ -870,7 +834,7 @@
                   <i class="RecomendationObservation_Status"> Estatus: <i class="RecomendationObservation_StatusValue"></i> </i><br>
                 </div>
 
-                <a href="#!" class="btn-small waves-effect light-blue darken-3 btn-update-observation mr-10px">Enviar para validación <i class="material-icons right">send</i></a>
+                <a href="#!" class="btn-small waves-effect light-blue darken-3 btn-update-recomendation-atended mr-10px">Enviar para validación <i class="material-icons right">send</i></a>
                 <a href="#!" class="modal-close btn-small waves-effect grey lighten-1 mr-20px">Cerrar</a>
               </div>
             </div>
@@ -882,11 +846,12 @@
                 <div class="row">
                   <div class="col s12 m12 l12">
                       <h5><strong>Aspectos Susceptibles de Mejora/Recomendaciones</strong></h5>
-                      <textarea class="txtASM-RefusedRecomendation materialize-textarea"></textarea>
+                      <textarea disabled class="txtASM-RefusedRecomendation materialize-textarea"></textarea>
 
-                      <h5><strong>Evidencia</strong></h5>
-                      <textarea class="txtEvidencia-RefusedRecomendation materialize-textarea"></textarea>
+                      <h5><strong>Justificación</strong></h5>
+                      <textarea disabled class="txtJustification-RefusedRecomendation materialize-textarea"></textarea>
                   </div>
+                  <p class="num_recomendation_refused"></p>
 
                   <div class="col s12 m12 l12">
                       <div class="ValidatorObservation-RefusedRecomendation-Container">
@@ -903,7 +868,7 @@
                   <i class="RecomendationObservation_Status"> Estatus: <i class="RecomendationObservation_StatusValue"></i> </i><br>
                 </div>
 
-                <a href="#!" class="btn-small waves-effect light-blue darken-3 btn-update-observation mr-10px">Enviar para validación <i class="material-icons right">send</i></a>
+                <a href="#!" class="btn-small waves-effect light-blue darken-3 btn-update-observation-refused mr-10px">Enviar para validación <i class="material-icons right">send</i></a>
                 <a href="#!" class="modal-close btn-small waves-effect grey lighten-1 mr-20px">Cerrar</a>
               </div>
             </div>
@@ -911,125 +876,76 @@
 <!--    SECCIÓN PARA LOS DOCUMENTOS CREADOS POR PARTE DEL ENCARGADO DEL PROGRAMA ##### -->
         <div id="documents">
 
-            <div class="row">
-              <div class="col l1"></div>
-              <div class="col l10 m12 s12">
+            <div class="container">
 
-                <div class="card">
-                  <div class="card-content">
+              <div class="card card-documents">
+                <div class="card-content">
 
-                      <div class="row">
-                        <div class="col l5 m5 s12">
-                            <span class="card-title">
-                              <strong class="card-title-documents">Docs</strong>
-                            </span>
-                            
-                            <div class="show-docs-option">
+                    <span class="card-title">
+                      <strong class="card-title-documents">Docs</strong>
+                    </span>
 
-                            </div> <br>
-                            
-
-                            <ul class="collection collection-documents"></ul>
-                        </div>
-
-                        <div class="col l7 m7 s12">
-                            <!--<a class="waves-effect blue darken-2 btn btn-small btn-upload-documents btn-rounded right modal-trigger" href="#modal-upload-document"><i class="material-icons left">cloud_upload</i>Subir nuevo documento</a>-->
-                            <a class="waves-effect blue darken-2 btn btn-small btn-generate-documents btn-rounded right"><i class="material-icons left">cached</i>Generar documentos</a>
-                            <a class="waves-effect  red darken-2 btn btn-small btn-del-documents    btn-rounded right"><i class="material-icons left">delete</i>Borrar documentos</a>
-                            <div class="collection-document-evidence">
-                              <br><br><br>
-                                <div class="row">
-                                    <div class="col l7">
-                                      <h5>Subir documento firmado:</h5>
-                                    </div>
-                                    <div class="col l5">
-
-                                      <form action="#">
-                                        <div class="file-field input-field">
-                                          <div class="btn">
-                                            <span>File</span>
-                                            <input type="file">
-                                          </div>
-                                          <div class="file-path-wrapper">
-                                            <input class="file-path validate" type="text">
-                                          </div>
-                                        </div>
-                                      </form>
-
-                                      <a class="waves-effect green darken-2 btn btn-small btn-upload-doc-formalice btn-rounded right"><i class="material-icons left">upload</i>Subir documento</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="row">
+                      <div class="col l5 m5 s12">
+                          <ul class="collection collection-documents"></ul>
                       </div>
 
-                  </div>
-                </div>
+                      <div class="col l7 m7 s12">
+                          <!--<a class="waves-effect blue darken-2 btn btn-small btn-upload-documents btn-rounded right modal-trigger" href="#modal-upload-document"><i class="material-icons left">cloud_upload</i>Subir nuevo documento</a>-->
+                          <a class="waves-effect blue darken-2 btn btn-small btn-generate-documents btn-rounded right"><i class="material-icons left">cached</i>Generar documentos</a>
+                          <!--<a class="waves-effect  red darken-2 btn btn-small btn-del-documents    btn-rounded right"><i class="material-icons left">delete</i>Borrar documentos</a>-->
 
+                          <div class="document-sign-container">
+                            <strong>Nombre del documento:</strong> <br>
+                            <p class="NombreDocumento"></p> <br>
+
+                            <div class="row m-b0">
+                              <div class="col l6 m6 s12">
+                                  <strong>Fecha de subida:</strong> <br> 
+                                  <p class="FechaSubida"></p> <br>
+                              </div>
+                              <div class="col l6 m6 s12">
+                                  <strong>Hora de subida:</strong> <br>
+                                  <p class="HoraSubida"></p>
+                              </div>
+                            </div>
+
+                            <!--
+                            <a class='waves-effect blue   darken-2  btn-floating btn-medium  btn-show-signed-document   right tooltipped' ata-position="bottom" data-tooltip="Ver documento"><i class='material-icons left'>open_in_browser</i>Ver documento</a>
+                            <a class='waves-effect yellow darken-2  btn-floating btn-medium  btn-update-signed-document right tooltipped' ata-position="bottom" data-tooltip="Actualizar documento"><i class='material-icons left'>edit</i>Enviar para validación</a>
+                            -->
+                            <a class='waves-effect green  darken-2  btn-floating btn-medium  btn-send-validation        right tooltipped' ata-position="bottom" data-tooltip="Enviar para validación"><i class='material-icons left'>upload</i>Enviar para validación</a>
+                          </div>
+
+                          <div class="document-evidence">
+
+                            <h5>Subir documento firmado:</h5>
+                            <p class="id_doc2sign"></p>
+
+                            <form action="#">
+                              <div class="file-field input-field">
+                                <div class="btn btn-rounded green darken-2">
+                                  <span>Subir <i class="material-icons left">cloud_upload</i></span>
+                                  <input id="fileDoc" type="file">
+                                </div>
+                                <div class="file-path-wrapper">
+                                  <input class="txt-show-name-file file-path validate" type="text">
+                                </div>
+                              </div>
+                            </form>
+
+                            <a class="waves-effect green darken-2 btn btn-small btn-upload-doc-formalice btn-rounded right"><i class="material-icons left">upload</i>Subir documento</a>
+
+                          </div>
+                          
+                      </div>
+                    </div>
+
+                </div>
               </div>
 
-              <div class="col l1"></div>
             </div>
         </div>
-
-            <!-- Modal para mostrar cada recomendación o aspecto susceptible de mejora -->
-            <div id="modal-recomendation-description" class="modal">
-              <div class="modal-content">
-                  <h5 class="modal_id_recomendation"></h5>
-                  
-                  <strong>Aspecto Susceptible de Mejora/Recomendaciones:</strong>
-                  <h6 class="modal_apartado"> VI. Matriz de Indicadores para Resultados (MIR). </h6>
-
-                  <strong>Respecto al tipo de actores involucrados en solución:</strong>
-                  <h6 class="modal_rubro">Valoración final de la MIR</h6>
-
-                  <strong>Nivel de prioridad:</strong>
-                  <h6 class="modal_rubro">Medio</h6>
-
-                  <strong>Acción de mejora</strong>
-                  <h6 class="modal_recomendation_info"></h6>
-
-                  <strong>Área responsable:</strong>
-                  <h6 class="modal_rubro">Dirección de planeación</h6>
-
-                  <strong>Fecha compromiso de cumplimiento:</strong>
-                  <h6 class="modal_rubro">22/12/2021</h6>
-
-                  <strong>Resultados esperados:</strong>
-                  <h6 class="modal_rubro">Mejora de los indicadores de 2017</h6>
-
-                  <strong>Evidencias:</strong>
-                  <h6 class="modal_rubro">Fichas técnicas de los indicadores 2018</h6>
-              </div>
-              <div class="modal-footer">
-                <a class=" waves-effect btn green lighten-1 btn-recomendation-complete">Marcar como completada</a>
-                <a class="modal-close waves-effect btn red lighten-1  ">Cerrar</a>
-              </div>
-            </div>
-
-            <!-- Modal para mostrar el informe de la evaluación realizada -->
-            <div id="modal1" class="modal modal-informe-evaluacion">
-              <div class="modal-content">
-                <embed class="documento-informe-evaluacion" src="Resource/files/Formato de posicionamiento_2019.pdf" type="application/pdf"/>
-              </div>
-              <div class="modal-footer">
-                <a class="modal-close waves-effect grey btn">Cerrar</a>
-              </div>
-            </div>
-
-            <!-- Modal confirmación eliminar documento-->
-            <div id="modal-confirm-delete-document" class="modal">
-              <div class="modal-content">
-                <div class="content-image-modal">
-                  <img class="img-alert center-align" src="Resource/files/images/alert.png">
-                </div>
-                <h5 class="text-confirm-delete">¿Está seguro de eliminar este documento?</h5>
-              </div>
-              <div class="modal-footer">
-                <a class="modal-close waves-effect red lighten-2 btn btn-confirm-delete">Aceptar</a>
-                <a class="modal-close waves-effect blue lighten-3 btn">Cancelar</a>
-              </div>
-            </div>
 
             <!-- Modal subir documento-->
             <div id="modal-upload-document" class="modal modal-fixed-footer">
@@ -1070,79 +986,15 @@
               </div>
             </div>
 
-            <!-- modal-new-recomendation-document -->
+            <!-- Modal para visualizar los documentos generados -->
             <div id="modal-show-document" class="modal modal-fixed-footer">
-              <div class="modal-content">
+              <div class="modal-content modal-content-show-document">
                   <div class="show-pdf-document">
-                    <embed class="pdf-generated" src="Resource\files\Informacion_y_Opinion_General.pdf" type="application/pdf" />
+                    
                   </div>
               </div>
               <div class="modal-footer">
                 <a class="modal-close waves-effect grey btn btn-rounded">Cerrar</a>
-              </div>
-            </div>
-
-            <!-- Modal confirmación eliminar documento-->
-            <div id="modal-confirm-delete-document-recomendation" class="modal modal-fixed-footer">
-
-              <div class="modal-content">
-                <div class="content-image-modal">
-                  <img class="img-alert center-align" src="Resource/files/images/alert.png">
-                </div>
-                <h5 class="text-confirm-delete">¿Está seguro de eliminar esta recomendación?</h5>
-                <p class="idDocumentProject"></p> 
-                <p class="idRecomendationDocumentProject"></p>
-              </div>
-
-              <div class="modal-footer">
-                <a class="modal-close waves-effect red darken-3 btn btn-confirm-delete-doc-recomendation">Aceptar</a>
-                <a class="modal-close waves-effect blue darken-2 btn">Cancelar</a>
-              </div>
-            </div>
-
-            <!-- modal-edit-recomendation-document -->
-            <div id="modal-edit-asm-document" class="modal modal-fixed-footer">
-              <div class="modal-content">
-
-                <h5 class="">Recomendación seleccionada</h5><br><br>
-
-                <div class="row">
-                    <p class="idDocumentProject_Modify"></p>
-                    <p class="idRecomendationDocumentProject_Modify"></p>
-                    
-                    <div class="col l4 m4 s4">
-                        <div class="row">
-
-                          <div class="col input-field l12 m12 s12">
-                              <input disabled placeholder=" " id="txt-NumDocRecomendation_modify" type="text" class="validate center-align">
-                              <label>No.</label>
-                          </div>
-
-                          <div class="col l12 m12 s12">
-                            <label>Recomendación atendida</label> <br><br>
-                            <div class="switch">
-                              <label>
-                                No
-                                <input id="CBoxRecomendacionAtendida" type="checkbox">
-                                <span class="lever"></span>
-                                Si
-                              </label>
-                            </div>
-                          </div>
-
-                        </div>
-                    </div>
-                    
-                    <div class="input-field col l8 m8 s8">
-                      <textarea id="txt-doc-ASM_modify" class="materialize-textarea" placeholder="Aspecto Susceptible de Mejora"></textarea>
-                      <label class="lblDocASM">Aspecto Susceptible de Mejora</label>
-                    </div>
-                </div>
-
-              </div>
-              <div class="modal-footer">
-                <a class="waves-effect yellow darken-3 btn btn-modify-document-recomendation btn-rounded">Guardar recomendación</a>
-                <a class="modal-close waves-effect grey btn btn-rounded">Cancelar</a>
               </div>
             </div>
 
@@ -1223,7 +1075,7 @@
         <script src="Resource/Materialize/materialize.min.js"></script>
 
         <!-- Scripts of JS -->
-        <script src="Resource/js/home_adm.js"></script>
+        <script src="Resource/js/home_capturista.js"></script>
 </body>
 </html>
 
