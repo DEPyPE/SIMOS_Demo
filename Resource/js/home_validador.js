@@ -378,16 +378,10 @@ function UpdateVIew_TemasComentariosPorTema(){
 
         for(var i=0; i<TemasComentariosPorTema2UpdateView.Length; i++ ){
 
-            if( TemasComentariosPorTema2UpdateView[i].Observaciones.Status ){
-                ObservationStatus = "<td class='center-align'><i class='material-icons'>"+TemasComentariosPorTema2UpdateView[i].Observaciones.IconState+"</i></td>";
-            }else{
-                ObservationStatus = "<td></td>";
-            }
-
             TextInner = TextInner + "<tr class='rowtable'>"+
                                          "<td> <i class='hide-id-tema'>"+TemasComentariosPorTema2UpdateView[i].ID_TemaComentariosPorTema+"</i> <strong>"+TemasComentariosPorTema2UpdateView[i].TituloTema+"</strong></td>"+
                                          "<td>"+TemasComentariosPorTema2UpdateView[i].TextoTema+"</td>"+
-                                         ObservationStatus+
+                                         "<td class='center-align'><i class='material-icons'>"+TemasComentariosPorTema2UpdateView[i].Observaciones.IconState+"</i></td>"+
                                     "</tr>";
         }
 
@@ -406,14 +400,12 @@ function Read_TemasComentariosPorTema(){
     UpdateVIew_TemasComentariosPorTema();
 }
 
-function Validate_TemasComentariosPorTema(id_tema){
+function Validate_ObservacionEspecifica(id_tema){
     var TemasComentariosPorTema2Update = JSON.parse( localStorage.getItem('TemasComentariosPorTema') );
-    console.log(id_tema);
 
-    TemasComentariosPorTema2Update[id_tema-1].TituloTema = $('#txtModalTituloTema').val();
-    TemasComentariosPorTema2Update[id_tema-1].TextoTema = $('#txtModalContenidoTema').val();
-    TemasComentariosPorTema2Update[id_tema-1].Observaciones.ObservationState = 'Enviado para validacion';
-    TemasComentariosPorTema2Update[id_tema-1].Observaciones.IconState = 'unarchive';
+    TemasComentariosPorTema2Update[id_tema-1].Observaciones.IconState = 'assignment_turned_in';
+    TemasComentariosPorTema2Update[id_tema-1].Observaciones.ObservationState = 'ObservacionEspecificaValidada';
+    TemasComentariosPorTema2Update[id_tema-1].Observaciones.Status = true;
 
     localStorage.setItem('TemasComentariosPorTema', JSON.stringify(TemasComentariosPorTema2Update));
     
@@ -437,35 +429,23 @@ $('.table-observaciones-especificas').on('click', '.Table_TemasComentariosPorTem
     M.textareaAutoResize( $('#txtModalContenidoTema') );
 
     if( TemasComentariosPorTema2UpdateModalModifyView[id_tema-1].Observaciones.Status ){
-        $('.title-ObservacionValidador').show();
-        $('.NoValidatorComment').hide();
-        $('.ObservacionesPorTema-Container').show();
         $('.ObservacionesPorTema-Body').show();
         $('.NoObservacionesPorTema-Body').hide();
 
-        $('#txtModalObservacionValidador').show();
         $('#txtObservacionesPorTemaModal').val( TemasComentariosPorTema2UpdateModalModifyView[id_tema-1].Observaciones.ObservacionTexto );
-        $('.status-observacion-enviada').text( TemasComentariosPorTema2UpdateModalModifyView[id_tema-1].Observaciones.ObservationState );
+        M.textareaAutoResize( $('#txtObservacionesPorTemaModal') );
 
-        if( TemasComentariosPorTema2UpdateModalModifyView[id_tema-1].Observaciones.ObservationState == 'Con observaciones' ){
-            $('.btn-modify-tema-especifico').show();
-        }else{
-            $('.btn-modify-tema-especifico').hide();
-            $('.estatus-observacion-enviada-container').show();
+        if( TemasComentariosPorTema2UpdateModalModifyView[id_tema-1].Observaciones.ObservationState == 'Con observación' ){
+            $('.ObservacionesPorTema-Container').show();
+            $('.btn-validar-observacion-especifica').show();
+        }else if( TemasComentariosPorTema2UpdateModalModifyView[id_tema-1].Observaciones.ObservationState == 'ObservacionEspecificaValidada' ){
+            $('.ObservacionesPorTema-Container').hide();
+            $('.btn-validar-observacion-especifica').hide();
         }
-
-        $('.estatus-observacion-enviada-container').show();
     }else{
+        $('.ObservacionesPorTema-Container').show();
         $('.ObservacionesPorTema-Body').hide();
         $('.NoObservacionesPorTema-Body').show();
-
-        $('.ObservacionesPorTema-Container').show();
-
-        $('.NoValidatorComment').show();
-        $('.title-ObservacionValidador').hide();
-        $('#txtModalObservacionValidador').hide();
-        $('.btn-modify-tema-especifico').hide();
-        $('.estatus-observacion-enviada-container').hide();
     }
 });
 
@@ -474,6 +454,27 @@ $('.btn-validar-observacion-especifica').on('click', function(){
     console.log( idtema );
     
     Validate_ObservacionEspecifica(idtema);
+});
+
+$('.btn-save-observation-validator-por-tema').on('click', function(){
+    var ComentariosPorTema = JSON.parse( localStorage.getItem('TemasComentariosPorTema') );
+    var observation_text = $('#txtObservationValidatorPorTema').val();
+    var id_tema = $('.id_observacion_modal').text();
+
+    ComentariosPorTema[id_tema-1].Observaciones.Status = true;
+    ComentariosPorTema[id_tema-1].Observaciones.ObservacionTexto = observation_text;
+    ComentariosPorTema[id_tema-1].Observaciones.IconState = 'assignment';
+    ComentariosPorTema[id_tema-1].Observaciones.ObservationState = 'Con observación';
+
+    localStorage.setItem('TemasComentariosPorTema', JSON.stringify( ComentariosPorTema ) );
+
+    UpdateVIew_TemasComentariosPorTema();
+    $('#ModalAddModifyObservationPerTheme').modal('close');
+    $('#ModalModifyDataTheme').modal('close');
+    
+    M.toast({html: 'Observación agregada correctamente', classes: 'green rounded'});
+
+    console.log( observation_text );
 });
 
 /*

@@ -238,7 +238,7 @@ td, th {
 }
 
 /* Modals styles */
-#ModalAddModifyObservationValidator{
+#ModalAddModifyObservationValidator, #ModalAddModifyObservationPerTheme{
 	top: 8% !important;
 	width: 40% !important;
 	height: 50% !important;

@@ -74,7 +74,7 @@ var GeneralOpinion = {
     "Status": "Correct",
     "Observaciones": {
         "Status": true,
-        "ObservacionTexto": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae reiciendis saepe eaque error, incidunt mollitia voluptatum quasi quod numquam pariatur quo sit labore enim totam cum. Commodi quia sint quibusdam, molestiae saepe sit repellat dignissimos voluptate, tenetur iste nam accusamus aut ad illo est quasi explicabo recusandae quas iure dicta dolorum! Animi magnam ipsum facilis expedita aperiam saepe error eveniet.",
+        "ObservacionTexto": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit excepturi, dolorem aliquid ex tempore dolorum?",
         "IconState": "assignment",
         "ObservationState": "Enviado para validación"
     }
@@ -110,7 +110,7 @@ var TemasComentariosPorTema =
             "Status": true,
             "ObservacionTexto": "Ejemplo de una observación realizada por el usuario validador",
             "IconState": "assignment",
-            "ObservationState": "Con observaciones"
+            "ObservationState": "Con observación"
         }
     },
     "2": {
@@ -134,7 +134,7 @@ var TemasComentariosPorTema =
             "Status": true,
             "ObservacionTexto": "Ejemplo de una observación realizada por el usuario validador",
             "IconState": "assignment_turned_in",
-            "ObservationState": "Validado"
+            "ObservationState": "ObservacionEspecificaValidada"
         }
     },
     "Status": "Correct",
