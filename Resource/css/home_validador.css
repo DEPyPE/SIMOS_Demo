@@ -1,0 +1,1181 @@
+
+body{
+	margin: 0;
+	padding: 0;
+	background-color: #e7e7e7 !important;
+}
+
+/* MENU DE OPCIONES */
+
+.seg-logo{
+    margin-right: 10px;
+    width: 129px;
+    border-radius: 50px;
+}
+
+nav .brand-logo {
+    display: flex;
+}
+
+.tabs {
+    height: 44px !important;
+    margin-top: 10px !important;
+}
+
+/* ESTILOS DEL MENU */
+
+.notification-alert{
+	color: white;
+	margin-left: 5px;
+	padding: 0px 10px 0px 10px;
+	border-radius: 15px;
+	background-color: rgba(230, 230, 230, 0.4) !important;
+	font-weight: normal;
+}
+
+.icon-exit-session{
+    transform: rotate(180deg);
+}
+
+.row-menu-and-title{
+	margin-bottom: 0 !important;
+}
+
+.icon-title{
+	font-size: 35px !important;
+}
+
+.main-title-project {
+    font-size: 24x !important;
+    padding: 0 0 0 0 !important;
+    width: 85% !important;
+}
+
+#txtModalObservacionValidador{
+	margin-bottom: -10px !important;
+}
+
+.btn-send-for-validation{
+	margin-top: 25px;
+}
+
+.estatus-observacion-enviada-container{
+	font-size: 15px !important;
+	color: gray;
+	margin-bottom: 20px !important;
+}
+
+/*
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    line-height: 48px;
+}
+*/
+
+/* 	ESTILOS PARA LA SECCIÓN DE <<INFORMACIÓN GENERAL>>    */
+.card-title-ficha-tecnica{
+	margin: 10px 0px 30px 0px !important;
+}
+
+.card-content-ft-proyecto, .card-content-evaluation{
+	padding: 25px 30px 30px 30px !important;
+}
+
+td, th {
+    padding: 10px 10px;
+}
+
+.title-column{
+	width: 35% !important;
+	text-align: right;
+}
+
+.validation-ft-programa, .validation-ft-evaluation, .validated-general-opinion{
+	background-color: #2e7d32;
+	border-radius: 50% !important;
+	padding: 2px;
+	color: white;
+	font-size: 32px;
+	vertical-align: middle !important;
+}
+
+.wait-validation-ft-programa, .wait-validation-ft-evaluation{
+	background-color: #0d47a1;
+	border-radius: 50% !important;
+	color: white;
+}
+
+.btn-wait-validation-general-opinion, .btn-validate-info, .btn-validate-info{
+	padding-top: 4px !important;
+	width: 40px !important;
+	height: 40px !important;
+}
+
+.btn-wait-validation-general-opinion i, .btn-validate-info i, .btn-validate-info i{
+	font-size: 24px !important;
+}
+
+.card .card-content .card-title .wait-validation-ft-programa {
+    line-height: 25px;
+}
+
+.card .card-content .card-title .wait-validation-ft-evaluation {
+    line-height: 25px;
+}
+
+.ValidationBoxText{
+	color: black !important;
+	font-weight: normal !important;
+}
+
+/* ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- */
+
+.collection a.collection-item{
+	color: black;
+}
+
+.menu-revisiones{
+	background-color: white !important;
+}
+
+.steps-menu-color{
+	color: green !important;
+}
+
+.step-error-color{
+	color: red !important;
+}
+
+.step-in-process-color{
+	color: blue;
+}
+
+.step-alert-color{
+	color: yellow;
+}
+
+.step-finished-color{
+	color: green;
+}
+
+.step-non-start-color{
+	color: gray;
+}
+
+#ComentariosObservacionesGenerales, #ComentariosObservacionesEspecificosPorTema_Titulo{
+	text-align: justify !important;
+	font-size: 18px !important;
+}
+
+#ComentariosObservacionesGenerales, #ComentariosObservacionesEspecificosPorTema_Titulo,
+#OpinionGeneral_ObservacionesValidador{
+	color: black !important;
+	border-bottom: 0 !important;
+}
+
+#ComentariosObservacionesGenerales:hover, #ComentariosObservacionesEspecificosPorTema_Titulo:hover,
+#OpinionGeneral_ObservacionesValidador:hover{
+	cursor: text !important;
+}
+
+#ModalModifyGeneralSpecificComments_Titulo{
+	max-height: 60% !important;
+	height: 50% !important;
+}
+
+.card-title{
+	margin-bottom: 0 !important;
+}
+
+.card-title-documents, .card-title-recomendations{
+	font-size: 34px !important;
+}
+
+.card-content-comments{
+	padding: 40px 50px 40px 50px !important;
+}
+
+.card-content-mejoras{
+	padding: 20px 35px 40px 35px !important;
+}
+
+.table-evaluation{
+	margin-top: auto !important;
+}
+
+.modal-informe-evaluacion{
+	top: 5% !important;
+	height: 85% !important;
+	max-height: 85% !important;
+}
+
+.icon-document{
+	margin-right: -10px;
+}
+
+.textbox-update-document, .btn-update-document, .btn-send-validation{
+	margin-bottom: 0px !important;
+	margin-top: 0px !important;
+}
+
+.btn-update-document, .btn-send-validation{
+	margin-top: 5px !important;
+}
+
+.btn-rounded{
+	border-radius: 30px !important;
+}
+
+.collapsible-body{
+	padding: 10px 20px 15px 20px !important;
+}
+
+.collapsible-body{
+	background-color: white;
+}
+
+.collapsible-active{
+	background-color: rgb(230, 230, 230) !important;
+}
+
+/* Modals styles */
+#ModalAddModifyObservationValidator{
+	top: 8% !important;
+	width: 40% !important;
+	height: 50% !important;
+}
+
+#ModalValidateGeneralOpinion{
+	top: 8% !important;
+	width: 50% !important;
+	height: 30% !important;
+}
+
+#ModalValidateTechnicalProjectInfo, #ModalValidateTechnicalEvaluationInfo{
+	top: 10% !important;
+	max-height: 40% !important;
+	height: 40% !important;
+	width: 40% !important;
+}
+
+#ModalAddModifyOpinionGeneral{
+	top: 5% !important;
+	max-height: 80% !important;
+	height: 80% !important;
+	width: 70% !important;
+}
+
+#ModalAddModifyPlanMejora{
+	top: 4% !important;
+	max-height: 90% !important;
+	height: 90% !important;
+	width: 80% !important;
+}
+
+#ModalDeleteRecomendation{
+	height: 68% !important;
+	max-height: 90% !important;
+}
+
+#ModalShowObservation{
+	max-height: 60% !important;
+	max-width: 50% !important;
+}
+
+#ModalShowAtendedRecomendation, #ModalShowRefusedRecomendation{
+	max-height: 80% !important;
+	height: 70% !important;
+	max-width: 85% !important;
+	width: 55% !important;
+}
+
+.modal.modal-fixed-footer .modal-footer {
+    background-color: rgba(240, 240, 240, 1);
+}
+
+.modal-close{
+	margin-right: 20px !important;
+}
+
+.datepicker-fecha-cumplimiento {
+    height: 44px;
+    border: 1px solid #f2f2f2;
+    text-align: center;
+}
+
+/* OPINION GENERAL */
+
+/* Contenedor de las observaciones realizadas por el validador */
+
+.ValidatorObservationContainer{
+	right: 0 !important;
+	background-color: rgba(250, 250, 250, 1) !important;
+	border: 2px solid rgba(210, 210, 210, 0.6) !important;
+	padding: 5px 30px 15px 30px;
+	border-radius: 10px;
+}
+
+.ValidatorObservation-title, .NoValidatorObservation-title{
+	color: rgba(120, 120, 120, 1) !important;
+	font-weight: 400 !important;
+}
+
+#ValidatorObservationOG_Text{
+	border-bottom: 0 !important;
+	text-align: justify;
+}
+
+/* RECOMENDATIONS STYLE */
+
+.align-button-com-obs-por-tema{
+	vertical-align: middle !important;
+
+}
+
+.num_recomendation_atendidas, .num_recomendation_a_comprometer, .num_recomendation_refused{
+	display: none !important;
+}
+
+.id_RecomendacionAtendida, .id_RecomendacionRechazada{
+	display: none;
+}
+
+.RecomendationObservation_StatusContainer{
+	float: left;
+	margin-left: 25px;
+	margin-top: 13px;
+}
+
+.RecomendationObservation_StatusValue{
+	text-decoration: none !important;
+}
+
+.card-RecomendacionesAtendidas	{
+	border: 1px solid #388e3c !important;
+}
+
+.card-RecomendacionesRechazadas	{
+	border: 1px solid red !important;
+}
+
+/* Tabla ASM y Recomendaciones*/
+
+.table-status{
+	width: 2% !important;
+	text-align: center !important;
+	align-items: center !important;
+}
+
+.table-Id_Recomendacion{
+	width: 3% !important;
+	text-align: center;
+}
+
+.table-ASM{
+	width: 20% !important;
+	text-align: center;
+}
+
+.table-ActoresSolucion{
+	width: 11% !important;
+	text-align: center;
+}
+
+.table-Prioridad{
+	width: 5% !important;
+	text-align: center;
+}
+
+.table-AccionMejora{
+	width: 10% !important;
+	text-align: center;
+}
+
+.table-AreaResponsable{
+	width: 10% !important;
+	text-align: center;
+}
+
+.table-Fecha{
+	width: 12% !important;
+	text-align: center;
+}
+
+.table-Resultados{
+	width: 8% !important;
+	text-align: center;
+}
+
+.table-Evidencias {
+	width: 19% !important;
+	text-align: center;
+}
+
+.table-documento-evidencia{
+	width: 37% !important;
+}
+
+.table-IconAtended{
+	width: 8% !important;
+}
+
+.table-no-recomendation-refused{
+	width: 5% !important;
+}
+
+.table-ASM-atendidas{
+	width: 57% !important;
+}
+
+.table-documento-evidencia{
+	width: 30% !important;
+}
+
+.table-icon-recomendation-refused{
+	width: 8% !important;
+}
+
+/* Tabla de observaciones en la sección de Posicionamiento */
+.table-ApartadoEvaluacion{
+	width: 20% !important;
+	text-align: center;
+}
+
+.table-ObservacionEspecifica{
+	width: 70% !important;
+	text-align: center;
+}
+
+.table-ObservacionAtender{
+	width: 10% !important;
+	text-align: center;
+}
+
+.hide-id-tema{
+	display: none !important;
+}
+
+.Table_TemasComentariosPorTema .rowtable{
+	cursor: pointer !important;
+}
+
+.Table_TemasComentariosPorTema tr td{
+    padding-left: 5px;
+    overflow: hidden !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 15px;
+	padding: 15px 5px !important;
+}
+
+.collapsible {
+	webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+.TableBody-RecomendacionesAComprometer tr td{
+    padding-left: 5px;
+    overflow: hidden !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 5px;
+	padding: 10px 5px !important;
+}
+
+.TableBody-RecomendacionesAComprometer tr td:hover{
+	cursor: pointer;
+}
+
+.TableBody-RecomendacionesAtendidas tr td{
+    padding-left: 5px;
+    overflow: hidden !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 5px;
+	padding: 10px 15px 10px 10px !important;
+}
+
+.TableBody-RecomendacionesAtendidas tr td:hover{
+	cursor: pointer;
+}
+
+.TableBody-RecomendacionesRechazadas tr td{
+    padding-left: 5px;
+    overflow: hidden !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 5px;
+	padding: 10px 5px !important;
+}
+
+.TableBody-RecomendacionesRechazadas tr td:hover{
+	cursor: pointer;
+}
+
+.asm-status-style-complete, .asm-status-style-incomplete,
+.asm-status-style-in-process{
+	margin-left: 15px;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+}
+
+.asm-status-style-incomplete{
+	background-color: rgba(200, 0, 0, 0.8);
+}
+
+.asm-status-style-complete{
+	background-color: rgba(0, 200, 0, 0.8);
+}
+
+.ml-20px{
+	margin-left: 20px !important;
+}
+
+.mr-20px{
+	margin-right: 20px !important;
+}
+
+.mr-10px{
+	margin-right: 10px !important;
+}
+
+.ObservationInRecomendation{
+	font-size: 24px;
+}
+
+.asm-status-style-in-process{
+	background-color: #0277bd;
+}
+
+.options-recomendation-container{
+	display: none;
+	position: relative;
+	z-index: 80;
+
+	right: 0% !important;
+	margin-top: -43px;
+	top: 10px;
+	padding: 5px 20px 5px 35px;
+
+	width: 200px;
+	background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 1) 100%);
+}
+
+/* -  - - - - - - - - - - - - - - - -- - - - - - - - - */
+
+.no-data-recomendaciones, .with-data-recomendaciones{
+	margin: 12px 40px 20px 20px !important;
+}
+
+.with-data-recomendaciones{
+	font-size: 32px;
+	font-weight: 600;
+}
+
+.modal.modal-fixed-footer .modal-content {
+    height: calc(100% - 45px);
+    max-height: 90%;
+}
+
+.row-m-b-0{
+	margin-bottom: -10px !important;
+}
+
+.card-title-comments{
+	margin-bottom: 20px !important;
+}
+
+.title-general-comments, .title-specific-comments{
+	margin-top: 0 !important;
+	font-size: 36px;
+	font-weight: 600;
+}
+
+.modal-titleTheme, .modal-contentTheme, .title-ObservacionValidador, .title-GeneralOpinion{
+	font-size: 32px;
+	font-weight: 500;
+}
+
+.id_observacion_modal{
+	display: none !important;	
+}
+
+#txtModalTituloTema, #txtModalContenidoTema, #txtModalObservacionValidador{
+	font-size: 19px;
+}
+
+.card-content-new-recomendation{
+	padding: 5px 150px 15px 125px !important;
+}
+
+.card{
+	border-radius: 25px !important;
+}
+
+.card-recomendation:hover{
+	cursor: pointer;
+}
+
+.button-options-recomendation-container{
+	display: none;
+	position: absolute;
+	width: 60px;
+	height: 100px;
+	margin-right: 8px;
+	margin-top: 8px;
+	top: 1px;
+	right: 1px;
+	background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 1) 100%);
+	border-top-right-radius: 15px;
+}
+
+#txtASM{
+	height: 165px !important;
+}
+
+.txt-fecha-style{
+	margin-bottom: 0 !important;
+}
+
+.btn-edit-recomendation,
+.btn-delete-recomendation,
+.btn-show-observation{
+	margin-right: 8px;
+}
+
+/* DELETE RECOMENDATION */
+
+.collection .c-item-delete-reco{
+	border-radius: 0 !important;
+	border-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.collection .c-item-delete-reco:first-child{
+	border-top: 1px solid #e0e0e0 !important;
+}
+
+.collection.with-header .collection-header {
+    border-bottom: 1px solid #e0e0e0 !important;
+}
+/* - - - - - --  - - - - - - - - - - - */
+
+.modal-overlay{
+	background-color: rgba(0, 0, 0, 0.3) !important;
+	backdrop-filter: blur(5px) !important;
+	opacity: 1 !important;
+}
+
+.modal-footer-options{
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+}
+
+.title-modal-add-project-info, .modal-add-evaluation-info{
+	font-size: 32px !important;
+	font-weight: 600;
+	margin-top: 5px;
+	margin-bottom: 30px;
+}
+
+.bnt-validate-infoinformation{
+	left: 0 !important;
+}
+
+.modal .modal-content {
+    padding: 35px 35px 0 35px !important;
+}
+
+.modal{
+	border-radius: 24px !important;
+}
+
+.modal.modal-fixed-footer .modal-footer-val-info-eval{
+	padding-right: 15px !important;
+	margin-bottom: 10px !important;
+}
+
+.modal.modal-fixed-footer .modal-footer-val-info-project{
+	padding-right: 15px !important;
+	margin-bottom: 0 !important;
+}
+
+.validate-information-container-infoeval p{
+	margin: 0 0 0 0 !important;
+}
+
+.validate-information-container-infoeval{
+	position: absolute;
+	left: 5% !important;
+	display: inline-block !important;
+}
+
+.validate-information-container-infoproject{
+	position: absolute;
+	left: 5% !important;
+	display: inline-block !important;
+	margin-top: 10px !important;
+}
+
+.validate-information-container-infoproject p{
+	margin: 0 0 0 0 !important;
+}
+
+.m-b0{
+	margin-bottom: 0 !important;
+}
+
+/* Collections styles */
+
+.collection-step-menu > .collection-item:hover{
+	background-color: rgb(245, 245, 245);
+	cursor: pointer;
+}
+
+.collection-step-menu{
+	box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%) !important;
+}
+
+.collection-active{
+	background-color: rgb(230, 230, 230) !important;
+}
+
+.documento-informe-evaluacion{
+	width:  830px;
+	height: 500px !important;
+}
+
+.document-show{
+	width: 100%;
+	height: 520px;
+}
+
+.active-document{
+	background-color: rgb(230, 230, 230) !important;
+}
+
+.collection-menu-documentos-items .type-document:hover{
+	background-color: rgb(245, 245, 245);
+	cursor: pointer;
+}
+
+.collection-menu-documentos-header{
+	margin-top: 0px !important;
+	margin-bottom: 10px !important;
+}
+
+.collection-menu-documentos-items{
+	margin-top: 0px !important;
+}
+
+.collection-menu-documentos-header, .collection-menu-documentos-items{
+	border: 1px solid rgb(180, 180, 180);
+/*	box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%); */
+}
+
+.collapsible-posicionamiento-asm .collapsible-header:hover, .collapsible-plan-de-trabajo-asm .collapsible-header:hover{
+	background-color: rgb(245, 245, 245);
+}
+
+.collapsible-posicionamiento-asm, .collapsible-plan-de-trabajo-asm{
+	display: none;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------- */
+/* RECOMENDACIONES */
+.id_recomendation, .recomendation_preview{
+	font-style: normal !important;
+	color: black;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------- */
+/* EVIDENCIAS */
+.collection-documents-evidence .collection-documents-evidence-item{
+	cursor: pointer;
+}
+
+.buttons-evidence-documents-hide{
+	display: none;
+}
+
+.buttons-evidence-documents-show{
+	display: block;
+}
+
+.btn-delete-document{
+	margin-top: -5px !important;
+	margin-left: 5px !important;
+}
+
+.btn-edit-document{
+	margin-top: -5px !important;
+}
+
+.btn-upload-documents{
+	right: 0px;
+}
+
+.img-alert{
+	width: 150px;
+}
+
+.img-upload{
+	width: 150px;
+}
+
+.img-edit-document{
+	width: 150px;
+}
+
+.content-image-modal{
+	display: flex;
+	justify-content: center;
+}
+
+.text-confirm-delete{
+	text-align: center;
+}
+
+#modal-confirm-delete-document{
+	width: 30% !important;
+	height: 35%;
+}
+
+#modal-confirm-delete-document-recomendation{
+	width: 30% !important;
+	height: 45%;
+}
+
+#modal-upload-document{
+	width: 35% !important;
+	height: 40% !important;
+}
+
+#modal-show-document{
+	top: 5% !important;
+	width: 80% !important;
+	max-height: 100%;
+	height: 90% !important;
+}
+
+.pdf-generated{
+	width: 100%;
+	height: 100%;
+}
+
+#modal-edit-asm-document{
+	width: 40% !important;
+	height: 55% !important;
+}
+
+.file-path-input-hide{
+	display: none !important;
+}
+
+#modal-edit-document{
+	width: 50% !important;
+	height: 40% !important;
+}
+
+#modal-delete-document{
+	width: 40% !important;
+	height: 35% !important;
+}
+
+#ModalModifyDataTheme{
+	top: 5% !important;
+	max-height: 90%;
+	height: 80%;
+	max-width: 95%;
+	width: 80%;
+}
+
+#iddoc_modal, #iddoc_modify_modal{
+	display: none !important;
+}
+
+.field-upload-document{
+	margin-bottom: 0px !important;
+}
+
+.others-documents{
+	box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%) !important;
+}
+
+/* Icono del documento dentro del collection-item tipo avatar */
+.collection .collection-item.avatar:not(.circle-clipper)>.format-svg-avatar, .collection .collection-item.avatar :not(.circle-clipper)>.format-svg-avatar {
+    position: absolute;
+    width: 50px;
+    height: 45px;
+    overflow: hidden;;
+    display: inline-block;
+    vertical-align: middle;
+	left: 10px;
+    top: 15px;
+}
+
+.action-buttons-docs {
+    position: absolute;
+    overflow: hidden;
+    display: none;
+    vertical-align: middle;
+    right: -1px;
+    bottom: 0;
+    height: 50% !important;
+
+    line-height: 40px;
+    background: linear-gradient( 90deg ,rgba(0, 0, 0, 0) 0%, rgba(248, 248, 248, 1) 30%, rgba(248, 248, 248, 1) 100% );
+    padding: 0 10px 0 55px;
+    border-bottom: 1px solid rgba(210, 210, 210, 0.8);
+    border-right: 1px solid rgba(210, 210, 210, 0.8);
+    border-bottom-right-radius: 15px;
+}
+
+.btn-modify-document, .btn-delete-document, .btn-add-doc-recomendation{
+	margin: 5px 2px 5px 5px !important;
+}
+
+.collection .collection-item.avatar p {
+    margin-top: 8px !important;
+}
+
+.title-document{
+	font-size: 19px !important;
+	font-weight: 400;
+	padding-bottom: 4px !important;
+}
+
+.document-status{
+	font-size: 14px !important;
+    padding: 1px 12px 2px 12px;
+    background-color: rgba(240, 240, 240, 0.8);
+	color: rgb(40, 40, 40, 0.9) !important;
+	border: 1px solid rgba(80, 80, 80, 0.2);
+    border-radius: 15px;
+	width: fit-content;
+    margin: 7px 5px 0 0 !important;
+}
+/*
+.document-aprobed{
+	color: #26a69a !important;
+}
+
+.document-send{
+	color: royalblue;
+}
+
+.document-observations{
+	color: orange;
+}
+*/
+.document-aprobed, .document-send, .document-observations{
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.document-selected{
+	 background-color: rgba(240, 240, 240, 1) !important;
+}
+
+.icon-status-document{
+	margin: 3px 5px 0 0 !important;
+	font-size: 18px !important;
+	color: rgb(120, 120, 120, 0.9) !important;
+	font-weight: lighter;
+}
+
+.collection .collection-item-document.avatar {
+	padding: 12px 100px 15px 75px !important;
+}
+
+.collection .collection-item {
+    padding: 10px 20px !important;
+}
+
+.collection-documents, .collection-document-recomendations{
+	border: 0 !important;
+}
+
+.collection-item-document, .collection-item-recomendations{
+	border: 1px solid rgba(210, 210, 210, 0.8) !important;
+	border-radius: 15px !important;
+	margin-bottom: 10px !important;
+}
+
+.card-messages-general-comments{
+	max-height: 100% !important;
+}
+
+.collection-messages-general-comments{
+	border-radius: 15px !important;
+	cursor: pointer;
+}
+
+.reco-cg-options{
+	display: none !important;
+	position: absolute;
+	right: 0;
+	display: inline-block;
+	margin: -35px 0px 0px 8px;
+	
+	height: 45px !important;
+	width: 120px;
+	background-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-delete-reco-cg{
+	position: relative;
+}
+
+/*
+position: absolute;
+overflow: hidden;
+display: inline-block;
+vertical-align: middle;
+right: -1px;
+top: 50%;
+transform: translateY(-50%);
+height: 102% !important;
+line-height: 78px;
+display: none;
+
+background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(248, 248, 248, 1) 30%, rgba(248, 248, 248, 1) 100% );
+padding: 0 15px 0 55px;
+border-top: 1px solid rgba(210, 210, 210, 0.8);
+border-bottom: 1px solid rgba(210, 210, 210, 0.8);
+border-right: 1px solid rgba(210, 210, 210, 0.8);
+border-top-right-radius: 15px;
+border-bottom-right-radius: 15px;
+*/
+
+.card-messages-general-comments .card-content{
+	padding: 20px 20px 5px 20px !important;
+}
+
+.id_doc_proyecto, .id_doc_recomendation, .idDocumentProject, .idRecomendationDocumentProject,
+.idDocumentProject_Modify, .idRecomendationDocumentProject_Modify,
+.bandera_recomendacion_completada, .idoc, .id_doc2sign{
+	display: none !important;
+}
+
+.title-document-container{
+	display: block;
+}
+
+.title-document-container span{
+	display: block;
+}
+
+.btn-recomendation, .action-buttons-recomendations{
+	display: block;
+}
+
+.action-buttons-recomendations{
+	position: absolute;
+	overflow: hidden;
+	display: inline-block;
+	right: 0;
+	transform: translateY(-75%);
+
+	background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(248, 248, 248, 1) 30%, rgba(248, 248, 248, 1) 100% );
+	padding: 0.5px 15px 0 35px;
+	border-top: 1px solid rgba(200, 200, 200, 0.6);
+	border-bottom: 1px solid rgba(200, 200, 200, 0.6);
+	border-right: 1px solid rgba(200, 200, 200, 0.6);
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+
+	display: none;
+}
+
+.collection-item-document{
+	margin-bottom: 5px !important;
+}
+
+.collection-item-document:hover{
+	background-color: rgba(248, 248, 248, 1);
+	cursor: pointer;
+}
+
+.collection-item-active{
+	background-color: rgba(244, 244, 244, 1) !important;
+}
+
+.document-evidence, .document-sign-container, .document-sign-container-loader{
+	background-color: white;
+	margin-top: 1.3%;
+	padding: 15px 25px 15px 25px;
+	border-radius: 15px;
+	border: 1px solid rgba(210, 210, 210, 0.8) !important;
+}
+
+.document-sign-container{
+}
+
+.card-documents{
+	margin-top: 28px !important;
+}
+
+.modal .modal-content-show-document{
+	padding: 6px 6px 0px 6px !important;
+}
+
+.card-title{
+	margin-bottom: 25px !important;
+}
+
+.show-pdf-document{
+	position: inherit;
+	width: 99%;
+	height: 99%;
+}
+
+.btn-view-document{
+	border-radius: 24px;
+}
+
+.docs-generated{
+	border-top-left-radius: 24px !important;
+	border-top-right-radius: 24px !important;
+	width: 100% !important;
+	height: 100% !important;
+}
+
+.btn-update-signed-document{
+	top: -5px !important;
+	right: -12px !important;	
+}
+
+.btn-show-signed-document{
+	top: -5px !important;
+	right: -15px !important;
+}
+
+.btn-send-validation{
+	top: -9px !important;
+	right: -8px !important;
+}
+
+/* ESTILOS RÁPIDOS  */
+
+body::-webkit-scrollbar {
+	width: 10px;
+	margin: 5px !important;
+  }
+
+body::-webkit-scrollbar-track {
+	margin: 5px !important;
+	padding: 5px !important;
+	background-color: rgba(0, 0, 0, 0) !important;
+	
+}
+
+body::-webkit-scrollbar-thumb {
+	margin: 5px !important;
+	padding: 5px !important;
+	background-color: rgba(180, 180, 180, 0.8);
+	border-radius: 25px !important;
+}
+
+*/
+

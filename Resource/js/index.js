@@ -1,17 +1,33 @@
 
 var UserData = {
-    "ID_Usuario": "1",
-    "Nombres": "Martha Fernanda",
-    "Apellidos": "Guzman Huerta",
-    "Contraseña": "Marta123",
-    "TipoUsuario": "Capturista",
-    "Correo": "mguzmanhu@guanajuato.gob.mx",
-    "DireccionResponsable": "No disponible",
-    "SiglasDR": "No disponible",
-    "Departamento": "No disponible",
-    "SiglasDepartamento": "No disponible",
-    "Status": "Correct",
-    "URL": "home_capturista.html"
+    "0": {
+        "ID_Usuario": "1",
+        "Nombre": "Martha Fernanda",
+        "Apellido": "Guzman Huerta",
+        "Contraseña": "Marta123",
+        "TipoUsuario": "Capturista",
+        "Correo": "mguzmanhu@guanajuato.gob.mx",
+        "DireccionResponsable": "No disponible",
+        "SiglasDR": "No disponible",
+        "Departamento": "No disponible",
+        "SiglasDepartamento": "No disponible",
+        "Status": "Correct",
+        "URL": "home_capturista.html"
+    },
+    "1": {
+        "ID_Usuario": "2",
+        "Nombre": "Rosa Isabel",
+        "Apellido": "Magadan Vega",
+        "Contraseña": "isa123",
+        "TipoUsuario": "Validador",
+        "Correo": "rosa_magadan@seg.guanajuato.gob.mx",
+        "DireccionResponsable": "Dirección General de Política Educativa",
+        "SiglasDR": "DGPE",
+        "Departamento": "Departamento de Evaluación de Políticas y Programas Educativos",
+        "SiglasDepartamento": "DEPyPE",
+        "Status": "Correct",
+        "URL": "home_validador.html"
+    }
 };
 
 var ProjectInfo = {
@@ -33,7 +49,7 @@ var FTProyecto = {
     "UnidadResponsable": "Sin información",
     "SiglasUnidadResponsable": "Sin información",
     "NombreResponsable": "Ing. Eusebio Vega Pérez",
-    "ValidacionInfo": "Información_validada",
+    "ValidacionInfo": "En_validación",
     "Status": "Correct"
 }
 
@@ -58,9 +74,9 @@ var GeneralOpinion = {
     "Status": "Correct",
     "Observaciones": {
         "Status": true,
-        "ObservacionTexto": "Muestra de una observación por parte del validador para la sección de Opinión General.",
+        "ObservacionTexto": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae reiciendis saepe eaque error, incidunt mollitia voluptatum quasi quod numquam pariatur quo sit labore enim totam cum. Commodi quia sint quibusdam, molestiae saepe sit repellat dignissimos voluptate, tenetur iste nam accusamus aut ad illo est quasi explicabo recusandae quas iure dicta dolorum! Animi magnam ipsum facilis expedita aperiam saepe error eveniet.",
         "IconState": "assignment",
-        "ObservationState": "Con observación"
+        "ObservationState": "Enviado para validación"
     }
 }
 
@@ -357,23 +373,28 @@ $('.btn-login').on('click', function(){
     var user = $('#txt_user').val();
     var pass = $('#txt_password').val();
 
-    if( user == 'marta' && pass == 'Marta123' ){
-        localStorage.setItem("UserData",                 JSON.stringify(UserData)                 );
-        localStorage.setItem("ProjectInfo",              JSON.stringify(ProjectInfo)              );
-        localStorage.setItem("FTProyecto",               JSON.stringify(FTProyecto)               );
-        localStorage.setItem("FTEvaluacion",             JSON.stringify(FTEvaluacion)             );
-        localStorage.setItem("GeneralOpinion",           JSON.stringify(GeneralOpinion)           );
-        localStorage.setItem("ComentariosPorTema",       JSON.stringify(ComentariosPorTema)       );
-        localStorage.setItem("TemasComentariosPorTema",  JSON.stringify(TemasComentariosPorTema)  );
-        localStorage.setItem("PlanDeMejora",             JSON.stringify(PlanDeMejora)             );
-        localStorage.setItem("ProjectDocuments",         JSON.stringify(ProjectDocuments)         );
-        
+    localStorage.setItem("UserData",                 JSON.stringify(UserData)                 );
+    localStorage.setItem("ProjectInfo",              JSON.stringify(ProjectInfo)              );
+    localStorage.setItem("FTProyecto",               JSON.stringify(FTProyecto)               );
+    localStorage.setItem("FTEvaluacion",             JSON.stringify(FTEvaluacion)             );
+    localStorage.setItem("GeneralOpinion",           JSON.stringify(GeneralOpinion)           );
+    localStorage.setItem("ComentariosPorTema",       JSON.stringify(ComentariosPorTema)       );
+    localStorage.setItem("TemasComentariosPorTema",  JSON.stringify(TemasComentariosPorTema)  );
+    localStorage.setItem("PlanDeMejora",             JSON.stringify(PlanDeMejora)             );
+    localStorage.setItem("ProjectDocuments",         JSON.stringify(ProjectDocuments)         );
+
+    if( user == 'marta' && pass == 'Marta123' ){        
         M.toast({html: '¡Bienvenido!', classes: 'green rounded'});
     
         setTimeout( function(){
-            window.location = UserData.URL;
+            window.location = UserData[0].URL;
         }, 1000 );
-
+    }else if( user == 'isa' && pass == 'isa123' ){
+        M.toast({html: '¡Bienvenido!', classes: 'green rounded'});
+    
+        setTimeout( function(){
+            window.location = UserData[1].URL;
+        }, 1000 );
     }else{
         M.toast({html: 'Correo o contraseña incorrectos', classes: 'red rounded'});
     }
