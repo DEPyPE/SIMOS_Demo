@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Sistema de Monitoreo y Seguimiento a Recomendaciones (SIMOS) / Proyecto Horizonte de Oportunidades </title>
+    <title> Usuario validador</title>
 
-    <link href='https://fonts.googleapis.com/css?family=Baloo 2' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="Resource/Materialize/materialize.min.css"> 
-	<link rel="stylesheet" type="text/css" href="Resource/css/home_validador.css">
+	  <link rel="stylesheet" type="text/css" href="Resource/css/home_validador.css">
 </head>
 <body>
 
-    <!-- MENU PRINCIPAL -->
-    <nav class="nav-extended light-blue darken-4">
+    <nav class="nav-extended cyan darken-4">
         <div class="nav-wrapper">
             <div class="row row-menu-and-title">
                 <div class="col l1"></div>
                 <div class="col l10">
-                    <a href="#" class="brand-logo white-text"> <img class="seg-logo left" src="Resource/files/images/seg-logo.jpeg"> <strong class="main-title-project truncate">SIMOS </strong> </a>
+                    <a class="brand-logo white-text">SIMOS / Rosa Isabel (Validador) <a href="https://www.seg.guanajuato.gob.mx/SitePages/Home.aspx"><img class="seg-logo left" src="Resource/files/images/seg-logo.jpeg"></a> </a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a class="close-session"><i class="material-icons left icon-exit-session">exit_to_app</i>Cerrar sesión</a></li>
+<!--                    <li><a href="home_validador.html"><i class="material-icons left">home</i>Inicio</a></li> -->
+<!--                    <li><a class="dropdown-trigger" data-target="menu-contenido-evaluacion">Ejercicio fizcal<i class="material-icons right">keyboard_arrow_down</i></a></li> -->
+                        <li><a href="index.html"><i class="material-icons left icon-exit-session">exit_to_app</i>Cerrar sesión</a></li>
+
                     </ul>
                 </div>
                 <div class="col l1"></div>
@@ -33,929 +34,181 @@
                 <div class="col l1"></div>
                 <div class="col l10">
                     <ul class="tabs tabs-transparent">
-                        <li class="tab"><a href="#general_information">Información general <!--<i class="material-icons left">check</i>--></a></li>
-                        <li class="tab"><a class="active" href="#opinion_general">Posicionamiento<!-- <i class="material-icons left">check</i> --></a></li>
-                        <li class="tab"><a href="#plan_de_mejora">Plan de mejora y monitoreo<!-- <i class="material-icons left">autorenew</i> --></a></li>
-                        <li class="tab"><a href="#documents">Formalización<!-- <i class="material-icons left">autorenew</i> --></a></li>
+                        <li class="tab"><a href="#user_information">Información del usuario</a></li>
+                        <li class="tab"><a class="active" href="#registered_projects">Proyectos registrados</a></li>
                     </ul>
                 </div>
                 <div class="col l1"></div>
             </div>
         </div>
+<!--
+        <ul id="menu-contenido-evaluacion" class="dropdown-content">
+            <li><a href="#!"><i class="material-icons left">assignment_turned_in</i>2019</a></li>
+            <li><a href="#!"><i class="material-icons left">assignment_turned_in</i>2020</a></li>
+            <li><a href="#!"><i class="material-icons left">assignment_turned_in</i>2021</a></li>
+        </ul>
+-->
     </nav>
-      
-<!--    SECCIÓN PARA LA INFORMACIÓN GENERAL DEL PROGRAMA SOCIAL -->
-        <div id="general_information">
-            <div class="row">
-                <div class="col l1"></div>
-                
-                <div class="col l5">
-                    <div class="card card-program">
-                        <div class="card-content card-content-ft-proyecto">
-                            
-                            <span class="card-title">
-                                <h4 class="card-title-ficha-tecnica">
-                                  <strong>
-                                    Ficha técnica del programa
-                                    <i class="material-icons right teal darken-2 validation-ft-programa tooltipped" data-position="bottom" data-tooltip="Información validada">check</i>
-                                  </strong>
 
-                                  <a class="btn-floating btn-small waves-effect lime btn-validate-info btn-validate-info-project orange lighten-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Validar información" href="#ModalValidateTechnicalProjectInfo"><i class="material-icons">assignment_late</i></a>
-                                </h4>
-                            </span>
-                            
-                            <table class="striped table-ficha-tecnica-proyecto">
-                                <tbody>
-                                  <tr>
-                                    <td class="title-column"><strong>Programa <br>social:</strong></td>
-                                    <td class="left-align NombreProyecto"></td>
-                                  </tr>
-                                  <tr>
-                                    <td class="title-column"><strong>Clave del proyecto de inversión o proceso:</strong></td>
-                                    <td class="left-align ClaveProyecto"></td>
-                                  </tr>
-                                  <tr>
-                                      <td class="title-column"><strong>Dependencia o entidad responsable del programa:</strong></td>
-                                      <td class="DependenciaProyecto"></td>
-                                  </tr>
-                                  <tr>
-                                    <td class="title-column"><strong>Siglas:</strong></td>
-                                    <td class="SiglasDependencia"></td>
-                                  </tr>
-                                  <tr>
-                                    <td class="title-column"><strong>Unidad Responsable (UR):</strong></td>
-                                    <td class="UnidadResponsable"> </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="title-column"><strong>Siglas:</strong></td>
-                                    <td class="SiglasUnidadResponsable"></td>
-                                  </tr>
-                                  <tr>
-                                    <td class="title-column"><strong>Responsable:</strong></td>
-                                    <td class="NombreResponsable"></td>
-                                  </tr>
-
-                                </tbody>
-                            </table>
-
-                            <h6 class="NoFTProjectInformation">Sin información registrada</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col l5">
-                    <div class="card card-evaluation">
-                        <div class="card-content card-content-evaluation">
-                            <span class="card-title card-title-ficha-tecnica">
-                                <h4 class="card-title-ficha-tecnica">
-                                    <strong>
-                                      Ficha técnica de la evaluación
-                                      <i class="material-icons right teal darken-2 validation-ft-evaluation tooltipped" data-position="bottom" data-tooltip="Información validada">check</i>
-                                    </strong>
-
-                                    <a class="btn-floating btn-small btn-validate-info btn-validate-info-evaluation waves-effect orange lighten-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Validar información" href="#ModalValidateTechnicalEvaluationInfo"><i class="material-icons">assignment_late</i></a>
-                                </h4>
-                            </span>
-                            
-                            <table class="striped table-evaluation">
-                                <tbody>
-                                  <tr>
-                                    <td class="title-column"><strong>Instancia Evaluadora:</strong></td>
-                                    <td class="left-align InstanciaEvaluadora"></td>
-                                  </tr>
-                                  <tr>
-                                    <td class="title-column"><strong>Nombre de la evaluación:</strong></td>
-                                    <td class="left-align NombreDeEvaluacion"></td>
-                                  </tr>
-                                  <tr>
-                                    <td class="title-column"><strong>Tipo de evaluación:</strong></td>
-                                    <td  class="TipoEvaluacion"></td>
-                                  </tr>
-                                  <tr>
-                                    <td class="title-column"><strong>Año de evaluación:</strong></td>
-                                    <td class="AñoDeEvaluacion"></td>
-                                  </tr>
-                                  <tr>
-                                    <td class="title-column"><strong>Nombre del informe:</strong></td>
-                                    <td class="NombreDelInforme"></td>
-                                  </tr>
-                                  <tr>
-                                    <td class="title-column"><strong>Costo de la evaluación:</strong></td>
-                                    <td class="CostoEvaluacion">  </td>
-                                  </tr>
-
-                                </tbody>
-                            </table>
-
-                            <h6 class="NoFTEvaluationInformation">Sin información registrada</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col l1"></div>
-            </div>
-        </div>
-
-            <!-- MODAL PARA MODIFICAR INFORMACIÓN SOBRE EL PROYECTO -->
-            <div id="ModalValidateTechnicalProjectInfo" class="modal modal-add-project-info modal-fixed-footer">
-              <div class="modal-content">                
-                  <h4>¿Desea validar la información de la <strong>Ficha técnica del programa</strong> del programa/proyecto <strong class="nombre-programa"></strong>? </h4>
-              </div>
-
-              <div class="modal-footer modal-footer-val-info-project">
-                <a class="btn-small waves-effect orange lighten-2 btn-validate-project-information">Validar información</a>
-                <a class="btn-small waves-effect grey lighten-1 modal-close">Cancelar</a>
-              </div>
-            </div>
-
-            <!-- MODAL PARA AGREGAR INFORMACIÓN SOBRE LA EVALUACIÓN -->
-            <div id="ModalValidateTechnicalEvaluationInfo" class="modal modal-add-evaluation-info modal-fixed-footer">
-                <div class="modal-content">                
-                  <h4>¿Desea validar la información de la <strong>Ficha técnica de la evaluación</strong> del programa/proyecto <strong class="nombre-programa"></strong>? </h4>
-                </div>
-
-                <div class="modal-footer modal-footer-val-info-project">
-                  <a class="btn-small waves-effect orange lighten-2 btn-validate-evaluation-information">Validar información</a>
-                  <a class="btn-small waves-effect grey lighten-1 modal-close">Cancelar</a>
-                </div>
-            </div>
-
-<!--    SECCIÓN PARA LA OPINIÓN GENERAL POR PARTE DEL ENCARGADO DEL PROGRAMA -->
-        <div id="opinion_general">
-
-          <div class="container">
-            <div class="card">
-
-              <div class="card-content card-content-comments">
-                <span class="card-title card-title-comments">
-                  <strong>
-                    <h4 class="title-general-comments">
-                      Opinión general
-                      <a class="btn btn-small btn-floating waves-effect orange lighten-2 btn-wait-validation-general-opinion tooltipped modal-trigger right" href="#ModalValidateGeneralOpinion" data-position="bottom" data-tooltip="Validar información"> <i class="material-icons">assignment_late</i> </a>
-                      <i class="material-icons right validated-general-opinion tooltipped" data-position="bottom" data-tooltip="Opinión general validada">check</i>
-                    </h4>
-                  </strong>
-                </span>
-
-                <textarea disabled id="ComentariosObservacionesGenerales" class="materialize-textarea"></textarea>
-
-                <div class="ValidatorObservationContainer OpinionGeneralObservaciones-Container">
-                    <div class="observation-body OpinionGeneral-ObservacionesBody">
-                      <h5>
-                        <span class="ValidatorObservation-title">Observación realizada:</span>
-                        <!-- Modificar el nombre de la clase del botón para el tipo de sección
-                        <a class="btn-floating btn-small btnOpinionGeneral-AddObservation waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar la observación" href="#ModalAddModifyObservationValidator"><i class="material-icons">edit</i></a>
-                        -->
-                      </h5>
-
-                      <!-- Modificar el nombre del ID de la textarea para el tipo de sección -->
-                      <textarea disabled id="txtOpinionGeneral-ValidatorObservation" class="materialize-textarea"></textarea>
-                    </div>
-
-                    <div class="no-observation-body OpinionGeneral-NoObservacionesBody">
-                      <h5 class="NoValidatorObservation-title">
-                        Sin observaciones
-                        <!-- Modificar el botón de "Agregar observación" para el tipo de sección -->
-                        <a class="btn-floating btn-small btnOpinionGeneral-AddObservation waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar una observación" href="#ModalAddModifyObservationValidator"><i class="material-icons">add</i></a>
-                      </h5>
-                    </div>
-                </div>
-                
-                <h6 class="OG_SinInfo">Sin información registrada</h6>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="container">
-            <div class="card">
-              <div class="card-content card-content-comments">
-                  <span class="card-title card-title-comments">
-                    <strong>
-                      <h4 class="title-specific-comments">
-                          <strong>Comentarios y observaciones específicos por tema</strong>
-                      </h4>
-                    </strong>
-                  </span>
-                  <br>
-
-                  <div class="row">
-                    <div class="col l11 m11 s10">
-                      <textarea disabled id="ComentariosObservacionesEspecificosPorTema_Titulo" class="materialize-textarea"></textarea>
-                    </div>
-                  </div>
-                  
-                  <table class="highlight table-observaciones-especificas">
-                    <thead>
-                      <tr>
-                          <th class="table-ApartadoEvaluacion">Apartado de la evaluación</th>
-                          <th class="table-ObservacionEspecifica">Observación específica</th>
-                          <th class="table-ObservacionAtender">Observaciones</th>
-                      </tr>
-                    </thead>
-
-                    <tbody class="Table_TemasComentariosPorTema">
-                    </tbody>
-                  </table>
-
-                  <h6 class="OG_SinInfo">Sin información registrada</h6>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-            <!-- MODAL PARA MODIFICAR LA INFORMACIÓN SOBRE "OPINIÓN GENERAL"-->
-            <div id="ModalValidateGeneralOpinion" class="modal modal-add-opinion-general modal-fixed-footer">
-              <div class="modal-content">
-
-                  <div class="row m-b0">
-                    <div class="col l12 m12 s12">
-                      <h4>¿Desea validar la <strong>Opinión General</strong> del programa <strong class="nombre-programa"></strong>? </h4>
-                    </div>
-                </div>
-
-              </div>
-
-              <div class="modal-footer">
-                <a href="#!" class="btn-small waves-effect blue darken-3 btn-validate-general-opinion">Validar opinión general</a>
-                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
-              </div>
-            </div>
-
-            <!-- MODAL PARA MODIFICAR LAS OBSERVACIONES PARA LA "OPINIÓN GENERAL"-->
-            <div id="ModalAddModifyObservationValidator" class="modal modal-add-opinion-general modal-fixed-footer">
-              <div class="modal-content">
-
-                  <div class="row m-b0">
-                    <div class="col l12 m12 s12">
-
-                        <div class="observation-general-opinion-container">
-                            <h5 class="title-ObservacionValidador">Observación </h5>
-    
-                            <div class="input-field InputFieldValidatorComment">
-                                <textarea id="txtObservationValidator" class="materialize-textarea"></textarea>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-              </div>
-
-              <div class="modal-footer">
-                <a href="#!" class="btn-small waves-effect blue darken-3 btn-save-observation-validator">Guardar observación</a>
-                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
-              </div>
-            </div>
-
-            <!-- MODAL PARA MODIFICAR LAS "OBSERVACIONES GENERALES"-->
-            <div id="ModalAddModifyObservationPerTheme" class="modal modal-add-opinion-general modal-fixed-footer">
-              <div class="modal-content">
-                
-                  <div class="row m-b0">
-                    <div class="col l12 m12 s12">
-
-                        <div class="observation-general-opinion-container">
-                            <h5 class="title-ObservacionValidador">Observación</h5>
-    
-                            <div class="input-field InputFieldValidatorComment">
-                                <textarea id="txtObservationValidatorPorTema" class="materialize-textarea"></textarea>
-                            </div>
-                        </div>
-
-                    </div>
-                  </div>
-
-              </div>
-
-              <div class="modal-footer">
-                <a href="#!" class="btn-small waves-effect blue darken-3 btn-save-observation-validator-por-tema">Guardar observación</a>
-                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
-              </div>
-            </div>
-
-            <!-- MODAL PARA MODIFICAR UN TEMA EN ESPECÍFICO Y SU INFORMACIÓN -->
-            <div id="ModalModifyDataTheme" class="modal modal-add-opinion-general modal-fixed-footer">
-              <div class="modal-content">
-                  
-                  <div class="row m-b0">              
-                      <div class="col l12 m12 s12">
-                          <h5 class="modal-titleTheme">Título del tema</h5>
-                          <div class="input-field">
-                            <textarea id="txtModalTituloTema" class="materialize-textarea"></textarea>
-                          </div>
-                          
-                          <h5 class="modal-contentTheme">Contenido del tema</h5>
-                          <div class="input-field">
-                              <textarea id="txtModalContenidoTema" class="materialize-textarea"></textarea>
-                          </div>
-
-                          <div class="row">
-                              <div class="col l12">
-
-                                <div class="ValidatorObservationContainer ObservacionesPorTema-Container">
-                                  <div class="observation-body ObservacionesPorTema-Body">
-                                    <h5>
-                                      <span class="ValidatorObservation-title">Observación realizada:</span>
-                                      <!-- Modificar el nombre de la clase del botón para el tipo de sección
-                                      <a class="btn-floating btn-small btnObservacionesPorTema-AddObservation waves-effect yellow darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Modificar la observación" href="#ModalAddModifyObservationValidator"><i class="material-icons">edit</i></a> -->
-                                    </h5>
-              
-                                    <!-- Modificar el nombre del ID de la textarea para el tipo de sección -->
-                                    <textarea disabled id="txtObservacionesPorTemaModal" class="materialize-textarea"></textarea>
-                                  </div>
-              
-                                  <div class="no-observation-body NoObservacionesPorTema-Body">
-                                    <h5 class="NoValidatorObservation-title">
-                                      Sin observaciones
-                                      <!-- Modificar el botón de "Agregar observación" para el tipo de sección -->
-                                      <a class="btn-floating btn-small btnObservacionesPorTema-AddObservation waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar una observación" href="#ModalAddModifyObservationPerTheme"><i class="material-icons">add</i></a>
-                                    </h5>
-                                  </div>
-                              </div>
-
-                              </div>
-                          </div>
-
-                          <p class="id_observacion_modal"></p>
-                      </div>
-                  </div>
-
-              </div>
-
-              <div class="modal-footer">
-                <a href="#!" class="btn-small waves-effect yellow darken-2 btn-validar-observacion-especifica">Validar observación específica</a>
-                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
-              </div>
-            </div>
-
-<!--    SECCIÓN PARA EL PLAN DE MEJORA POR PARTE DEL ENCARGADO DEL PROGRAMA -->
-        <div id="plan_de_mejora">
-
-            <div class="row ">
-                <div class="col l1"></div>
-                <div class="col l10">
-                    <div class="card card-RecomendacionesAComprometer">
-                        <div class="card-content card-content-mejoras">
+<!-- SECCIÓN PARA LA INFORMACIÓN GENERAL DEL PROGRAMA SOCIAL -->
+    <div id="user_information">
+            
+        <div class="row">
+            <div class="col l3"></div>
+            <div class="col l6">
+                <div class="card card-program">
+                    <div class="card-content">
+                        <span class="card-title">
+                            <h5>Información del usuario  <!--<a class="btn-floating btn-small waves-effect orange lighten-1 right"><i class="material-icons">edit</i></a>--> </h5>
+                        </span>
                         
-                          <span class="card-title">
-                                <h5 class="no-data-recomendaciones-a-comprometer">
-                                    Sin recomendaciones a comprometer
-                                    <!--<a class="btn-floating btn-small btn-add-plan-mejora waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar recomendación" href="#ModalAddModifyPlanMejora"><i class="material-icons">add</i></a>-->
-                                </h5>
-                                <h5 class="with-data-recomendaciones-a-comprometer">
-                                    Recomendaciones a comprometer
-                                    <!--<a class="btn-floating btn-small btn-add-plan-mejora waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar recomendación" href="#ModalAddModifyPlanMejora"><i class="material-icons">add</i></a>-->
-                                </h5>
-                            </span>
+                        <table class="striped">                        
+                            <tbody>
+                              <tr>
+                                <td class="title-column"><strong>Nombre de usuario:</strong></td>
+                                <td class="left-align">isa</td>
+                              </tr>
+                              <tr>
+                                <td class="title-column"><strong>Contraseña:</strong></td>
+                                <td class="left-align">********</td>
+                              </tr>
+                              <tr>
+                                <td class="title-column"><strong>Nombre completo:</strong></td>
+                                <td class="left-align">Rosa Isabel Magadan Vega</td>
+                              </tr>
+                              <tr>
+                                  <td class="title-column"><strong>Dirección responsable:</strong></td>
+                                  <td>Dirección General de Política Educativa</td>
+                              </tr>
+                              <tr>
+                             <td class="title-column"><strong>Siglas de la dirección responsable:</strong></td>
+                                <td>DGPE</td>
+                             </tr>
+                              <tr>
+                                <td class="title-column"><strong>Departamento:</strong></td>
+                                <td>Departamento de Evaluación de Programas y Políticas Educativas</td>
+                              </tr>
+                              <tr>
+                                <td class="title-column"><strong>Siglas del departamento:</strong></td>
+                                <td>DEPyPE</td>
+                              </tr>
+                              <tr>
+                                <td class="title-column"><strong>Correo de contacto:</strong></td>
+                                <td> rosa_magadan@seg.guanajuato.gob.mx </td>
+                              </tr>
 
-                            <table class="highlight TableAComprometer">
-                              <thead>
-                                <tr>
-                                    <th class="table-status">Estado</th>
-                                    <th class="table-Id_Recomendacion">   No.</th>
-                                    <th class="table-ASM">                Aspectos Susceptibles de Mejora/Recomendaciones</th>
-                                    <th class="table-ActoresSolucion">    Actores involucrados en la solución</th>
-                                    <th class="table-Prioridad">          Nivel de prioridad</th>
-                                    <th class="table-AccionMejora">       Acción de mejora</th>
-                                    <th class="table-AreaResponsable">    Área responsable</th>
-                                    <th class="table-Fecha">              Fecha compromiso de cumplimiento</th>
-                                    <th class="table-Resultados">         Resultados esperados</th>
-                                    <th class="table-Evidencias">         Evidencias</th>
-                                </tr>
-                              </thead>
-
-                              <tbody class="TableBody-RecomendacionesAComprometer"></tbody>
-                            </table>
-
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div class="col l1"></div>
             </div>
-
-            <div class="row">
-                <div class="col l1"></div>
-                <div class="col l10">
-                    <div class="card card-RecomendacionesAtendidas">
-                        <div class="card-content card-content-mejoras">
-                        
-                            <span class="card-title">
-                                <h5 class="no-data-recomendaciones-atendidas">
-                                    Sin recomendaciones atendidas
-                                    <a class="btn-floating btn-small btn-add-plan-mejora waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar recomendación" href="#ModalAddModifyPlanMejora"><i class="material-icons">add</i></a>
-                                </h5>
-                                <h5 class="with-data-recomendaciones-atendidas">
-                                    Recomendaciones atendidas
-                                    <!--<a class="btn-floating btn-small btn-add-plan-mejora waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar recomendación" href="#ModalAddModifyPlanMejora"><i class="material-icons">add</i></a>-->
-                                </h5>
-                            </span>
-
-                            <table class="highlight TableAtendidas">
-                              <thead>
-                                <tr>
-                                    <th class="table-No-RecomendationAtended center-align ">No.</th>
-                                    <th class="table-ASM-atendidas center-align           ">Aspectos Susceptibles de Mejora/Recomendaciones</th>
-                                    <th class="table-documento-evidencia center-align     ">Evidencia</th>
-                                    <!--<th class="table-observaciones">Observaciones del validador</th>-->
-                                    <th class="table-IconAtended"></th>
-                                    <!--<th> COLUMNA PARA MOSTRAR EL ICONO INDICADOR DE UNA OBSERVACIÓN </th>-->
-                                </tr>
-                              </thead>
-
-                              <tbody class="TableBody-RecomendacionesAtendidas">
-                              </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col l1"></div>
-            </div>
-
-            <div class="row">
-                <div class="col l1"></div>
-                <div class="col l10">      
-                    <div class="card card-RecomendacionesRechazadas">
-                        <div class="card-content card-content-mejoras">
-                        
-                            <span class="card-title">
-                                <h5 class="no-data-recomendaciones-rechazadas">
-                                    Sin recomendaciones rechazadas
-                                    <a class="btn-floating btn-small btn-add-plan-mejora waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar recomendación" href="#ModalAddModifyPlanMejora"><i class="material-icons">add</i></a>
-                                </h5>
-                                <h5 class="with-data-recomendaciones-rechazadas">
-                                     Recomendaciones rechazadas
-                                    <!--<a class="btn-floating btn-small btn-add-plan-mejora waves-effect blue darken-2 tooltipped modal-trigger right" data-position="bottom" data-tooltip="Agregar recomendación" href="#ModalAddModifyPlanMejora"><i class="material-icons">add</i></a>-->
-                                </h5>
-                            </span>
-
-                            <table class="highlight TableRechazadas">
-                              <thead>
-                                <tr>
-                                    <th class="center-align table-no-recomendation-refused">No.</th>
-                                    <th class="center-align table-ASM-atendidas">Aspectos Susceptibles de Mejora/Recomendaciones</th>
-                                    <th class="center-align table-documento-evidencia">Justificación</th>
-                                    <th class="center-align table-icon-recomendation-refused"></th>
-                                </tr>
-                              </thead>
-
-                              <tbody class="TableBody-RecomendacionesRechazadas">
-                              </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col l1"></div>
-            </div>
-          
+            <div class="col l3"></div>
         </div>
 
-            <!-- MODAL PARA AGREGAR NUEVA RECOMENDACION AL PROYECTO -->
-            <div id="ModalAddModifyPlanMejora" class="modal modal-add-opinion-general modal-fixed-footer">
-              <div class="modal-content">
-                
-                  <h5 class="title-modal-add-project-info">Aspectos Susceptibles de mejora y recomendaciones del proyecto </h5>
-                  
-                  <div class="row m-b0">
-                      <div class="col l1 m1 s1">
-                          <h6><strong>No.</strong></h6>
+    </div>
 
-                          <div class="input-field">
-                              <input disabled placeholder="No" id="txtNumRecomendation" type="text" class="validate center-align">
-                          </div>
-                      </div>
-
-                      <div class="col l5 m5 s5">
-                          <h6><strong>Aspecto Susceptible de Mejora/Recomendación</strong></h6>
-
-                          <div class="input-field">
-                              <textarea id="txtASM" class="materialize-textarea" placeholder="Aspecto Susceptible de Mejora/Recomendación"></textarea>
-                          </div>
-                      </div>
-
-                      <div class="col l6 m6 s6">
-                          <div class="row">
-                            <div class="col l12">
-                                <h6><strong>Actores involucrados en la solución:</strong></h6>
-
-                                <div class="input-field">
-                                    <textarea placeholder="Solución" id="txtActoresInvolucrados" class="materialize-textarea" type="text" class="validate"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="col l4 m4 s4">
-                                <h6><strong>Nivel de prioridad:</strong></h6>
-                                <select id="select-nivel-prioridad" class="browser-default">
-                                  <option value="" disabled selected>Prioridad</option>
-                                  <option value="1">Baja</option>
-                                  <option value="2">Media</option>
-                                  <option value="3">Alta</option>
-                                </select>
-                            </div>
-
-                            <div class="col l4 m4 s4">
-                                <h6><strong>Estatus actual:</strong></h6>
-                                <select id="select-estatus" class="browser-default">
-                                  <option value="" disabled selected>Seleccione</option>
-                                  <option value="1">Atendido</option>
-                                  <option value="2">En proceso</option>
-                                  <option value="3">Sin atender</option>
-                                </select>
-                            </div>
-
-                            <div class="col l4 m4 s4">
-                                  <h6><strong>Fecha:</strong></h6>
-
-                                  <input type="date" class="browser-default datepicker-fecha-cumplimiento" required pattern="\d{2}-\d{2}-\d{4}"/>
-                                  <!--<input placeholder="Fecha de cumplimiento" id="txtFecha" type="text" class="validate center-align">-->
-                            </div>
-                            
-                          </div>
-
-                      </div>
-                  </div>
-
-                  <div class="row row-m-b-0">
-                      <div class="col l1 m1"></div>
-                      <div class="col 5 m5 s5">
-                          <div class="row">
-                              <div class="col l12 m12 s12">
-                                  <h6><strong>Acción de mejora:</strong></h6>
-
-                                  <div class="input-field">
-                                      <textarea id="txtAccionMejora" class="materialize-textarea" placeholder="Acción de mejora"></textarea>
-                                  </div>
-                              </div>
-
-                              <div class="col l12 m12 s12">
-                                  <h6><strong>Resultados esperados:</strong></h6>
-
-                                  <div class="input-field">
-                                      <textarea placeholder="Área resposable" id="txtResultadosEsperados" class="materialize-textarea"></textarea>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-
-                      <div class="col l6 m6 s6">
-                          <div class="row">
-                              <div class="col l12 m12 s12">
-                                  <h6><strong>Área responsable:</strong></h6>
-
-                                  <div class="input-field">
-                                      <textarea id="txtAreaResponsable" class="materialize-textarea" placeholder="Área resposable"></textarea>
-                                  </div>
-                              </div>
-
-                              <div class="col l12 m12 s12">
-                                  <h6><strong>Evidencias solicitadas:</strong></h6>
-
-                                  <div class="input-field">
-                                      <textarea placeholder="Evidencias" id="txtEvidenciasSolicitadas" class="materialize-textarea"></textarea>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
-              </div>
-
-              <div class="modal-footer">
-                <a href="#!" class="btn-small waves-effect blue darken-2 btn-insert-recomendacion">Agregar información</a>
-                <a href="#!" class="btn-small waves-effect yellow darken-3 btn-update-recomendacion">Guardar información</a>
-                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
-              </div>
-            </div>
-
-            <!-- MODAL PARA AGREGAR NUEVA RECOMENDACION AL PROYECTO -->
-            <div id="ModalDeleteRecomendation" class="modal modal-delete-recomendation modal-fixed-footer">
-              <div class="modal-content">
-
-                  <h4>¿Eliminar esta recomendación?</h4><br>
-                  
-                  <table class="highlight table-plan-de-mejora-delete">
-                    <thead>
-                      <tr>
-                          <th class="table-delete-status">Estado</th>
-                          <th class="table-delete-Id_Recomendacion">   No.</th>
-                          <th class="table-delete-ASM">                Aspectos Susceptibles de Mejora/Recomendaciones</th>
-                          <th class="table-delete-ActoresSolucion">    Actores involucrados en la solución</th>
-                          <th class="table-delete-Prioridad">          Nivel de prioridad</th>
-                          <th class="table-delete-AccionMejora">       Acción de mejora</th>
-                          <th>...</th>
-                      </tr>
-                    </thead>
-
-                    <tbody class="table-body-content-mejoras-delete"></tbody>
-                  </table>
-
-                  <h5 class="title-modal-add-project-info"> </h5>
-                
-                  <h6 class="info-recomendation-delete"></h6>              
-
-              </div>
-
-              <div class="modal-footer">
-                <a href="#!" class="btn-small waves-effect red darken-3 btn-delete-recomendation">Borrar recomendación</a>
-                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1">Cancelar</a>
-              </div>
-            </div>
-
-            <!-- MODAL PARA MOSTRAR LAS OBSERVACIONES HECHAS POR EL VALIDADOR A LAS RECOMENDACIONES -->
-            <div id="ModalShowObservation" class="modal modal-fixed-footer">
-              <div class="modal-content">
-
-                  <h4>Observación del validador</h4>
-                  <p class="ObservationInRecomendation">
-                  </p>
-                  <p class="num_recomendation_a_comprometer"></p>
-
-              </div>
-
-              <div class="modal-footer">
-                <div class="RecomendationObservation_StatusContainer">
-                  <i class="RecomendationObservation_Status"> Estatus: <i class="RecomendationObservation_StatusValue"></i> </i><br>
-                </div>
-
-                <a href="#!" class="btn-small waves-effect light-blue darken-3 btn-update-observation-a-comprometer mr-10px">Enviar para validación <i class="material-icons right">send</i></a>
-                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1 mr-20px">Cerrar</a>
-              </div>
-            </div>
-
-            <!-- MODAL PARA MOSTRAR LAS OBSERVACIONES HECHAS POR EL VALIDADOR A LAS RECOMENDACIONES -->
-            <div id="ModalShowAtendedRecomendation" class="modal modal-fixed-footer">
-              <div class="modal-content">
-                <div class="row">
-
-                  <div class="col s12 m12 l12">
-                      <h5><strong>Aspectos Susceptibles de Mejora/Recomendaciones</strong></h5>
-                      <textarea disabled class="txtASM-AtendedRecomendation materialize-textarea"></textarea>
-
-                      <h5><strong>Evidencia</strong></h5>
-                      <textarea disabled class="txtEvidencia-AtendedRecomendation materialize-textarea"></textarea>
-                      <p class="num_recomendation_atendidas"></p>
-                  </div>
-
-                  <div class="col s12 m12 l12">
-                      <div class="ValidatorObservation-AtendedRecomendation-Container">
-                          <h5><strong>Observación del validador:</strong></h5>
-                          <textarea disabled class="txtValidatorObservation-AtendedRecomendation materialize-textarea"></textarea>                        
-                      </div>
-                  </div>
-
-                </div>
-              </div>
-
-              <div class="modal-footer">
-                <div class="RecomendationObservation_StatusContainer">
-                  <i class="RecomendationObservation_Status"> Estatus: <i class="RecomendationObservation_StatusValue"></i> </i><br>
-                </div>
-
-                <a href="#!" class="btn-small waves-effect light-blue darken-3 btn-update-recomendation-atended mr-10px">Enviar para validación <i class="material-icons right">send</i></a>
-                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1 mr-20px">Cerrar</a>
-              </div>
-            </div>
-
-            <!-- MODAL PARA MOSTRAR LAS OBSERVACIONES HECHAS POR EL VALIDADOR A LAS RECOMENDACIONES -->
-            <div id="ModalShowRefusedRecomendation" class="modal modal-delete-recomendation modal-fixed-footer">
-              <div class="modal-content">
-
-                <div class="row">
-                  <div class="col s12 m12 l12">
-                      <h5><strong>Aspectos Susceptibles de Mejora/Recomendaciones</strong></h5>
-                      <textarea disabled class="txtASM-RefusedRecomendation materialize-textarea"></textarea>
-
-                      <h5><strong>Justificación</strong></h5>
-                      <textarea disabled class="txtJustification-RefusedRecomendation materialize-textarea"></textarea>
-                  </div>
-                  <p class="num_recomendation_refused"></p>
-
-                  <div class="col s12 m12 l12">
-                      <div class="ValidatorObservation-RefusedRecomendation-Container">
-                          <h5><strong>Observación del validador:</strong></h5>
-                          <textarea disabled class="txtValidatorObservation-RefusedRecomendation materialize-textarea"></textarea>    
-                      </div>
-                  </div>
-                </div>        
-
-              </div>
-
-              <div class="modal-footer">
-                <div class="RecomendationObservation_StatusContainer">
-                  <i class="RecomendationObservation_Status"> Estatus: <i class="RecomendationObservation_StatusValue"></i> </i><br>
-                </div>
-
-                <a href="#!" class="btn-small waves-effect light-blue darken-3 btn-update-observation-refused mr-10px">Enviar para validación <i class="material-icons right">send</i></a>
-                <a href="#!" class="modal-close btn-small waves-effect grey lighten-1 mr-20px">Cerrar</a>
-              </div>
-            </div>
-
-<!--    SECCIÓN PARA LOS DOCUMENTOS CREADOS POR PARTE DEL ENCARGADO DEL PROGRAMA ##### -->
-        <div id="documents">
-
-            <div class="container">
-
-              <div class="card card-documents">
-                <div class="card-content">
-
-                    <span class="card-title">
-                      <strong class="card-title-documents">Docs</strong>
-                    </span>
-
-                    <div class="row">
-                      <div class="col l5 m5 s12">
-                          <ul class="collection collection-documents"></ul>
-                      </div>
-
-                      <div class="col l7 m7 s12">
-                          <!--<a class="waves-effect blue darken-2 btn btn-small btn-upload-documents btn-rounded right modal-trigger" href="#modal-upload-document"><i class="material-icons left">cloud_upload</i>Subir nuevo documento</a>-->
-                          <a class="waves-effect blue darken-2 btn btn-small btn-generate-documents btn-rounded right"><i class="material-icons left">cached</i>Generar documentos</a>
-                          <!--<a class="waves-effect  red darken-2 btn btn-small btn-del-documents    btn-rounded right"><i class="material-icons left">delete</i>Borrar documentos</a>-->
-
-                          <div class="document-sign-container">
-                            <strong>Nombre del documento:</strong> <br>
-                            <p class="NombreDocumento"></p> <br>
-
-                            <div class="row m-b0">
-                              <div class="col l6 m6 s12">
-                                  <strong>Fecha de subida:</strong> <br> 
-                                  <p class="FechaSubida"></p> <br>
-                              </div>
-                              <div class="col l6 m6 s12">
-                                  <strong>Hora de subida:</strong> <br>
-                                  <p class="HoraSubida"></p>
-                              </div>
-                            </div>
-
-                            <!--
-                            <a class='waves-effect blue   darken-2  btn-floating btn-medium  btn-show-signed-document   right tooltipped' ata-position="bottom" data-tooltip="Ver documento"><i class='material-icons left'>open_in_browser</i>Ver documento</a>
-                            <a class='waves-effect yellow darken-2  btn-floating btn-medium  btn-update-signed-document right tooltipped' ata-position="bottom" data-tooltip="Actualizar documento"><i class='material-icons left'>edit</i>Enviar para validación</a>
-                            -->
-                            <a class='waves-effect green  darken-2  btn-floating btn-medium  btn-send-validation        right tooltipped' ata-position="bottom" data-tooltip="Enviar para validación"><i class='material-icons left'>upload</i>Enviar para validación</a>
-                          </div>
-
-                          <div class="document-evidence">
-
-                            <h5>Subir documento firmado:</h5>
-                            <p class="id_doc2sign"></p>
-
-                            <form action="#">
-                              <div class="file-field input-field">
-                                <div class="btn btn-rounded green darken-2">
-                                  <span>Subir <i class="material-icons left">cloud_upload</i></span>
-                                  <input id="fileDoc" type="file">
-                                </div>
-                                <div class="file-path-wrapper">
-                                  <input class="txt-show-name-file file-path validate" type="text">
-                                </div>
-                              </div>
-                            </form>
-
-                            <a class="waves-effect green darken-2 btn btn-small btn-upload-doc-formalice btn-rounded right"><i class="material-icons left">upload</i>Subir documento</a>
-
-                          </div>
-                          
-                      </div>
-                    </div>
-
-                </div>
-              </div>
-
-            </div>
-        </div>
-
-            <!-- Modal subir documento-->
-            <div id="modal-upload-document" class="modal modal-fixed-footer">
-              <div class="modal-content">
-
-                <h5 class="">Seleccione un documento</h5><br><br>
-
-                <div class="row">
-                    <div class="col l2 m2 s2">
-                      
-                      <div class="file-field input-field field-upload-document">
-                          <div class="btn btn-rounded blue darken-3" data-position="bottom" data-tooltip="Seleccionar documento">
-                            <span><i class="material-icons">cloud_upload</i></span>
-                            <input type="file" class="form-control-update-file" name="doc" id="fileDoc"> 
-                          </div>
-                          <div class="file-path-wrapper">
-                            <input class="file-path validate file-path-input-hide" type="text">
-                          </div>
-                      </div>
-
-                    </div>
-                    
-                    <div class="input-field col l7 m7 s7">
-                      <input disabled placeholder="Nombre" id="txtNameFile" type="text" class="validate">
-                      <label class="lblNameFile" for="txtNameFile">Nombre del archivo</label>
-                    </div>
-
-                    <div class="input-field col l3 m3 s3">
-                      <input disabled placeholder="Extensión" id="txtExtension" type="text" class="validate center-align">
-                      <label for="first_name">Extensión</label>
-                    </div>
-                </div>
-
-              </div>
-              <div class="modal-footer">
-                <a class="waves-effect blue darken-2 btn btn-load-doc-server btn-rounded">Subir documento</a>
-                <a class="modal-close waves-effect grey btn btn-rounded">Cancelar</a>
-              </div>
-            </div>
-
-            <!-- Modal para visualizar los documentos generados -->
-            <div id="modal-show-document" class="modal modal-fixed-footer">
-              <div class="modal-content modal-content-show-document">
-                  <div class="show-pdf-document">
-                    
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <a class="modal-close waves-effect grey btn btn-rounded">Cerrar</a>
-              </div>
-            </div>
-
-            <!-- Modal modificar documento-->
-            <div id="modal-edit-document" class="modal modal-fixed-footer">
-              <div class="modal-content">
-
-                <h5 class="">Edite el documento seleccionado</h5><br><br>
-
-                <div class="row">
-                  <!--
-                    <div class="col l2 m2 s2">
-                      <div class="file-field input-field field-upload-document">
-                          <div class="btn btn-rounded yellow darken-3 tooltipped" data-position="bottom" data-tooltip="Cambiar documento">
-                            <span><i class="material-icons">cloud_upload</i></span>
-                            <input type="file" class="form-control-file" name="doc" id="fileUpdateDoc"> 
-                          </div>
-                          <div class="file-path-wrapper">
-                            <input class="file-path validate file-path-input-hide" type="text">
-                          </div>
-                      </div>
-                    </div>
-                    -->
-
-                    <div class="input-field col l6 m6 s6">
-                      <input placeholder="Nombre" id="txt-EditNameFile" type="text" class="validate">
-                      <label id="iddoc_modify_modal"></label>
-                      <label class="lblNameFile" for="txt-EditNameFile">Nombre del archivo</label>
-                    </div>
-
-                    <div class="input-field col l2 m2 s2">
-                      <input disabled placeholder="Extensión" id="txt-EditExtension" type="text" class="validate center-align">
-                      <label for="first_name">Extensión</label>
-                    </div>
-
-                    <div class="col l4 m4 s4">
-                        <label>Estado del documento</label>
-                        <select id="select-estatus-document" class="browser-default">
-                          <option value="" disabled selected>Selecciona una opción</option>
-                          <option value="1">Nuevo</option>
-                          <option value="2">Aprobado</option>
-                          <option value="3">En revisión</option>
-                          <option value="4">Con recomendaciones</option>
-                        </select>
-                    </div>
-
-                </div>
-
-              </div>
-              <div class="modal-footer">
-                <a class="waves-effect yellow darken-2 btn btn-modify-document btn-rounded">Actualizar documento</a>
-                <a class="modal-close waves-effect grey btn btn-rounded">Cancelar</a>
-              </div>
-            </div>
-
-            <!-- Modal eliminar documento-->
-            <div id="modal-delete-document" class="modal modal-fixed-footer">
-              <div class="modal-content">
-
-                <span id="iddoc_modal"></span>
-                <h5 class="">¿Está seguro de borrar el documento <span class="name-delete-file"></span> de su proyecto? </h5><br><br>
-
-              </div>
-              <div class="modal-footer">
-                <a class="waves-effect red darken-2 btn btn-delete-project-document btn-rounded">Borrar documento</a>
-                <a class="modal-close waves-effect grey btn btn-rounded">Cancelar</a>
-              </div>
-            </div>
-
-        <!-- Moment JS library 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/locale/es.js"></script>-->
+<!-- SECCIÓN PARA LA INFORMACIÓN GENERAL DEL PROGRAMA SOCIAL -->
+    <div id="registered_projects">
         
-        <!-- JQuery library -->
-        <script src="Resource/jQuery/jquery-3.2.1.min.js"></script>
+        <div class="row container-ejercicio-fiscal">
+            <div class="col l1"></div>
+            <div class="col l10">
 
-        <!-- Materialize CSS Framework -->
-        <script src="Resource/Materialize/materialize.min.js"></script>
+              <div class="card card-ejercicio-fiscal mb-0">
+                <div class="card-content card-content-ejercicio-fiscal">
+                    <div class="row mb-0">
+                      <div class="col l2">
+                        <h5 class="title-ejercicio-fiscal">Ejercicio fiscal:</h5>
+                      </div>
+                      <div class="col l2">
+                        <select class="browser-default select-ejercicio-fiscal">
+                            <option value="1">2019</option>
+                        </select>
+                      </div>
+                    </div>
+                </div>
+              </div>
 
-        <!-- Scripts of JS -->
-        <script src="Resource/js/home_validador.js"></script>
+            </div>
+            <div class="col l1"></div>
+        </div>
+
+        <div class="row">
+          <div class="col l1"></div>
+          <div class="col l10">
+
+            <div class="card card-registered-project">
+                <div class="card-content">
+                    <span class="card-title card-title-project center-align"> <strong>FAETA</strong> </span>
+
+                    <div class="progress-bar-container">
+                        <h6 class="percentage-progress-text">65%</h6>
+                        <div class="progress progress-per-project-container">
+                            <div class="determinate progress-per-project"></div>
+                        </div>
+                    </div>
+
+                    <p class="project-stage-progress">
+                        Etapa: Plan de mejora y monitoreo
+                    </p>
+
+                    <a class="waves-effect btn blue darken-3 btn-open-project">Revisar proyecto <i class="material-icons right">launch</i></a>
+
+                </div>
+            </div>
+
+          </div>
+        </div>
+
+    </div>
+
+<!-- Modal para mostrar cada recomendación o aspecto susceptible de mejora -->
+    <div id="modal-recomendation-description" class="modal">
+        <div class="modal-content">
+            <h5 class="modal_id_recomendation"></h5>
+            
+            <strong>Aspecto Susceptible de Mejora/Recomendaciones:</strong>
+            <h6 class="modal_apartado"> VI. Matriz de Indicadores para Resultados (MIR). </h6>
+  
+            <strong>Respecto al tipo de actores involucrados en solución:</strong>
+            <h6 class="modal_rubro">Valoración final de la MIR</h6>
+  
+            <strong>Nivel de prioridad:</strong>
+            <h6 class="modal_rubro">Medio</h6>
+  
+            <strong>Acción de mejora</strong>
+            <h6 class="modal_recomendation_info"></h6>
+  
+            <strong>Área responsable:</strong>
+            <h6 class="modal_rubro">Dirección de planeación</h6>
+  
+            <strong>Fecha compromiso de cumplimiento:</strong>
+            <h6 class="modal_rubro">22/12/2021</h6>
+  
+            <strong>Resultados esperados:</strong>
+            <h6 class="modal_rubro">Mejora de los indicadores de 2017</h6>
+  
+            <strong>Evidencias:</strong>
+            <h6 class="modal_rubro">Fichas técnicas de los indicadores 2018</h6>
+        </div>
+        <div class="modal-footer">
+          <a class=" waves-effect btn green lighten-1 btn-recomendation-complete">Marcar como completada</a>
+          <a class="modal-close waves-effect btn red lighten-1  ">Cerrar</a>
+        </div>
+    </div>
+
+    <!-- Moment JS library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/locale/es.js"></script>
+    
+    <!-- JQuery library -->
+    <script src="Resource/jQuery/jquery-3.2.1.min.js"></script>
+
+    <!-- Materialize CSS Framework -->
+    <script src="Resource/Materialize/materialize.min.js"></script>
+
+    <!-- Scripts of JS -->
+    <script src="Resource/js/home_validador.js"></script>
 </body>
 </html>
 
