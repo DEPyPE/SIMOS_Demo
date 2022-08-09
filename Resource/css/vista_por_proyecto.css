@@ -265,10 +265,10 @@ td, th {
 }
 
 #ModalAddModifyPlanMejora{
-	top: 4% !important;
+	top: 5% !important;
 	max-height: 90% !important;
-	height: 90% !important;
-	width: 80% !important;
+	height: 85% !important;
+	width: 75% !important;
 }
 
 #ModalDeleteRecomendation{
@@ -638,10 +638,6 @@ td, th {
 	border-top-right-radius: 15px;
 }
 
-#txtASM{
-	height: 165px !important;
-}
-
 .txt-fecha-style{
 	margin-bottom: 0 !important;
 }
@@ -731,7 +727,7 @@ td, th {
 	margin: 0 0 0 0 !important;
 }
 
-.m-b0{
+.mb-0{
 	margin-bottom: 0 !important;
 }
 
@@ -1186,5 +1182,36 @@ body::-webkit-scrollbar-thumb {
 	border-radius: 25px !important;
 }
 
-*/
+#txtActoresInvolucrados{
+	margin-bottom: 5px;
+}
 
+.text-format-normal{
+	font-weight: 400 !important;
+	background-color:aliceblue;
+	padding: 5px 15px;
+	width: 50%;
+	margin: -8px;
+	border: 1px solid lightgray;
+	border-radius: 8px;
+	font-size: 15px;
+}
+
+.text-result-container{
+	font-weight: 400 !important;
+	background-color:aliceblue;
+	padding: 10px 15px;
+	width: 100%;
+	margin: 10px 0 0 0;
+	border: 1px solid lightgray;
+	border-radius: 8px;
+	font-size: 15px;
+}
+
+.pt-10{
+	padding-top: 10px !important;
+}
+
+.pt-25{
+	padding-top: 25px !important;
+}

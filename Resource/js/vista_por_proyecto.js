@@ -410,7 +410,7 @@ function Validate_ObservacionEspecifica(id_tema){
     localStorage.setItem('TemasComentariosPorTema', JSON.stringify(TemasComentariosPorTema2Update));
     
     $('#ModalModifyDataTheme').modal('close');
-    M.toast({html: 'Información actualizada correctamente', classes: 'green rounded'});
+    M.toast({html: 'Observación validada', classes: 'green rounded'});
 
     UpdateVIew_TemasComentariosPorTema();
 }
@@ -530,33 +530,12 @@ function UpdateView_RecomendacionesAComprometer(){
 
             for(var i = 0; i < PlanDeMejora_AComprometer.Length; i++){
 
-                if( PlanDeMejora_AComprometer[i].Propiedades.EstatusRecomendacion == "Atendido" )
-                    asm_complete_flag = "complete";
-                else if( PlanDeMejora_AComprometer[i].Propiedades.EstatusRecomendacion == "En proceso" )
-                    asm_complete_flag = "in-process";
-                else if( PlanDeMejora_AComprometer[i].Propiedades.EstatusRecomendacion == "Sin atender" )
-                    asm_complete_flag = "incomplete";
-    
-                if( PlanDeMejora_AComprometer[i].Propiedades.Observaciones.Status )
-                    RecomendationButton = "<a class='btn-floating btn-small btn-show-observation modal-trigger waves-effect light-blue darken-2 right' href='#ModalShowObservation'><i class='material-icons'>assignment</i></a>";
-                else
-                    RecomendationButton = '';
-
-                if( PlanDeMejora_AComprometer[i].Propiedades.Observaciones.ObservationState == "Enviado para validación" ){
-                    ButtonsOptions = RecomendationButton;
-                }else if( PlanDeMejora_AComprometer[i].Propiedades.Observaciones.ObservationState == "Con observación" ) {
-                    ButtonsOptions = ButtonsOptions + //"<a class='btn-floating btn-small btn-delete-recomendation  modal-trigger waves-effect red darken-2 right' href='#ModalDeleteRecomendation'><i class='material-icons'>delete</i></a>" +
-                                                      "<a class='btn-floating btn-small btn-edit-recomendation    modal-trigger waves-effect green darken-2 right' href='#ModalAddModifyPlanMejora'><i class='material-icons'>remove_red_eye</i></a>"+
-                                     RecomendationButton;
-                }
-
                 console.log( PlanDeMejora_AComprometer[i].FechaCompromiso );
                 var FechaSplited = PlanDeMejora_AComprometer[i].FechaCompromiso.split('-');
                 var FechaFormato = FechaSplited[0]+'/'+FechaSplited[1]+'/'+FechaSplited[2];
                 
                 table_recomendaciones = table_recomendaciones +
                 "<tr>"+ 
-                    "<td class='center-align'> <div class='asm-status-style-"+asm_complete_flag+"'></div></td>"+
                     "<td class='NumASM center-align'>"+ PlanDeMejora_AComprometer[i].NumRecomendacion +"</td>"+
                     "<td>"+ PlanDeMejora_AComprometer[i].ASM +"</td>"+
                     "<td>"+ PlanDeMejora_AComprometer[i].TipoDeActores +"</td>"+
@@ -565,11 +544,7 @@ function UpdateView_RecomendacionesAComprometer(){
                     "<td>"+ PlanDeMejora_AComprometer[i].AreaResponsable +"</td>"+
                     "<td class='center-align'>"+ FechaFormato +"</td>"+
                     "<td>"+ PlanDeMejora_AComprometer[i].ResultadosEsperados +"</td>"+
-                    "<td>"+ PlanDeMejora_AComprometer[i].Evidencia +
-                        "<div class='options-recomendation-container'>"+
-                            ButtonsOptions
-                        "</div>"+
-                    "</td>"+
+                    "<td>"+ PlanDeMejora_AComprometer[i].Evidencia +"</td>"+
                 "</tr>";
             }
 
@@ -846,144 +821,41 @@ $('.btn-update-recomendacion').on('click', function(){
     Update_Recomendacion();
 });
 
-$('.TableBody-RecomendacionesAComprometer').on('click', '.btn-edit-recomendation', function(){
+$('.TableBody-RecomendacionesAComprometer').on('click', 'tr', 'td', function(){
     var PlanDeMejora = JSON.parse( localStorage.getItem( "PlanDeMejora" ) );
-    var NumContainer = $(this).parent().parent().siblings()[1];
+    var NumContainer = $(this).find('td')[0];
     var NumRecomendation = NumContainer.innerText;
-    var PlanDeMejora;
-    var Estatus;
-    var val_select = 0;
-
-    if( PlanDeMejora[NumRecomendation-1].Prioridad == "Bajo" ){
-        val_select = '1';
-    }else if( PlanDeMejora[NumRecomendation-1].Prioridad == "Medio" ){
-        val_select = '2';
-    }else if( PlanDeMejora[NumRecomendation-1].Prioridad == "Alto" ){
-        val_select = '3';
-    }
-
-    if( PlanDeMejora[NumRecomendation-1].Propiedades.EstatusRecomendacion == "Atendido" )
-        Estatus = '1';
-    else if( PlanDeMejora[NumRecomendation-1].Propiedades.EstatusRecomendacion == "En proceso" )
-        Estatus = '2';
-    else if( PlanDeMejora[NumRecomendation-1].Propiedades.EstatusRecomendacion == "Sin atender" )
-        Estatus = '3';
-
-    $('#txtNumRecomendation').val( NumRecomendation );
-    M.textareaAutoResize( $('#txtNumRecomendation') );
-
-    $('#txtASM').css('height', 'auto');
-    M.textareaAutoResize( $('#txtASM') );
-
-    $('#txtASM').val( PlanDeMejora[NumRecomendation-1].ASM );
-    M.textareaAutoResize( $('#txtASM') );
-
-    $('#txtActoresInvolucrados').val( PlanDeMejora[NumRecomendation-1].TipoDeActores );
-    M.textareaAutoResize( $('#txtActoresInvolucrados') );
-
-    $('#select-nivel-prioridad').val( val_select );
-    $('#select-estatus').val( Estatus );
-
-    $('#txtAccionMejora').val( PlanDeMejora[NumRecomendation-1].AccionDeMejora );
-    M.textareaAutoResize( $('#txtAccionMejora') );
-
-    $('#txtResultadosEsperados').val( PlanDeMejora[NumRecomendation-1].ResultadosEsperados );
-    M.textareaAutoResize( $('#txtResultadosEsperados') );
-
     var FechaPartes = PlanDeMejora[NumRecomendation-1].FechaCompromiso.split('-');
-    var FechaCompromiso = FechaPartes[2] +'-'+ FechaPartes[1] +'-'+ FechaPartes[0];
-    $('.datepicker-fecha-cumplimiento').val( FechaCompromiso )
+    var FechaCompromiso = FechaPartes[0] +'/'+ FechaPartes[1] +'/'+ FechaPartes[2];
 
-    $('#txtAreaResponsable').val( PlanDeMejora[NumRecomendation-1].AreaResponsable );
-    M.textareaAutoResize( $('#txtAreaResponsable') );
+    $('#txtASM').text( PlanDeMejora[NumRecomendation-1].ASM );
+    $('#txtActoresInvolucrados').text( PlanDeMejora[NumRecomendation-1].TipoDeActores );
+    $('#select-nivel-prioridad').text( PlanDeMejora[NumRecomendation-1].Prioridad  );
+    $('#select-estatus').text( PlanDeMejora[NumRecomendation-1].Propiedades.EstatusRecomendacion );
+    $('#txtAccionMejora').text( PlanDeMejora[NumRecomendation-1].AccionDeMejora );
+    $('#txtResultadosEsperados').text( PlanDeMejora[NumRecomendation-1].ResultadosEsperados );
+    $('#datepicker-fecha-cumplimiento').text( FechaCompromiso );
+    $('#txtAreaResponsable').text( PlanDeMejora[NumRecomendation-1].AreaResponsable );
+    $('#txtEvidenciasSolicitadas').text( PlanDeMejora[NumRecomendation-1].Evidencia );
+    
+    $('.ValidatorObservationContainer').hide();
 
-    $('#txtEvidenciasSolicitadas').val( PlanDeMejora[NumRecomendation-1].Evidencia );
-    M.textareaAutoResize( $('#txtEvidenciasSolicitadas') );
+    //  Verificar si las recomendaciones a comprometer pueden tener observaciones
+    /*
+    if( PlanDeMejora[NumRecomendation-1].Propiedades.Observaciones.Status ){
+        $('#txtRecomendationAComprometer-ValidatorObservation').val( PlanDeMejora[NumRecomendation-1].Propiedades.Observaciones.ObservacionTexto );
 
-    $(".btn-insert-recomendacion").hide();
-    $(".btn-update-recomendacion").show();
+        $('.RecomendationAComprometer-ObservacionesBody').hide();
+        $('.RecomendationAComprometer-NoObservacionesBody').hide();
+    }else{
+        $('.RecomendationAComprometer-ObservacionesBody').hide();
+        $('.RecomendationAComprometer-NoObservacionesBody').hide();
+    }
+    M.textareaAutoResize( $('#txtRecomendationAComprometer-ValidatorObservation') );
+    */
 
     $('#ModalAddModifyPlanMejora').modal('open');
-});
-
-$('.TableBody-RecomendacionesAComprometer').on('click', '.btn-delete-recomendation', function(){
-    var NumContainer = $(this).parent().parent().siblings()[1];
-    var NumRecomendation = NumContainer.innerText;
-    var PlanDeMejora2SelectDelete = JSON.parse( localStorage.getItem('PlanDeMejora') );
-    var FormatDataTable = '', asm_complete_flag, index_recomendation_selected;
-
-    for(var i = 0; i<PlanDeMejora2SelectDelete.Length; i++){
-        if( PlanDeMejora2SelectDelete[i].NumRecomendacion == NumRecomendation ){
-            index_recomendation_selected = i;
-            break;
-        }
-    }
-
-    var RecDelete = PlanDeMejora2SelectDelete[index_recomendation_selected];
-    console.log( "NumRecomendation => ", NumRecomendation, " Object => ", RecDelete );
     
-         if( RecDelete.Propiedades.EstatusRecomendacion == "Atendido" )
-        asm_complete_flag = "complete";
-    else if( RecDelete.Propiedades.EstatusRecomendacion == "En proceso" )
-        asm_complete_flag = "in-process";
-    else if( RecDelete.Propiedades.EstatusRecomendacion == "Sin atender" )
-        asm_complete_flag = "incomplete";
-
-    FormatDataTable = FormatDataTable + "<tr>" +
-                                            "<td><div class='asm-status-style-"+asm_complete_flag+"'></div></td>"+
-                                            "<td class='NumASM-delete'>"+NumRecomendation+"</td>"+
-                                            "<td>"+RecDelete.ASM+"</td>" +
-                                            "<td>"+RecDelete.TipoDeActores+"</td>" +
-                                            "<td>"+RecDelete.Prioridad+"</td>" +
-                                            "<td>"+RecDelete.AccionDeMejora+"</td>" +
-                                            "<td> ... </td>" +
-                                        "</tr>";
-
-    $('.table-body-content-mejoras-delete').html( FormatDataTable );
-});
-
-$('.TableBody-RecomendacionesAComprometer').on('click', '.btn-show-observation', function(){
-    var PlanDeMejora2Show = JSON.parse( localStorage.getItem("PlanDeMejora") );
-    var NumContainer = $(this).parent().parent().siblings()[1];
-    var NumRecomendation = NumContainer.innerText;
-    $('.num_recomendation_a_comprometer').text( NumRecomendation );
-
-    $('.ObservationInRecomendation').text( PlanDeMejora2Show[NumRecomendation-1].Propiedades.Observaciones.ObservacionTexto );
-    $('.RecomendationObservation_StatusValue').text( PlanDeMejora2Show[NumRecomendation-1].Propiedades.Observaciones.ObservationState );
-
-    if( PlanDeMejora2Show[NumRecomendation-1].Propiedades.Observaciones.ObservationState == "Enviado para validación" ){
-        $('.btn-update-observation-a-comprometer').hide();
-        $('.btn-update-observation-a-comprometer').attr('disabled', 'disabled');
-    }else{
-        $('.btn-update-observation-a-comprometer').removeAttr('disabled');
-        $('.btn-update-observation-a-comprometer').show();
-    }
-});
-
-$('.TableBody-RecomendacionesAComprometer').on('mouseover', 'tr', 'td', function(){
-    // $('.options-recomendation-container')
-    $('.options-recomendation-container').css('display', 'flow-root');
-    $(this).children().find('.options-recomendation-container').show();
-    $(this).siblings().children().find('.options-recomendation-container').hide();
-});
-
-$('.TableBody-RecomendacionesAComprometer').on('mouseout', 'tr', 'td', function(){
-    $(this).children().find('.options-recomendation-container').hide();
-});
-
-$('.btn-update-observation-a-comprometer').on('click', function(){
-    var PlanDeMejora2UpdateObservationState = JSON.parse( localStorage.getItem("PlanDeMejora") );
-    console.log( PlanDeMejora2UpdateObservationState );
-    
-    var NumRecomendation = $('.num_recomendation_a_comprometer').text();
-    console.log( NumRecomendation );
-
-    PlanDeMejora2UpdateObservationState[NumRecomendation-1].Propiedades.Observaciones.ObservationState = "Enviado para validación";
-
-    localStorage.setItem('PlanDeMejora', JSON.stringify(PlanDeMejora2UpdateObservationState) );
-    $('#ModalShowObservation').modal('close');
-
-    UpdateView_RecomendacionesAComprometer();
 });
 
 $('.TableBody-RecomendacionesAtendidas').on('click', 'tr', 'td', function(){
@@ -1005,14 +877,13 @@ $('.TableBody-RecomendacionesAtendidas').on('click', 'tr', 'td', function(){
             M.textareaAutoResize( $('.txtValidatorObservation-AtendedRecomendation') );
 
             $('.ValidatorObservation-AtendedRecomendation-Container').show();
-            $('.btn-update-recomendation-atended').show();
-
-        }else if( PlanDeMejora2View[IdAtendedRecomendation-1].Propiedades.Observaciones.ObservationState == 'Enviado para validación' ){
+            $('.btn-validate-recomendation-atended').show();
+        }else{
             $('.ValidatorObservation-AtendedRecomendation-Container').show();
             $('.txtValidatorObservation-AtendedRecomendation').val( PlanDeMejora2View[IdAtendedRecomendation-1].Propiedades.Observaciones.ObservacionTexto );
             M.textareaAutoResize( $('.txtValidatorObservation-AtendedRecomendation') );
 
-            $('.btn-update-recomendation-atended').hide();
+            $('.btn-validate-recomendation-atended').hide();
         }
 
     }else{
@@ -1023,13 +894,13 @@ $('.TableBody-RecomendacionesAtendidas').on('click', 'tr', 'td', function(){
     $('#ModalShowAtendedRecomendation').modal('open');
 });
 
-$('.btn-update-recomendation-atended').on('click', function(){
+$('.btn-validate-recomendation-atended').on('click', function(){
     var PlanDeMejora2UpdateObservationState = JSON.parse( localStorage.getItem("PlanDeMejora") );    
     var NumRecomendation = $('.num_recomendation_atendidas').text();
     $('.num_recomendation_atendidas').css('display', 'none');
 
-    PlanDeMejora2UpdateObservationState[NumRecomendation-1].Propiedades.Observaciones.ObservationState = "Enviado para validación";
-    PlanDeMejora2UpdateObservationState[NumRecomendation-1].Propiedades.Observaciones.IconState = "assignment_return";
+    PlanDeMejora2UpdateObservationState[NumRecomendation-1].Propiedades.Observaciones.ObservationState = "Validado";
+    PlanDeMejora2UpdateObservationState[NumRecomendation-1].Propiedades.Observaciones.IconState = "assignment_turned_in";
 
     localStorage.setItem('PlanDeMejora', JSON.stringify(PlanDeMejora2UpdateObservationState) );
     $('#ModalShowAtendedRecomendation').modal('close');
@@ -1049,19 +920,23 @@ $('.TableBody-RecomendacionesRechazadas').on('click', 'tr', 'td', function(){
         console.log( PlanDeMejora2ViewRecomendation[IdRefusedRecomendation].Propiedades.Observaciones.ObservationState );
 
         if( PlanDeMejora2ViewRecomendation[IdRefusedRecomendation].Propiedades.Observaciones.ObservationState == "Con observación" ){
-            $('.ValidatorObservation-RefusedRecomendation-Container').show();
+            $('.RefusedRecomendationObservaciones-Container').show();
             $('.txtValidatorObservation-RefusedRecomendation').val( PlanDeMejora2ViewRecomendation[IdRefusedRecomendation].Propiedades.Observaciones.ObservacionTexto );
+            $('.RecomendacionesRechazadas-ObservacionesBody').show();
+            $('.RecomendacionesRechazadas-NoObservacionesBody').hide();
 
-            $('.btn-update-observation-refused').show();
-        }else if( PlanDeMejora2ViewRecomendation[IdRefusedRecomendation].Propiedades.Observaciones.ObservationState == "Enviado para validación" ){
-            $('.ValidatorObservation-RefusedRecomendation-Container').show();
+            $('.btn-validate-observation-refused').show();
+        }else{
+            $('.RefusedRecomendationObservaciones-Container').hide();
             $('.txtValidatorObservation-RefusedRecomendation').val( PlanDeMejora2ViewRecomendation[IdRefusedRecomendation].Propiedades.Observaciones.ObservacionTexto );
+            $('.RecomendacionesRechazadas-ObservacionesBody').hide();
+            $('.RecomendacionesRechazadas-NoObservacionesBody').hide();
 
-            $('.btn-update-observation-refused').hide();
+            $('.btn-validate-observation-refused').hide();
         }
 
     }else{
-        $('.ValidatorObservation-RefusedRecomendation-Container').hide();
+        $('.RefusedRecomendationObservaciones-Container').hide();
     }
 
     $('.RecomendationObservation_StatusValue').text( PlanDeMejora2ViewRecomendation[IdRefusedRecomendation].Propiedades.Observaciones.ObservationState );
@@ -1070,14 +945,14 @@ $('.TableBody-RecomendacionesRechazadas').on('click', 'tr', 'td', function(){
     $('#ModalShowRefusedRecomendation').modal('open');
 });
 
-$('.btn-update-observation-refused').on('click', function(){
+$('.btn-validate-observation-refused').on('click', function(){
     var PlanDeMejora2UpdateObservationState = JSON.parse( localStorage.getItem("PlanDeMejora") );    
     var NumRecomendation = $('.num_recomendation_refused').text();
 
     console.log( 'Clicked => ', NumRecomendation );
 
-    PlanDeMejora2UpdateObservationState[NumRecomendation].Propiedades.Observaciones.ObservationState = "Enviado para validación";
-    PlanDeMejora2UpdateObservationState[NumRecomendation].Propiedades.Observaciones.IconState = "assignment_return";
+    PlanDeMejora2UpdateObservationState[NumRecomendation].Propiedades.Observaciones.ObservationState = "Validado";
+    PlanDeMejora2UpdateObservationState[NumRecomendation].Propiedades.Observaciones.IconState = "assignment_turned_in";
     console.log( PlanDeMejora2UpdateObservationState );
 
     localStorage.setItem('PlanDeMejora', JSON.stringify(PlanDeMejora2UpdateObservationState) );
@@ -1289,7 +1164,6 @@ $('.btn-generate-documents').on('click', function(){
 });
 
 //  Eventos para mostrar y ocultar las opciones para los documentos
-
 $('.collection-documents').on('click', '.collection-item', function(){
     $(this).addClass('collection-item-active');
     $(this).siblings().removeClass('collection-item-active');
@@ -1369,3 +1243,148 @@ $('.collection-documents').on('mouseenter', '.collection-item', function(){
 $('.collection-documents').on('mouseleave', '.collection-item', function(){
     $(this).children('.action-buttons-docs').css('display', 'none');
 });
+
+
+
+// Eventos en botones de las recomendaciones a comprometer
+/*
+$('.TableBody-RecomendacionesAComprometer').on('click', '.btn-edit-recomendation', function(){
+    var PlanDeMejora = JSON.parse( localStorage.getItem( "PlanDeMejora" ) );
+    var NumContainer = $(this).parent().parent().siblings()[1];
+    var NumRecomendation = NumContainer.innerText;
+    var PlanDeMejora;
+    var Estatus;
+    var val_select = 0;
+
+    if( PlanDeMejora[NumRecomendation-1].Prioridad == "Bajo" ){
+        val_select = '1';
+    }else if( PlanDeMejora[NumRecomendation-1].Prioridad == "Medio" ){
+        val_select = '2';
+    }else if( PlanDeMejora[NumRecomendation-1].Prioridad == "Alto" ){
+        val_select = '3';
+    }
+
+    if( PlanDeMejora[NumRecomendation-1].Propiedades.EstatusRecomendacion == "Atendido" )
+        Estatus = '1';
+    else if( PlanDeMejora[NumRecomendation-1].Propiedades.EstatusRecomendacion == "En proceso" )
+        Estatus = '2';
+    else if( PlanDeMejora[NumRecomendation-1].Propiedades.EstatusRecomendacion == "Sin atender" )
+        Estatus = '3';
+
+    $('#txtNumRecomendation').val( NumRecomendation );
+    M.textareaAutoResize( $('#txtNumRecomendation') );
+
+    $('#txtASM').css('height', 'auto');
+    M.textareaAutoResize( $('#txtASM') );
+
+    $('#txtASM').val( PlanDeMejora[NumRecomendation-1].ASM );
+    M.textareaAutoResize( $('#txtASM') );
+
+    $('#txtActoresInvolucrados').val( PlanDeMejora[NumRecomendation-1].TipoDeActores );
+    M.textareaAutoResize( $('#txtActoresInvolucrados') );
+
+    $('#select-nivel-prioridad').val( val_select );
+    $('#select-estatus').val( Estatus );
+
+    $('#txtAccionMejora').val( PlanDeMejora[NumRecomendation-1].AccionDeMejora );
+    M.textareaAutoResize( $('#txtAccionMejora') );
+
+    $('#txtResultadosEsperados').val( PlanDeMejora[NumRecomendation-1].ResultadosEsperados );
+    M.textareaAutoResize( $('#txtResultadosEsperados') );
+
+    var FechaPartes = PlanDeMejora[NumRecomendation-1].FechaCompromiso.split('-');
+    var FechaCompromiso = FechaPartes[2] +'-'+ FechaPartes[1] +'-'+ FechaPartes[0];
+    $('.datepicker-fecha-cumplimiento').val( FechaCompromiso )
+
+    $('#txtAreaResponsable').val( PlanDeMejora[NumRecomendation-1].AreaResponsable );
+    M.textareaAutoResize( $('#txtAreaResponsable') );
+
+    $('#txtEvidenciasSolicitadas').val( PlanDeMejora[NumRecomendation-1].Evidencia );
+    M.textareaAutoResize( $('#txtEvidenciasSolicitadas') );
+
+    $(".btn-insert-recomendacion").hide();
+    $(".btn-update-recomendacion").show();
+
+    $('#ModalAddModifyPlanMejora').modal('open');
+});
+
+$('.TableBody-RecomendacionesAComprometer').on('click', '.btn-delete-recomendation', function(){
+    var NumContainer = $(this).parent().parent().siblings()[1];
+    var NumRecomendation = NumContainer.innerText;
+    var PlanDeMejora2SelectDelete = JSON.parse( localStorage.getItem('PlanDeMejora') );
+    var FormatDataTable = '', asm_complete_flag, index_recomendation_selected;
+
+    for(var i = 0; i<PlanDeMejora2SelectDelete.Length; i++){
+        if( PlanDeMejora2SelectDelete[i].NumRecomendacion == NumRecomendation ){
+            index_recomendation_selected = i;
+            break;
+        }
+    }
+
+    var RecDelete = PlanDeMejora2SelectDelete[index_recomendation_selected];
+    console.log( "NumRecomendation => ", NumRecomendation, " Object => ", RecDelete );
+    
+         if( RecDelete.Propiedades.EstatusRecomendacion == "Atendido" )
+        asm_complete_flag = "complete";
+    else if( RecDelete.Propiedades.EstatusRecomendacion == "En proceso" )
+        asm_complete_flag = "in-process";
+    else if( RecDelete.Propiedades.EstatusRecomendacion == "Sin atender" )
+        asm_complete_flag = "incomplete";
+
+    FormatDataTable = FormatDataTable + "<tr>" +
+                                            "<td><div class='asm-status-style-"+asm_complete_flag+"'></div></td>"+
+                                            "<td class='NumASM-delete'>"+NumRecomendation+"</td>"+
+                                            "<td>"+RecDelete.ASM+"</td>" +
+                                            "<td>"+RecDelete.TipoDeActores+"</td>" +
+                                            "<td>"+RecDelete.Prioridad+"</td>" +
+                                            "<td>"+RecDelete.AccionDeMejora+"</td>" +
+                                            "<td> ... </td>" +
+                                        "</tr>";
+
+    $('.table-body-content-mejoras-delete').html( FormatDataTable );
+});
+
+$('.TableBody-RecomendacionesAComprometer').on('click', '.btn-show-observation', function(){
+    var PlanDeMejora2Show = JSON.parse( localStorage.getItem("PlanDeMejora") );
+    var NumContainer = $(this).parent().parent().siblings()[1];
+    var NumRecomendation = NumContainer.innerText;
+    $('.num_recomendation_a_comprometer').text( NumRecomendation );
+
+    $('.ObservationInRecomendation').text( PlanDeMejora2Show[NumRecomendation-1].Propiedades.Observaciones.ObservacionTexto );
+    $('.RecomendationObservation_StatusValue').text( PlanDeMejora2Show[NumRecomendation-1].Propiedades.Observaciones.ObservationState );
+
+    if( PlanDeMejora2Show[NumRecomendation-1].Propiedades.Observaciones.ObservationState == "Enviado para validación" ){
+        $('.btn-update-observation-a-comprometer').hide();
+        $('.btn-update-observation-a-comprometer').attr('disabled', 'disabled');
+    }else{
+        $('.btn-update-observation-a-comprometer').removeAttr('disabled');
+        $('.btn-update-observation-a-comprometer').show();
+    }
+});
+
+$('.TableBody-RecomendacionesAComprometer').on('mouseover', 'tr', 'td', function(){
+    // $('.options-recomendation-container')
+    $('.options-recomendation-container').css('display', 'flow-root');
+    $(this).children().find('.options-recomendation-container').show();
+    $(this).siblings().children().find('.options-recomendation-container').hide();
+});
+
+$('.TableBody-RecomendacionesAComprometer').on('mouseout', 'tr', 'td', function(){
+    $(this).children().find('.options-recomendation-container').hide();
+});
+
+$('.btn-update-observation-a-comprometer').on('click', function(){
+    var PlanDeMejora2UpdateObservationState = JSON.parse( localStorage.getItem("PlanDeMejora") );
+    console.log( PlanDeMejora2UpdateObservationState );
+    
+    var NumRecomendation = $('.num_recomendation_a_comprometer').text();
+    console.log( NumRecomendation );
+
+    PlanDeMejora2UpdateObservationState[NumRecomendation-1].Propiedades.Observaciones.ObservationState = "Enviado para validación";
+
+    localStorage.setItem('PlanDeMejora', JSON.stringify(PlanDeMejora2UpdateObservationState) );
+    $('#ModalShowObservation').modal('close');
+
+    UpdateView_RecomendacionesAComprometer();
+});
+*/

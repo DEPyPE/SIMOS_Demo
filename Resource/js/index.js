@@ -153,7 +153,7 @@ var PlanDeMejora = {
         "ResultadosEsperados": "Diagnóstico actualizado",
         "Evidencia": "Documento de pdf",
         "Propiedades": {
-            "EstatusRecomendacion": "Sin atender",
+            "EstatusRecomendacion": "Comprometida",
             "TipoRecomendacion": {
                 "Estado": "AComprometer",
                 "Evidencia": "",
@@ -162,7 +162,7 @@ var PlanDeMejora = {
             "Observaciones": {
                 "Status": true,
                 "IconState": "assignment",
-                "ObservacionTexto": "Muestra de una observación por parte del validador para la sección de Opinión General.",
+                "ObservacionTexto": "Muestra de una observación por parte del validador para la sección de Plan de Mejora y Monitoreo.",
                 "ObservationState": "Con observación"
             }
         }
@@ -178,9 +178,9 @@ var PlanDeMejora = {
         "ResultadosEsperados": "Estructura normativa de consulta y presonal informado en relación al fondo.",
         "Evidencia": "Repositorio digital, lista de participantes/difusión",
         "Propiedades": {
-            "EstatusRecomendacion": "En proceso",
+            "EstatusRecomendacion": "Comprometida",
             "TipoRecomendacion": {
-                "Estado": "Atendida",
+                "Estado": "AComprometer",
                 "Evidencia": "",
                 "Justificacion": "",
             },
@@ -203,9 +203,9 @@ var PlanDeMejora = {
         "ResultadosEsperados": "Análisis del resultado",
         "Evidencia": "Minuta de reunión",
         "Propiedades": {
-            "EstatusRecomendacion": "En proceso",
+            "EstatusRecomendacion": "Comprometida",
             "TipoRecomendacion": {
-                "Estado": "Atendida",
+                "Estado": "AComprometer",
                 "Evidencia": "",
                 "Justificacion": "",
             },
@@ -228,7 +228,7 @@ var PlanDeMejora = {
         "ResultadosEsperados": "Derivarán de la reunión con la SFIA y del análisis del costo-beneficio.",
         "Evidencia": "Minuta de reunión",
         "Propiedades": {
-            "EstatusRecomendacion": "Atendido",
+            "EstatusRecomendacion": "Comprometida",
             "TipoRecomendacion": {
                 "Estado": "Atendida",
                 "Evidencia": "",
@@ -253,9 +253,9 @@ var PlanDeMejora = {
         "ResultadosEsperados": "Procedimientos e instrucciones de trabjo en el SGC actualizado",
         "Evidencia": "Emisión de oficio circular a los directores/as de área para la identificación de documentos del Sistema de Gestión de la Calidad, que afecten exclusivamente la operación con recursos de FAETA y su atenció y seguimiento.",
         "Propiedades": {
-            "EstatusRecomendacion": "En proceso",
+            "EstatusRecomendacion": "Comprometida",
             "TipoRecomendacion": {
-                "Estado": "Atendida",
+                "Estado": "AComprometer",
                 "Evidencia": "",
                 "Justificacion": "",
             },
@@ -278,7 +278,7 @@ var PlanDeMejora = {
         "ResultadosEsperados": "Derivarán de la reunión con la SFIA y del análisis del costo-beneficio.",
         "Evidencia": "Minuta de reunión",
         "Propiedades": {
-            "EstatusRecomendacion": "Atendido",
+            "EstatusRecomendacion": "Comprometida",
             "TipoRecomendacion": {
                 "Estado": "Rechazada",
                 "Evidencia": "",
@@ -303,7 +303,7 @@ var PlanDeMejora = {
         "ResultadosEsperados": "Espacios para la presetación de los servicios educativos.",
         "Evidencia": "Convenios, acuerdos, minutas.",
         "Propiedades": {
-            "EstatusRecomendacion": "Rechazada",
+            "EstatusRecomendacion": "Comprometida",
             "TipoRecomendacion": {
                 "Estado": "Rechazada",
                 "Evidencia": "",
