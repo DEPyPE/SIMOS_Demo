@@ -481,6 +481,13 @@ td, th {
 	box-shadow: none !important;
 }
 
+.TableAComprometer-containter{
+	margin: 0;
+	padding: 0;
+	width: 100% !important;
+	overflow-x: auto !important;
+}
+
 .TableBody-RecomendacionesAComprometer tr td{
     padding-left: 5px;
     overflow: hidden !important;
@@ -1163,19 +1170,20 @@ border-bottom-right-radius: 15px;
 
 /* ESTILOS RÁPIDOS  */
 
-body::-webkit-scrollbar {
-	width: 10px;
+body::-webkit-scrollbar, .TableAComprometer-containter::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
 	margin: 5px !important;
   }
 
-body::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track, .TableAComprometer-containter::-webkit-scrollbar-track {
 	margin: 5px !important;
 	padding: 5px !important;
 	background-color: rgba(0, 0, 0, 0) !important;
 	
 }
 
-body::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb, .TableAComprometer-containter::-webkit-scrollbar-thumb {
 	margin: 5px !important;
 	padding: 5px !important;
 	background-color: rgba(180, 180, 180, 0.8);
